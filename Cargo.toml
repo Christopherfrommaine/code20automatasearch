@@ -1,0 +1,16 @@
+[package]
+name = "gameoflife"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rayon = "1.10.0"
+
+[profile.release]
+opt-level = 3
+overflow-checks = false
+lto = true
+panic = "abort"
+debug = false
+incremental = true
+codegen-units = 16

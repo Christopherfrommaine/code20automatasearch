@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+cgrustplot = "1.0.0"
 rayon = "1.10.0"
 
 [profile.release]
@@ -14,3 +15,6 @@ panic = "abort"
 debug = false
 incremental = true
 codegen-units = 16
+
+[profile.dev]
+overflow-checks = false

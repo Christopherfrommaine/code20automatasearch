@@ -7,18 +7,18 @@ use std::io::Write;
 // Implements a code-20 step on a integer acting like a boolean list.
 #[inline(always)]
 fn step(init: u64) -> u64 {
-    // Bitshift to have the neighbors of each bit be (a,.b, c, d, e)
+    // Bitshift to have the neighbors of each bit be (a, b, c, d, e)
     let a = init.rotate_right(2);
     let b = init.rotate_right(1);
     let c = init;
     let d = init.rotate_left(1);
     let e = init.rotate_left(2);
 
-    // Based on the definition of code 20
+    // Bitwise definition of code 20
     (a | b | c | d | e) ^ (a ^ b ^ c ^ d ^ e)
 }
 
-// Will the initialization never halt?
+// Check if an automata will halt after max states
 #[inline(always)]
 fn lifetimeinfinite(init: u64, max: u32) -> bool {
     let mut o = init;
@@ -30,7 +30,7 @@ fn lifetimeinfinite(init: u64, max: u32) -> bool {
     return true;
 }
 
-// Converts a u64 to a list of bits. Used for debugging
+// Converts a u64 to a list of bits. Used for printing and debugging
 fn u64tobits(n: u64) -> Vec<u8> {
     let mut bits = Vec::with_capacity(64);
     for i in (0..64).rev() {
@@ -54,6 +54,9 @@ fn set_bits_range(j: u64, jn: u64) -> u64 {
 
 // Tests for multiple patterns in a single automata
 fn test_duplicates(next_hundred: &[u64], h: &mut HashSet<u64>) -> bool {
+    // The way this works is by splitting across empty columns and checking for uniqueness on each side of the split
+
+    // Find split positions (i.e. empty columns)
     const MAX_SEP: u64 = 3;
     let mut split_pos: Vec<u64> = Vec::new();
     let mut num_split = 0;
@@ -68,6 +71,7 @@ fn test_duplicates(next_hundred: &[u64], h: &mut HashSet<u64>) -> bool {
         }
     }
 
+    // Check if each side of the split is unique
     let mut only = true;
     for j in 0..split_pos.len() {
         let jn = (j + 1) % split_pos.len();
@@ -144,13 +148,6 @@ fn main() {
             let not_unique = next_hundred.iter().any(|x| h.contains(&(x >> x.trailing_zeros())));
             if not_unique {continue;}
 
-            // FOR DEBUGGING
-            // if (i == 1598843 || i == 10404475) && false {
-            //     let d: Vec<Vec<u8>> = next_hundred.iter().map(|x| u64tobits(*x)).collect();
-            //     array_plot(&d).set_axes(false).print();
-            //     array_plot(&&(next_hundred.iter().map(|x| u64tobits(x >> x.trailing_zeros())).collect::<Vec<Vec<u8>>>())).set_axes(false).print();
-            // }
-
             // Check for more than one duplicated patterns
             let mut only = test_duplicates(&next_hundred, &mut h);
             only = only && test_duplicates(&next_hundred[95..], &mut h);
@@ -169,7 +166,7 @@ fn main() {
             // If the state is unique and only contains one pattern, write it to a file.
             if only {
                 writeln!(file, "{},", i).expect("");
-
+                
                 println!("-----\nNew Found! {}:", i);
                 array_plot(&next_hundred.iter().map(|x| u64tobits(*x)).collect()).set_axes(false).print();
                 println!("-----")

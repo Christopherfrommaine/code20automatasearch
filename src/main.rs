@@ -39,6 +39,7 @@ fn u64tobits(n: u64) -> Vec<u8> {
     bits
 }
 
+// Creates a bitmask between two positions
 fn set_bits_range(j: u64, jn: u64) -> u64 {
     if j <= jn {
         // Create a contiguous mask from j to jn
@@ -51,6 +52,7 @@ fn set_bits_range(j: u64, jn: u64) -> u64 {
     }
 }
 
+// Tests for multiple patterns in a single automata
 fn test_duplicates(next_hundred: &[u64], h: &mut HashSet<u64>) -> bool {
     const MAX_SEP: u64 = 3;
     let mut split_pos: Vec<u64> = Vec::new();
@@ -98,17 +100,21 @@ fn main() {
     let mut bn: u64 = 0; // current batch number
 
     loop {
-        // Paralellize filtering of halting states and filtering of seen states
+        // Generate list of possible initialization states
         let v: Vec<u64> = ((batch_size * bn + 1)..(batch_size * (bn + 1))).into_par_iter()
-
-            // Filter for 
+            
             .filter(|i| {
+                // Filter for symmetries (where you can mirror or rotate to get the same state)
                 let j = i.reverse_bits();
                 if *i > j >> j.trailing_zeros() {return false;}
 
+                // Filter for nonhalting (remove all automata that halt)
                 lifetimeinfinite(i << 32, 500)
             })
+
             .filter(|i| {
+                
+                // Filter for uniqueness over 10 states
                 let mut s = i << 32;
                 for _ in 0..500 {s = step(s);}
 
@@ -123,35 +129,35 @@ fn main() {
         
         // For non-halting, non-seen states:
         for i in v {
-            // Check for uniqueness AGAIN (repeated in case the hash set was updated previuosly)
+            // Check for uniqueness AGAIN but with more states (rare to get this far so it's okay that it repeats some calculations)
             let mut s = i << 32;
             for _ in 0..500 {s = step(s);}
 
-            // More expensive check, but rare to get this far
+            // Generate 100 states
             let mut next_hundred = [0u64; 100];
             for n in 0..100 {
                 s = step(s);
                 next_hundred[n] = s;
             }
 
+            // Check if any have been seen
             let not_unique = next_hundred.iter().any(|x| h.contains(&(x >> x.trailing_zeros())));
-
             if not_unique {continue;}
 
-            if (i == 1598843 || i == 10404475) && false {
-                let d: Vec<Vec<u8>> = next_hundred.iter().map(|x| u64tobits(*x)).collect();
-                array_plot(&d).set_axes(false).print();
-                array_plot(&&(next_hundred.iter().map(|x| u64tobits(x >> x.trailing_zeros())).collect::<Vec<Vec<u8>>>())).set_axes(false).print();
-            }
+            // FOR DEBUGGING
+            // if (i == 1598843 || i == 10404475) && false {
+            //     let d: Vec<Vec<u8>> = next_hundred.iter().map(|x| u64tobits(*x)).collect();
+            //     array_plot(&d).set_axes(false).print();
+            //     array_plot(&&(next_hundred.iter().map(|x| u64tobits(x >> x.trailing_zeros())).collect::<Vec<Vec<u8>>>())).set_axes(false).print();
+            // }
 
-            // Check for duplicated patterns
+            // Check for more than one duplicated patterns
             let mut only = test_duplicates(&next_hundred, &mut h);
             only = only && test_duplicates(&next_hundred[95..], &mut h);
             only = only && test_duplicates(&(next_hundred[90..].iter().map(|x| x >> x.trailing_zeros()).collect::<Vec<u64>>()), &mut h);
             only = only && test_duplicates(&(next_hundred[30..40].iter().map(|x| x >> x.trailing_zeros()).collect::<Vec<u64>>()), &mut h);
 
-            
-            // Update hash list
+            // Update hash list with seen sttates
             for f in 0..64 {
                 next_hundred.iter().for_each(|x| {
                     let xr = x.rotate_right(f);
@@ -160,10 +166,13 @@ fn main() {
                 });
             }
 
+            // If the state is unique and only contains one pattern, write it to a file.
             if only {
-                
-                println!("{}", i);
                 writeln!(file, "{},", i).expect("");
+
+                println!("-----\nNew Found! {}:", i);
+                array_plot(&next_hundred.iter().map(|x| u64tobits(*x)).collect()).set_axes(false).print();
+                println!("-----")
             }
         }
 

@@ -258,14 +258,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "gameoflife"
-version = "0.1.0"
-dependencies = [
- "cgrustplot",
- "rayon",
-]
-
-[[package]]
 name = "getrandom"
 version = "0.2.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -806,6 +798,14 @@ name = "rgb"
 version = "0.8.50"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "57397d16646700483b67d2dd6511d79318f9d057fdbd21a4066aeac8b41d310a"
+
+[[package]]
+name = "rule20search"
+version = "0.1.0"
+dependencies = [
+ "cgrustplot",
+ "rayon",
+]
 
 [[package]]
 name = "rustversion"

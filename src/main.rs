@@ -75,9 +75,8 @@ fn test_duplicates(next_hundred: &[u64], h: &mut HashSet<u64>) -> bool {
     for j in 0..split_pos.len() {
         let jn = (j + 1) % split_pos.len();
         let bm = set_bits_range(split_pos[j], split_pos[jn]);
-        // println!("{bm:016X}");
         let mn = bm & next_hundred[0];
-        if h.contains(&(mn >> mn.trailing_zeros())) {
+        if mn != 0 && h.contains(&(mn >> mn.trailing_zeros())) {
             only = false;
             break;
         }

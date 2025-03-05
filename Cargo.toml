@@ -1,5 +1,5 @@
 [package]
-name = "gameoflife"
+name = "rule20search"
 version = "0.1.0"
 edition = "2021"
 
@@ -17,4 +17,4 @@ incremental = true
 codegen-units = 16
 
 [profile.dev]
-overflow-checks = false
+overflow-checks = true

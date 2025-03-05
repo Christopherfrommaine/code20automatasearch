@@ -1,8 +1,7 @@
-use rayon::prelude::*;
-use std::collections::HashSet;
-use cgrustplot::plots::array_plot::array_plot;
-use std::fs::OpenOptions;
-use std::io::Write;
+use rayon::prelude::*;  // Paralellization
+use std::collections::HashSet;  // Hashing seen states
+use cgrustplot::plots::array_plot::array_plot;  // Plotting automata
+use std::{fs::OpenOptions, io::Write};  // Writing to file
 
 // Implements a code-20 step on a integer acting like a boolean list.
 #[inline(always)]
@@ -150,11 +149,16 @@ fn main() {
 
             // Check for more than one duplicated patterns
             let mut only = test_duplicates(&next_hundred, &mut h);
-            only = only && test_duplicates(&next_hundred[95..], &mut h);
-            only = only && test_duplicates(&(next_hundred[90..].iter().map(|x| x >> x.trailing_zeros()).collect::<Vec<u64>>()), &mut h);
-            only = only && test_duplicates(&(next_hundred[30..40].iter().map(|x| x >> x.trailing_zeros()).collect::<Vec<u64>>()), &mut h);
 
-            // Update hash list with seen sttates
+            // Check for a smaller set of duplicated patterns
+            only = only && test_duplicates(&next_hundred[95..], &mut h);
+
+            // Check for diagonal repeating patterns
+            for offset in 0..(64 - 10) {
+                only = only && test_duplicates(&(next_hundred[offset..(offset + 10)].iter().map(|x| x >> x.trailing_zeros()).collect::<Vec<u64>>()), &mut h);
+            }
+            
+            // Update hash list with seen states
             for f in 0..64 {
                 next_hundred.iter().for_each(|x| {
                     let xr = x.rotate_right(f);

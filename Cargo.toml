@@ -4,8 +4,9 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-cgrustplot = "1.0.0"
+cgrustplot = "1.1.0"
 rayon = "1.10.0"
+uint = "0.10.0"
 
 [profile.release]
 opt-level = 3

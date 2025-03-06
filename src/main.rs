@@ -2,10 +2,15 @@ use rayon::prelude::*;  // Paralellization
 use std::collections::HashSet;  // Hashing seen states
 use cgrustplot::plots::array_plot::array_plot;  // Plotting automata
 use std::{fs::OpenOptions, io::Write};  // Writing to file
+mod customuint;
+use customuint::U256;
+
+type T = U256;
+const TB: u32 = 256;
 
 // Implements a code-20 step on a integer acting like a boolean list.
 #[inline(always)]
-fn step(init: u64) -> u64 {
+fn step(init: T) -> T {
     // Bitshift to have the neighbors of each bit be (a, b, c, d, e)
     let a = init.rotate_right(2);
     let b = init.rotate_right(1);
@@ -19,51 +24,63 @@ fn step(init: u64) -> u64 {
 
 // Check if an automata will halt after max states
 #[inline(always)]
-fn lifetimeinfinite(init: u64, max: u32) -> bool {
+#[allow(dead_code)]
+fn lifetimeinfinite(init: T, max: u32) -> bool {
     let mut o = init;
     for _ in 0..max {
-        if o == 0 {return false;}
+        if o == T::from(0) {return false;}
 
         o = step(o);
     }
     return true;
 }
 
+#[inline(always)]
+fn lifetimeinfinitewithoutput(init: T, max: u32) -> (bool, T) {
+    let mut o = init;
+    for _ in 0..max {
+        if o == T::from(0) {return (false, o);}
+
+        o = step(o);
+    }
+    return (true, o);
+}
+
 // Converts a u64 to a list of bits. Used for printing and debugging
-fn u64tobits(n: u64) -> Vec<u8> {
-    let mut bits = Vec::with_capacity(64);
-    for i in (0..64).rev() {
-        bits.push(((n >> i) & 1) as u8);
+fn u64tobits(n: T) -> Vec<u8> {
+    let mut bits: Vec<u8> = Vec::with_capacity(TB as usize);
+    for i in (0..TB).rev() {
+        bits.push(((n >> i) & T::from(1)).as_u64() as u8);
     }
     bits
 }
 
 // Creates a bitmask between two positions
-fn set_bits_range(j: u64, jn: u64) -> u64 {
+fn set_bits_range(j: T, jn: T) -> T {
     if j <= jn {
         // Create a contiguous mask from j to jn
-        ((1 << (jn - j + 1)) - 1) << j
+        ((T::from(1) << (jn - j + 1)) - 1) << j
     } else {
         // Wrap-around case: Set bits from j to 15 and from 0 to jn
-        let high_mask = (!0u64) << j;
-        let low_mask = (1 << (jn + 1)) - 1;
+        let high_mask = (!T::from(0)) << j;
+        let low_mask = (T::from(1) << (jn + 1)) - 1;
         high_mask | low_mask
     }
 }
 
 // Tests for multiple patterns in a single automata
-fn test_duplicates(next_hundred: &[u64], h: &mut HashSet<u64>) -> bool {
+fn test_duplicates(next_hundred: &[T], h: &mut HashSet<T>) -> bool {
     // The way this works is by splitting across empty columns and checking for uniqueness on each side of the split
 
     // Find split positions (i.e. empty columns)
-    const MAX_SEP: u64 = 3;
-    let mut split_pos: Vec<u64> = Vec::new();
+    const MAX_SEP: u32 = 3;
+    let mut split_pos: Vec<T> = Vec::new();
     let mut num_split = 0;
-    for g in 0..64 {
-        if next_hundred.iter().all(|x| x & (1 << g) == 0) {
+    for g in 0..TB {
+        if next_hundred.iter().all(|x| *x & (T::from(1) << g) == T::from(0)) {
             num_split += 1;
             if num_split == MAX_SEP {
-                split_pos.push(g);
+                split_pos.push(T::from(g));
             }
         } else {
             num_split = 0;
@@ -75,11 +92,16 @@ fn test_duplicates(next_hundred: &[u64], h: &mut HashSet<u64>) -> bool {
     for j in 0..split_pos.len() {
         let jn = (j + 1) % split_pos.len();
         let bm = set_bits_range(split_pos[j], split_pos[jn]);
-        let mn = bm & next_hundred[0];
-        if mn != 0 && h.contains(&(mn >> mn.trailing_zeros())) {
-            only = false;
-            break;
+
+        for ind in 0..next_hundred.len() {
+            let mn = bm & next_hundred[ind];
+            if mn != T::from(0) && h.contains(&(mn >> mn.trailing_zeros())) {
+                only = false;
+                break;
+            }
         }
+        
+        if !only {break;}
     }
 
     only
@@ -95,66 +117,43 @@ fn main() {
         .expect("Failed to create output file.");
 
     // Stores previously seen states
-    let mut h: HashSet<u64> = HashSet::new();
+    let mut h: HashSet<T> = HashSet::new();
 
     // Batching for paralellization
-    let batch_size: u64 = 1_000_000;
-    let mut bn: u64 = 0; // current batch number
+    let batch_size: u32 = 1_000_000;
+    let mut bn: u32 = 0; // current batch number
 
     loop {
         // Generate list of possible initialization states
-        let v: Vec<u64> = ((batch_size * bn + 1)..(batch_size * (bn + 1))).into_par_iter()
+        let v: Vec<(T, T)> = (0..batch_size).into_par_iter()
+            .map(|i| T::from(i) + batch_size * bn + 1)
 
-            .flat_map(|x| {
+            .flat_map(|i| {
                 // Only search for symmetric solutions
-
-                let rev = x.reverse_bits();
-                let rev = rev >> rev.trailing_zeros();
-                let l = 1 + x.ilog2();
-
-                ((-1i32)..5).map(|i| x | rev << (l as i32 + i)).collect::<Vec<u64>>()
+                let o1 = i.reverse_bits() >> i.leading_zeros() | i << (1 + i.ilog2());
+                let o2 = i.reverse_bits() >> i.leading_zeros() | i << i.ilog2();
+                [o1, o2]
             })
             
-            .filter(|i| {
-                // if *i == 222_678_959_859 {
-                //     assert!(false);
-                // }
-
-                // Filter for symmetries (where you can mirror or rotate to get the same state)
-                let j = i.reverse_bits();
-                if *i > j >> j.trailing_zeros() {return false;}
+            .filter_map(|i| {
 
                 // Filter for nonhalting (remove all automata that halt)
-                lifetimeinfinite(i << 32, 500)
-            })
-
-            .filter(|i| {
+                let (lif, mut s) = lifetimeinfinitewithoutput(i << (TB / 2), 500);
+                if !lif {return None;}
                 
                 // Filter for uniqueness over 10 states
-                let mut s = i << 32;
-                for _ in 0..500 {s = step(s);}
-
-                let mut next_ten = [0u64; 10];
-                for n in 0..10 {
+                for _ in 0..10 {
+                    if h.contains(&(s >> s.trailing_zeros())) {return None;}
                     s = step(s);
-                    next_ten[n] = s;
                 }
 
-                !next_ten.iter().any(|x| h.contains(&(x >> x.trailing_zeros())))
+                Some((i, s))
             }).collect();
         
         // For non-halting, non-seen states:
-        for i in v {
-            if i == 222678959859 {
-                print!("");
-            }
-
-            // Check for uniqueness AGAIN but with more states (rare to get this far so it's okay that it repeats some calculations)
-            let mut s = i << 32;
-            for _ in 0..500 {s = step(s);}
-
+        for (i, mut s) in v {
             // Generate 100 states
-            let mut next_hundred = [0u64; 100];
+            let mut next_hundred = [T::from(0); 100];
             for n in 0..100 {
                 s = step(s);
                 next_hundred[n] = s;
@@ -167,16 +166,14 @@ fn main() {
             // Check for more than one duplicated patterns
             let mut only = test_duplicates(&next_hundred, &mut h);
 
-            // Check for a smaller set of duplicated patterns
-            only = only && test_duplicates(&next_hundred[95..], &mut h);
-
             // Check for diagonal repeating patterns
-            for offset in 0..(64 - 10) {
-                only = only && test_duplicates(&(next_hundred[offset..(offset + 10)].iter().map(|x| x >> x.trailing_zeros()).collect::<Vec<u64>>()), &mut h);
+            for offset in 0..90 {
+                if !only {break;}
+                only = only && test_duplicates(&(next_hundred[offset..(offset + 5)].iter().map(|x| x >> x.trailing_zeros()).collect::<Vec<T>>()), &mut h);
             }
             
             // Update hash list with seen states
-            for f in 0..64 {
+            for f in 0..TB {
                 next_hundred.iter().for_each(|x| {
                     let xr = x.rotate_right(f);
                     h.insert(xr >> xr.trailing_zeros());
@@ -194,7 +191,7 @@ fn main() {
             }
         }
 
-        println!("Batch {bn} | Symmetric Integers up to {} searched.", (batch_size * bn).pow(2));
+        println!("Batch {bn}");
 
         bn += 1;
     }

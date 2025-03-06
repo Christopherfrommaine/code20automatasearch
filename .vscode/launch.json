@@ -7,15 +7,15 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug executable 'gameoflife'",
+            "name": "Debug executable 'code20search'",
             "cargo": {
                 "args": [
                     "build",
-                    "--bin=gameoflife",
-                    "--package=gameoflife"
+                    "--bin=code20search",
+                    "--package=code20search"
                 ],
                 "filter": {
-                    "name": "gameoflife",
+                    "name": "code20search",
                     "kind": "bin"
                 }
             },
@@ -25,16 +25,16 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in executable 'gameoflife'",
+            "name": "Debug unit tests in executable 'code20search'",
             "cargo": {
                 "args": [
                     "test",
                     "--no-run",
-                    "--bin=gameoflife",
-                    "--package=gameoflife"
+                    "--bin=code20search",
+                    "--package=code20search"
                 ],
                 "filter": {
-                    "name": "gameoflife",
+                    "name": "code20search",
                     "kind": "bin"
                 }
             },

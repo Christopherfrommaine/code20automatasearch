@@ -112,13 +112,14 @@ fn main() {
                 let rev = rev >> rev.trailing_zeros();
                 let l = 1 + x.ilog2();
 
-                let o1 = x | rev << l;
-                let o2 = x | rev << (l - 1);
-
-                [o1, o2]
+                ((-1i32)..5).map(|i| x | rev << (l as i32 + i)).collect::<Vec<u64>>()
             })
             
             .filter(|i| {
+                // if *i == 222_678_959_859 {
+                //     assert!(false);
+                // }
+
                 // Filter for symmetries (where you can mirror or rotate to get the same state)
                 let j = i.reverse_bits();
                 if *i > j >> j.trailing_zeros() {return false;}
@@ -144,6 +145,10 @@ fn main() {
         
         // For non-halting, non-seen states:
         for i in v {
+            if i == 222678959859 {
+                print!("");
+            }
+
             // Check for uniqueness AGAIN but with more states (rare to get this far so it's okay that it repeats some calculations)
             let mut s = i << 32;
             for _ in 0..500 {s = step(s);}

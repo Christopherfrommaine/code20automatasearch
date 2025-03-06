@@ -1,5 +1,5 @@
 [package]
-name = "rule20search"
+name = "code20search"
 version = "0.1.0"
 edition = "2021"
 
@@ -15,6 +15,3 @@ panic = "abort"
 debug = false
 incremental = true
 codegen-units = 16
-
-[profile.dev]
-overflow-checks = true

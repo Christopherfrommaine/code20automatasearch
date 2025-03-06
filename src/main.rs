@@ -104,6 +104,19 @@ fn main() {
     loop {
         // Generate list of possible initialization states
         let v: Vec<u64> = ((batch_size * bn + 1)..(batch_size * (bn + 1))).into_par_iter()
+
+            .flat_map(|x| {
+                // Only search for symmetric solutions
+
+                let rev = x.reverse_bits();
+                let rev = rev >> rev.trailing_zeros();
+                let l = 1 + x.ilog2();
+
+                let o1 = x | rev << l;
+                let o2 = x | rev << (l - 1);
+
+                [o1, o2]
+            })
             
             .filter(|i| {
                 // Filter for symmetries (where you can mirror or rotate to get the same state)
@@ -176,7 +189,7 @@ fn main() {
             }
         }
 
-        println!("Batch {bn} | Integers up to {} searched.", batch_size * bn);
+        println!("Batch {bn} | Symmetric Integers up to {} searched.", (batch_size * bn).pow(2));
 
         bn += 1;
     }

@@ -172,6 +172,7 @@ version = "0.1.0"
 dependencies = [
  "cgrustplot",
  "rayon",
+ "splr",
  "uint",
 ]
 
@@ -876,6 +877,15 @@ name = "smallvec"
 version = "1.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7fcf8323ef1faaee30a44a340193b1ac6814fd9b7b4e88e9d4519a3e4abe1cfd"
+
+[[package]]
+name = "splr"
+version = "0.17.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c6c8d72268886573a95520ff76c282876c69d3776e02a0b4ac8eea2b310d69ca"
+dependencies = [
+ "bitflags 2.9.0",
+]
 
 [[package]]
 name = "static_assertions"

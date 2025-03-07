@@ -38,17 +38,26 @@ fn determine_cnf(width: i32, period: i32) -> CNF {
         // extra padding to include contraints that the bordering cells must also stay at zero
         for col in -2..(width + 2) {
             // next row
-            let rown = (row - 1) % period;
+            let mut rown = row - 1;
+            if row == 0 {rown = period - 1;}
 
             let nums: Vec<i32> = ((col - 2)..=(col + 2)).map(|c| (&table, rown, c)).map(index_table_else_reserved).collect();
 
+            // Code 20 constraints
             o.extend_from_slice(&step_to_cnf(index_table_else_reserved((&table, row, col)), nums));
             
             // o.extend_from_slice(&vec![nums]);  // debugging indices
         }
+
+        // Unequal from other rows constraints
+        if row != 0 {
+            o.extend_from_slice(&vec![(0..width).flat_map(|col| [table[row as usize][col as usize], -table[row as usize - 1][col as usize]]).collect()]);
+        }
     }
 
     // Not all zero
+    println!("first row: \n {:?}", table[0]);
+
     o.push(table.into_iter().flatten().collect());
 
     o
@@ -67,14 +76,15 @@ fn format_table(table: &CNF) -> String {
 }
 
 pub fn main() {
-    let v: CNF = determine_cnf(100, 1);
+    let v: CNF = determine_cnf(50, 3);
 
-    println!("{}", format_table(&v));
+    // println!("{}", format_table(&v));
 
     // Removes all statements with -1 (tautology) and removes 1 from any statements (contradiction) and simplifies tautological form [p, -p, ...] -> true.
     let non_taut: Vec<Vec<i32>> = v.clone().into_iter().filter(|r| !r.contains(&-1)).map(|r| r.into_iter().filter(|c| *c != 1).collect()).collect();
-    let non_taut: Vec<Vec<i32>> = non_taut.into_iter().filter(|r| !(1..=(r.iter().map(|c| c.abs()).max().unwrap())).any(|x| r.contains(&x) && r.contains(&-x))).map(|r| {let mut o = Vec::new(); r.into_iter().for_each(|i| if !o.contains(&i) {o.push(i)}); o}).collect();
-    println!("Simplified: \n{}", format_table(&non_taut));
+    let non_taut: Vec<Vec<i32>> = non_taut.into_iter().filter(|r| !(1..=(r.iter().map(|c| c.abs()).max().unwrap_or(0))).any(|x| r.contains(&x) && r.contains(&-x))).map(|r| {let mut o = Vec::new(); r.into_iter().for_each(|i| if !o.contains(&i) {o.push(i)}); o}).collect();
+    let non_taut: Vec<Vec<i32>> = {let mut o = Vec::new(); non_taut.into_iter().for_each(|r| if !o.contains(&r) {o.push(r);}); o};
+    // println!("Simplified: \n{}", format_table(&non_taut));
 
     match Certificate::try_from(v) {
         Ok(Certificate::SAT(ans)) => println!("s SATISFIABLE: {:?}", ans),

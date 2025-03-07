@@ -1,9 +1,13 @@
 use splr::*;
+use cgrustplot::plots::array_plot;
+use rayon::prelude::*;
+use crate::customuint::U256;
+
+const DEBUG: bool = false;
 
 type CNF = Vec<Vec<i32>>;
-
 fn step_to_cnf(inp: i32, nums: Vec<i32>) -> CNF {
-    println!("inp: {inp}, nums: {nums:?}");
+    if DEBUG {println!("inp: {inp}, nums: {nums:?}")};
 
     assert!(nums.len() == 5);
 
@@ -19,7 +23,7 @@ fn determine_cnf(width: i32, period: i32) -> CNF {
 
     let mut table: Vec<Vec<i32>> = vec![vec![0; width as usize]; period as usize];
 
-    println!("tab: \n {table:?}");
+    if DEBUG{println!("tab: \n {table:?}");}
 
     let index_table_else_reserved = |(t, r, c): (&Vec<Vec<i32>>, i32, i32)| if 0 <= r && r < period && 0 <= c && c < width {t[r as usize][c as usize]} else {reserved};
 
@@ -30,7 +34,7 @@ fn determine_cnf(width: i32, period: i32) -> CNF {
         }
     }
 
-    println!("filled tab: \n {table:?}");
+    if DEBUG {println!("filled tab: \n {table:?}");}
 
     // Set contraints
     for row in 0..period {
@@ -51,12 +55,18 @@ fn determine_cnf(width: i32, period: i32) -> CNF {
 
         // Unequal from other rows constraints
         if row != 0 {
-            o.extend_from_slice(&vec![(0..width).flat_map(|col| [table[row as usize][col as usize], -table[row as usize - 1][col as usize]]).collect()]);
+            let extendificator: Vec<Vec<i32>> = (0..width).map(|col| vec![table[row as usize][col as usize], -table[row as usize - 1][col as usize]]).collect();
+            if DEBUG {println!("unequal check with: {:?}", extendificator);}
+            o.extend_from_slice(&extendificator);
+
+            let extendificator: Vec<Vec<i32>> = (0..width).map(|col| vec![table[row as usize][col as usize], table[row as usize - 1][col as usize]]).collect();
+            if DEBUG {println!("unequal check with: {:?}", extendificator);}
+            o.extend_from_slice(&extendificator);
         }
     }
 
     // Not all zero
-    println!("first row: \n {:?}", table[0]);
+    // println!("first row: \n {:?}", table[0]);
 
     o.push(table.into_iter().flatten().collect());
 
@@ -76,7 +86,17 @@ fn format_table(table: &CNF) -> String {
 }
 
 pub fn main() {
-    let v: CNF = determine_cnf(50, 3);
+    (1..100).into_par_iter().for_each(|i| {
+        let mut w = 3;
+        while !run_thing(2 << w, i) && (2 << w) < 100 {
+            w += 1;
+        }
+    });
+}
+
+pub fn run_thing(width: i32, period: i32) -> bool {
+
+    let v: CNF = determine_cnf(width, period);
 
     // println!("{}", format_table(&v));
 
@@ -84,11 +104,91 @@ pub fn main() {
     let non_taut: Vec<Vec<i32>> = v.clone().into_iter().filter(|r| !r.contains(&-1)).map(|r| r.into_iter().filter(|c| *c != 1).collect()).collect();
     let non_taut: Vec<Vec<i32>> = non_taut.into_iter().filter(|r| !(1..=(r.iter().map(|c| c.abs()).max().unwrap_or(0))).any(|x| r.contains(&x) && r.contains(&-x))).map(|r| {let mut o = Vec::new(); r.into_iter().for_each(|i| if !o.contains(&i) {o.push(i)}); o}).collect();
     let non_taut: Vec<Vec<i32>> = {let mut o = Vec::new(); non_taut.into_iter().for_each(|r| if !o.contains(&r) {o.push(r);}); o};
-    // println!("Simplified: \n{}", format_table(&non_taut));
+    
+    if DEBUG {println!("Simplified: \n{}", format_table(&non_taut));}
 
-    match Certificate::try_from(v) {
-        Ok(Certificate::SAT(ans)) => println!("s SATISFIABLE: {:?}", ans),
-        Ok(Certificate::UNSAT) => println!("s UNSATISFIABLE"),
+    match Certificate::try_from(non_taut) {
+        Ok(Certificate::SAT(ans)) => {handle_sol(ans, width, period); return true;},
+        Ok(Certificate::UNSAT) => println!("s UNSATISFIABLE for period {period} and width {width}"),
         Err(e) => panic!("s UNKNOWN; {}", e),
     }
+
+    false
+}
+
+fn step64(init: u64) -> u64 {
+    // Bitshift to have the neighbors of each bit be (a, b, c, d, e)
+    let a = init.rotate_right(2);
+    let b = init.rotate_right(1);
+    let c = init;
+    let d = init.rotate_left(1);
+    let e = init.rotate_left(2);
+
+    // Bitwise definition of code 20
+    (a | b | c | d | e) ^ (a ^ b ^ c ^ d ^ e)
+}
+
+fn step256(init: U256) -> U256 {
+    // Bitshift to have the neighbors of each bit be (a, b, c, d, e)
+    let a = init.rotate_right(2);
+    let b = init.rotate_right(1);
+    let c = init;
+    let d = init.rotate_left(1);
+    let e = init.rotate_left(2);
+
+    // Bitwise definition of code 20
+    (a | b | c | d | e) ^ (a ^ b ^ c ^ d ^ e)
+}
+
+fn u64tobits(n: u64) -> Vec<u8> {
+    let mut bits: Vec<u8> = Vec::with_capacity(64);
+    for i in (0..64).rev() {
+        bits.push(((n >> i) & 1) as u8);
+    }
+    bits
+}
+
+fn u256tobits(n: U256) -> Vec<u8> {
+    let mut bits: Vec<u8> = Vec::with_capacity(256);
+    for i in (0..256).rev() {
+        bits.push(((n >> i) & U256::from(1)).as_u64() as u8);
+    }
+    bits
+}
+
+fn vec_bool_to_bytes(bits: &[bool]) -> Vec<u8> {
+    let mut bytes = Vec::with_capacity((bits.len() + 7) / 8);
+    for chunk in bits.chunks(8) {
+        let mut byte = 0u8;
+        for &bit in chunk {
+            byte = (byte << 1) | (bit as u8);
+        }
+        // Shift left to align MSB if chunk is less than 8 bits
+        byte <<= 8 - chunk.len();
+        bytes.push(byte);
+    }
+    bytes
+}
+
+fn handle_sol(ans: Vec<i32>, width: i32, period: i32) {
+    println!("Solution Found for period {period}!");
+
+    let first_row = &ans[1..(width as usize + 1)];
+    let binary_row: Vec<bool> = first_row.iter().map(|d| d > &0).collect();
+    let row_bytes: Vec<u8> = vec_bool_to_bytes(&binary_row);
+    if row_bytes.len() < 4 * 8 {
+        let state = U256::from_big_endian(&row_bytes);
+
+
+
+        println!("State: {state}");
+
+        let mut s = state;
+        
+        array_plot::array_plot(&(0..(5 * period)).map(|_| {let temp = s; s = step256(s); temp}).map(|x| {let mut o = u256tobits(x); o.reverse(); o}).collect()).set_axes(false).print();
+
+    } else {
+        println!("State (as list): {binary_row:?}");
+    }
+    
 }

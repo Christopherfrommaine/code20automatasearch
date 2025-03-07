@@ -1,0 +1,43 @@
+Solution Found for period 1!
+State: 189
+█ ████ █                                                                                                                                                                                                                                                        
+█ ████ █                                                                                                                                                                                                                                                        
+█ ████ █                                                                                                                                                                                                                                                        
+█ ████ █                                                                                                                                                                                                                                                        
+█ ████ █                                                                                                                                                                                                                                                        
+s UNSATISFIABLE for period 2 and width 16
+s UNSATISFIABLE for period 4 and width 16
+s UNSATISFIABLE for period 2 and width 32
+s UNSATISFIABLE for period 7 and width 16
+s UNSATISFIABLE for period 4 and width 32
+s UNSATISFIABLE for period 2 and width 64
+s UNSATISFIABLE for period 16 and width 16
+s UNSATISFIABLE for period 7 and width 32
+s UNSATISFIABLE for period 13 and width 16
+s UNSATISFIABLE for period 19 and width 16
+s UNSATISFIABLE for period 4 and width 64
+s UNSATISFIABLE for period 2 and width 128
+s UNSATISFIABLE for period 3 and width 16
+s UNSATISFIABLE for period 3 and width 32
+s UNSATISFIABLE for period 25 and width 16
+s UNSATISFIABLE for period 3 and width 64
+s UNSATISFIABLE for period 34 and width 16
+s UNSATISFIABLE for period 13 and width 32
+s UNSATISFIABLE for period 7 and width 64
+s UNSATISFIABLE for period 3 and width 128
+s UNSATISFIABLE for period 31 and width 16
+s UNSATISFIABLE for period 37 and width 16
+s UNSATISFIABLE for period 16 and width 32
+s UNSATISFIABLE for period 4 and width 128
+s UNSATISFIABLE for period 5 and width 16
+s UNSATISFIABLE for period 5 and width 32
+s UNSATISFIABLE for period 22 and width 16
+s UNSATISFIABLE for period 19 and width 32
+s UNSATISFIABLE for period 5 and width 64
+s UNSATISFIABLE for period 51 and width 16
+s UNSATISFIABLE for period 57 and width 16
+s UNSATISFIABLE for period 53 and width 16
+s UNSATISFIABLE for period 25 and width 32
+s UNSATISFIABLE for period 56 and width 16
+s UNSATISFIABLE for period 50 and width 16
+s UNSATISFIABLE for period 62 and width 16

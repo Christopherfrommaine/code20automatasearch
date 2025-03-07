@@ -9,7 +9,7 @@ const TB: u32 = 256;
 
 // Implements a code-20 step on a integer acting like a boolean list.
 #[inline(always)]
-fn step(init: T) -> T {
+pub fn step(init: T) -> T {
     // Bitshift to have the neighbors of each bit be (a, b, c, d, e)
     let a = init.rotate_right(2);
     let b = init.rotate_right(1);

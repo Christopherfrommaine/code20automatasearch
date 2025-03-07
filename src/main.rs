@@ -100,11 +100,28 @@ fn test_duplicates(next_hundred: &[T], h: &mut HashSet<T>) -> bool {
                 break;
             }
         }
-        
+
         if !only {break;}
     }
 
     only
+}
+
+fn format_u256_as_binary(value: U256) -> String {
+    // Convert the U256 value to a binary string
+    let mut binary_string = String::new();
+
+    // Iterate through each bit position in the U256 (256 bits in total)
+    for i in (0..256).rev() {
+        // Check if the bit at the current position is set (1) or not (0)
+        if value & (U256::from(1) << i) != U256::from(0) {
+            binary_string.push('1');
+        } else {
+            binary_string.push('0');
+        }
+    }
+
+    binary_string
 }
 
 fn main() {
@@ -169,7 +186,23 @@ fn main() {
             // Check for diagonal repeating patterns
             for offset in 0..90 {
                 if !only {break;}
+                
+                // I hate this, but it makes errors much more rare
+                let text = format_u256_as_binary(next_hundred[offset]);
+
+                let cs= vec!["10010111", "101011011", "10111101", "1000010011111001111100100001", "110110101", "1001111011", "1101111001", "11101101110011111001110110111", "10010001011011110111", 
+ "10010101001010110111", "111000101110101000111111", "111111000101011101000111", "1011000000011011111111101100000001101", "10100111101010100100101010111100101", 
+ "1110001111011101001001001011101111000111", "10100110001011110110111100011001100100001101"];
+                only = only && !cs.into_iter().any(|string| text.contains(&("000".to_string() + string + "000")));
                 only = only && test_duplicates(&(next_hundred[offset..(offset + 5)].iter().map(|x| x >> x.trailing_zeros()).collect::<Vec<T>>()), &mut h);
+            }
+
+
+            if only {
+                for _ in 0..10_000 {
+                    s = step(s);
+                    if s.is_zero() {only = false; break;}
+                }
             }
             
             // Update hash list with seen states

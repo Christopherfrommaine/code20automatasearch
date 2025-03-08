@@ -186,3 +186,5 @@ State: 1727518913840415186
   ███ █  █       █ ████  ██ █ █ █ ██████    █  █  ████ ████ █                                                                                                                                                                                                   
 s UNSATISFIABLE for period 19 and width 16
 s UNSATISFIABLE for period 9 and width 32
+
+3303300508059104730

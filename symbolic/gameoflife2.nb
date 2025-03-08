@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[   1524287,      32844]
-NotebookOptionsPosition[   1513724,      32663]
-NotebookOutlinePosition[   1514216,      32682]
-CellTagsIndexPosition[   1514173,      32679]
+NotebookDataLength[   1526111,      32886]
+NotebookOptionsPosition[   1515548,      32705]
+NotebookOutlinePosition[   1516040,      32724]
+CellTagsIndexPosition[   1515997,      32721]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -32611,54 +32611,96 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"CAP", "[", 
-  RowBox[{"{", "1651650254029552365", "}"}], "]"}]], "Input",
+  RowBox[{"{", 
+   RowBox[{"1651650254029552365", ",", "125269471781760"}], " ", "}"}], 
+  "]"}]], "Input",
  CellChangeTimes->{{3.950388913325342*^9, 3.950388917940031*^9}, 
-   3.950389027033074*^9},
- CellLabel->"In[65]:=",ExpressionUUID->"7640ad7b-4cf9-4932-92e8-5e47066d6e34"],
+   3.950389027033074*^9, {3.950389091395348*^9, 3.950389106756317*^9}, 
+   3.9503918849827423`*^9},
+ CellLabel->"In[70]:=",ExpressionUUID->"7640ad7b-4cf9-4932-92e8-5e47066d6e34"],
 
 Cell[BoxData[
  RowBox[{"{", 
-  TemplateBox[{
-    GraphicsBox[
-     RasterBox[CompressedData["
+  RowBox[{
+   TemplateBox[{
+     GraphicsBox[
+      RasterBox[CompressedData["
 1:eJztkssNwzAMQ8lu0kG6REcI0HP3v9WJTUrOAr0QseEfI9PSex7f9/EA8Bn9
 NTp4tdEJD+TZ5mGtdkmtp1RReG2c7bZa0aS/BlIDrJyB2a3otOkpA2sOOe1f
 7d/0c7XmsF3IhUysi3e93ybD3B7ACkKrHMfZqjtKjj2IZGW0slUmVaC9TM49
 9KfyA7+llbcK7rdCGXSgXjrnrWeeuwQ9WAgLYSEshIWwEBbCQlgIC2EhLISF
 sBAWwkJYCAthISyEhbD/EvYDN4sO/g==
-      "], {{0, 0}, {61, 101}}, {0, 1}], Frame -> Automatic, 
-     FrameLabel -> {None, None}, FrameTicks -> {{None, None}, {None, None}}, 
-     GridLinesStyle -> Directive[
-       GrayLevel[0.5, 0.4]], 
-     ImageSize -> {280.7409730278415, 454.0507169092636}, 
-     Method -> {
-      "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
-       "DefaultGraphicsInteraction" -> {
-        "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
-         "Effects" -> {
-          "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
-           "Droplines" -> {
-            "freeformCursorMode" -> True, 
-             "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
-       "DefaultPlotStyle" -> Automatic}], "1651650254029552365"},
-   "Labeled",
-   DisplayFunction->(GridBox[{{
-       TagBox[
-        ItemBox[
-         PaneBox[
-          TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
-          BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
-        "SkipImageSizeLevel"]}, {
-       ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
-     GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
-     AutoDelete -> False, 
-     GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+       "], {{0, 0}, {61, 101}}, {0, 1}], Frame -> Automatic, 
+      FrameLabel -> {None, None}, FrameTicks -> {{None, None}, {None, None}}, 
+      GridLinesStyle -> Directive[
+        GrayLevel[0.5, 0.4]], ImageSize -> Small, 
+      Method -> {
+       "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+        "DefaultGraphicsInteraction" -> {
+         "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+          "Effects" -> {
+           "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+            "Droplines" -> {
+             "freeformCursorMode" -> True, 
+              "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+        "DefaultPlotStyle" -> Automatic}], "1651650254029552365"},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
       BaselinePosition -> {1, 1}]& ),
-   InterpretationFunction->(RowBox[{"Labeled", "[", 
-      RowBox[{#, ",", #2, ",", 
-        RowBox[{"{", "}"}]}], "]"}]& )], "}"}]], "Output",
- CellChangeTimes->{3.950388918448979*^9, 3.9503890276080027`*^9},
- CellLabel->"Out[65]=",ExpressionUUID->"6349f0fe-47e8-4194-97cb-cc3825ff4b67"]
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2, ",", 
+         RowBox[{"{", "}"}]}], "]"}]& )], ",", 
+   TemplateBox[{
+     GraphicsBox[
+      RasterBox[CompressedData["
+1:eJztzckNgDAMRNEZOuFKOZQQiTP938jiTBN8KXacxX5ne+92SHp6XD1ke2TN
+WlU7h6rt7Mpz1h5Qs0bOx2qdd/W0vmp1o6Ojo6Ojo6Ojo6Ojo6Oj/1D/AHBa
+CQw=
+       "], {{0, 0}, {42, 101}}, {0, 1}], Frame -> Automatic, 
+      FrameLabel -> {None, None}, FrameTicks -> {{None, None}, {None, None}}, 
+      GridLinesStyle -> Directive[
+        GrayLevel[0.5, 0.4]], ImageSize -> Small, 
+      Method -> {
+       "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+        "DefaultGraphicsInteraction" -> {
+         "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+          "Effects" -> {
+           "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+            "Droplines" -> {
+             "freeformCursorMode" -> True, 
+              "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+        "DefaultPlotStyle" -> Automatic}], "125269471781760"},
+    "Labeled",
+    DisplayFunction->(GridBox[{{
+        TagBox[
+         ItemBox[
+          PaneBox[
+           TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+           BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+         "SkipImageSizeLevel"]}, {
+        ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+      GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      BaselinePosition -> {1, 1}]& ),
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2, ",", 
+         RowBox[{"{", "}"}]}], "]"}]& )]}], "}"}]], "Output",
+ CellChangeTimes->{3.950388918448979*^9, 3.9503890276080027`*^9, 
+  3.95038909221959*^9, 3.950391885630848*^9},
+ CellLabel->"Out[70]=",ExpressionUUID->"b3024013-056d-4456-9ebe-a7310004f4db"]
 }, Open  ]]
 },
 WindowSize->{967.5, 582.75},
@@ -32843,8 +32885,8 @@ Cell[1477018, 31844, 215, 3, 23, "Input",ExpressionUUID->"81e98f67-759c-43f9-8c4
 Cell[1477236, 31849, 34184, 757, 626, "Output",ExpressionUUID->"f40f394e-94e4-47fa-aad2-606c364cbba7"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1511457, 32611, 268, 5, 23, "Input",ExpressionUUID->"7640ad7b-4cf9-4932-92e8-5e47066d6e34"],
-Cell[1511728, 32618, 1980, 42, 390, "Output",ExpressionUUID->"6349f0fe-47e8-4194-97cb-cc3825ff4b67"]
+Cell[1511457, 32611, 388, 8, 25, "Input",ExpressionUUID->"7640ad7b-4cf9-4932-92e8-5e47066d6e34"],
+Cell[1511848, 32621, 3684, 81, 200, "Output",ExpressionUUID->"b3024013-056d-4456-9ebe-a7310004f4db"]
 }, Open  ]]
 }
 ]

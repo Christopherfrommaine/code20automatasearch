@@ -1,7 +1,8 @@
 use splr::*;
 use cgrustplot::plots::array_plot;
-use rayon::prelude::*;
+use rayon::{prelude::*, result};
 use crate::customuint::U256;
+use std::panic::catch_unwind;
 
 const DEBUG: bool = false;
 const DEBUG_CHECKS: bool = false;
@@ -120,10 +121,16 @@ pub fn run_thing(width: i32, period: i32) -> bool {
     
     if DEBUG {println!("Simplified: \n{}", format_table(&non_taut));}
 
-    match Certificate::try_from(non_taut) {
+    let output = catch_unwind(|| Certificate::try_from(non_taut));
+
+    if output.is_err() {return true;}
+
+    let output2 = output.expect("whoops");
+
+    match output2 {
         Ok(Certificate::SAT(ans)) => {handle_sol(ans, width, period); return true;},
         Ok(Certificate::UNSAT) => println!("s UNSATISFIABLE for period {period} and width {width}"),
-        Err(e) => panic!("s UNKNOWN; {}", e),
+        Err(e) => println!("ERROR: s UNKNOWN; {}", e),
     }
 
     false

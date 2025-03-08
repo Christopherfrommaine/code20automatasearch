@@ -101,11 +101,18 @@ pub fn main() {
         }
     });
 
-    // (1..100).into_par_iter().for_each(|i| {
-    //     run_thing(100, i);
-    // });
+    (1..100).into_par_iter().for_each(|i| {
+        let mut w = 6;
+        loop {
+            let o = run_thing(2 << w, i);
 
-    // vec![50, 100, 200, 500].into_par_iter().for_each(|w| {run_thing(w, 12);});
+            if o {break;}
+
+            w += 1;
+        }
+    });
+
+    vec![50, 100, 200, 500].into_par_iter().for_each(|w| {run_thing(w, 12);});
 }
 
 pub fn run_thing(width: i32, period: i32) -> bool {

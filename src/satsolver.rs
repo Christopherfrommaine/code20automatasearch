@@ -4,6 +4,8 @@ use rayon::prelude::*;
 use crate::customuint::U256;
 
 const DEBUG: bool = false;
+const DEBUG_CHECKS: bool = false;
+const DEBUG_TAB: bool = false;
 
 type CNF = Vec<Vec<i32>>;
 fn step_to_cnf(inp: i32, nums: Vec<i32>) -> CNF {
@@ -34,11 +36,10 @@ fn determine_cnf(width: i32, period: i32) -> CNF {
         }
     }
 
-    if DEBUG {println!("filled tab: \n {table:?}");}
+    if DEBUG || DEBUG_TAB {println!("filled tab: \n {table:?}");}
 
     // Set contraints
     for row in 0..period {
-
         // extra padding to include contraints that the bordering cells must also stay at zero
         for col in -2..(width + 2) {
             // next row
@@ -52,18 +53,24 @@ fn determine_cnf(width: i32, period: i32) -> CNF {
             
             // o.extend_from_slice(&vec![nums]);  // debugging indices
         }
-
-        // Unequal from other rows constraints
-        if row != 0 {
-            let extendificator: Vec<Vec<i32>> = (0..width).map(|col| vec![table[row as usize][col as usize], -table[row as usize - 1][col as usize]]).collect();
-            if DEBUG {println!("unequal check with: {:?}", extendificator);}
-            o.extend_from_slice(&extendificator);
-
-            let extendificator: Vec<Vec<i32>> = (0..width).map(|col| vec![table[row as usize][col as usize], table[row as usize - 1][col as usize]]).collect();
-            if DEBUG {println!("unequal check with: {:?}", extendificator);}
-            o.extend_from_slice(&extendificator);
-        }
     }
+
+    // Add unequal row constraints
+    // See note for derivation
+    for row in 0..(period - 1) {
+        let mut zs = Vec::new();
+        for col in 0..width {
+            let z = ind; ind += 1;
+            let a = table[row as usize][col as usize];
+            let b = table[period as usize - 1][col as usize];
+
+            zs.push(z);
+
+            o.extend_from_slice(&[vec![-z, -a, -b], vec![z, -a, b], vec![z, a, -b], vec![-z, a, b]]);
+        }
+        o.push(zs);
+    }
+    
 
     // Not all zero
     // println!("first row: \n {:?}", table[0]);
@@ -86,12 +93,18 @@ fn format_table(table: &CNF) -> String {
 }
 
 pub fn main() {
-    (1..100).into_par_iter().for_each(|i| {
-        let mut w = 3;
+    vec![1, 2, 3, 4, 6, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30].into_par_iter().for_each(|i| {
+        let mut w = 5;
         while !run_thing(2 << w, i) && (2 << w) < 100 {
             w += 1;
         }
     });
+
+    // (1..100).into_par_iter().for_each(|i| {
+    //     run_thing(100, i);
+    // });
+
+    // vec![50, 100, 200, 500].into_par_iter().for_each(|w| {run_thing(w, 12);});
 }
 
 pub fn run_thing(width: i32, period: i32) -> bool {

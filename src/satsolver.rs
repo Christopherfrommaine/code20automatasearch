@@ -145,7 +145,7 @@ pub fn run_thing(width: i32, period: i32) -> bool {
     match output2 {
         Ok(Certificate::SAT(ans)) => {handle_sol(ans, width, period); return true;},
         Ok(Certificate::UNSAT) => println!("s UNSATISFIABLE for period {period} and width {width}"),
-        Err(e) => println!("ERROR: s UNKNOWN; {}", e),
+        Err(e) => println!("ERROR: s UNKNOWN p: {period} w: {width}; {}", e),
     }
 
     false

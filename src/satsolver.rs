@@ -94,21 +94,29 @@ fn format_table(table: &CNF) -> String {
 }
 
 pub fn main() {
-    vec![1, 2, 3, 4, 6, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30].into_par_iter().for_each(|i| {
-        let mut w = 5;
-        while !run_thing(2 << w, i) && (2 << w) < 100 {
-            w += 1;
-        }
-    });
-
-    (1..100).into_par_iter().for_each(|i| {
-        let mut w = 6;
+    (1..10).into_par_iter().for_each(|i| {
+        let mut w = 8;
         loop {
-            let o = run_thing(2 << w, i);
+            let o = run_thing(w, i);
 
             if o {break;}
 
             w += 1;
+
+            if w > 200 {break;}
+        }
+    });
+
+    (1..100).into_par_iter().for_each(|i| {
+        let mut w = 3;
+        loop {
+            let o = run_thing(1 << w, i);
+
+            if o {break;}
+
+            w += 1;
+
+            if w >= 8 {break;}
         }
     });
 

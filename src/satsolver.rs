@@ -101,7 +101,7 @@ pub fn main() {
 
             if o {break;}
 
-            w += 1;
+            w += 8;
 
             if w > 200 {break;}
         }

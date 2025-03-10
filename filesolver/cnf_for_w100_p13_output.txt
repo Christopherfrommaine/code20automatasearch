@@ -10713,3 +10713,41 @@ c rst  geom best  vmt  4948 8682K    2497   38K    53    5.84    5.83  999K 1230
 c rst  geom best  vmt  4949 8683K    2497   38K    53    5.84    5.83  999K 12366   45K    79   17.96   17.96
 c rst  geom best  vmt  4950 8683K    2497   38K    53    5.84    5.83  999K 12449   46K    79   17.97   17.97
 c rst  geom best  vmt  4951 8683K    2497   38K    53    5.84    5.83  999K 12507   46K    79   17.98   17.98
+c rst  geom best  vmt  4952 8684K    2497   38K    53    5.84    5.83  999K 12639   46K    79   17.98   17.98
+c rst  geom best  vmt  4953 8684K    2497   38K    53    5.84    5.83  999K 12677   46K    79   17.99   17.99
+c rst  geom best  vmt  4954 8685K    2497   38K    53    5.84    5.83  999K 12729   47K    79   17.99   17.99
+c rst  geom best  vmt  4955 8685K    2497   38K    53    5.84    5.83  999K 14084   34K    79   17.73   17.73
+c rst  geom best  vmt  4956 8686K    2497   38K    53    5.84    5.83  999K 14254   35K    79   17.74   17.74
+c rst  geom best  vmt  4957 8686K    2497   38K    53    5.84    5.83  999K 14347   35K    79   17.75   17.75
+c rst  geom best  vmt  4958 8687K    2497   38K    53    5.84    5.83  999K 14410   36K    79   17.77   17.77
+c rst  geom best  vmt  4959 8688K    2497   38K    53    5.84    5.83  999K 14519   36K    79   17.78   17.78
+c [full-probe]  bin_only: 0 set: 0 repl: 0 T: 1.07 T-out: N T-r: 92.87%
+c [distill-bin] useful: 0/53/53 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.04 T-out: N
+c rst  geom best  vmt  4960 8689K    2497   38K    53    5.84    5.83  999K 14609   37K    79   17.80   17.80
+c rst  geom best  vmt  4961 8690K    2497   38K    53    5.84    5.83  999K 14705   38K    79   17.83   17.82
+c rst  geom best  vmt  4962 8691K    2497   38K    53    5.84    5.83 1000K 12385   41K    79   17.85   17.85
+c rst  geom best  vmt  4963 8692K    2497   38K    53    5.84    5.83 1000K 12538   42K    79   17.88   17.88
+c rst  geom best  vmt  4964 8693K    2497   38K    53    5.84    5.83 1000K 12695   43K    79   17.90   17.90
+c rst  geom best  vmt  4965 8695K    2497   38K    53    5.84    5.83 1000K 12929   44K    79   17.94   17.94
+c rst  geom best  vmt  4966 8696K    2497   38K    53    5.84    5.83 1000K 13113   45K    79   17.98   17.98
+c [distill-long-red0] cls tried: 1080/1080 T: 20.66 T-out: N T-r: 86.68%
+c [distill-long-red1] cls tried: 8/13091 T: 0.54 T-out: Y T-r: -34.33%
+c rst  geom best  vmt  4967 8698K    2497   38K    53    5.84    5.83 1000K 13403   47K    79   18.02   18.02
+c rst  geom best  vmt  4968 8700K    2497   38K    53    5.84    5.83 1000K 13514   49K    79   18.06   18.06
+c [impl-str] lit bin: 0 set-var: 0 T: 0.04 T-out: N T-r: 99.75% w-visit: 5002
+c [impl-sub] bin: 0 T: 0.05 T-out: N w-visit: 5002
+c rst  geom best  vmt  4969 8702K    2497   38K    53    5.84    5.83 1001K 12606   37K    79   17.79   17.79
+c rst  geom best  vmt  4970 8704K    2497   38K    53    5.84    5.83 1001K 12868   39K    79   17.86   17.86
+c rst  geom best  vmt  4971 8707K    2497   38K    53    5.84    5.83 1001K 13197   41K    79   17.92   17.91
+c [distill] watch-based irred--  cl tried    27544 cl-sh     0 cl-rem    0 lit-rem      0 T: 1.91 T-out: Y
+c [distill] watch-based   red--  cl tried     8338 cl-sh     0 cl-rem    2 lit-rem      0 T: 1.72 T-out: Y
+c rst  geom best  vmt  4972 8709K    2497   38K    53    5.84    5.83 1001K 13517   43K    79   17.98   17.98
+c [full-probe]  bin_only: 1 set: 0 repl: 0 T: 0.15 T-out: N T-r: 99.66%
+c [distill-bin] useful: 0/53/53 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.03 T-out: N
+c rst  geom best  vmt  4973 8712K    2497   38K    53    5.84    5.83 1001K 11513   48K    79   18.06   18.06
+c [distill-long-red0] cls tried: 1298/1298 T: 14.00 T-out: N T-r: 92.21%
+c [distill-long-red1] cls tried: 6/11497 T: 0.43 T-out: Y T-r: -26.48%
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on var unsat frequency: conflict_ct
+c [ccnr] Bumped vars: 2501 bump type: 6
+c [ccnr] time: 0.86

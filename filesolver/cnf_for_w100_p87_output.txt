@@ -11386,3 +11386,5 @@ c rst  luby ibes  vmt  5172 10392K   17300  257K   346    5.84    5.84 1628K 155
 c rst  luby ibes  vmt  5173 10393K   17300  257K   346    5.84    5.84 1628K 15641   44K   400   17.63   17.62
 c rst  luby ibes  vmt  5174 10393K   17300  257K   346    5.84    5.84 1629K 15761   44K   400   17.63   17.62
 c rst  luby ibes  vmt  5175 10394K   17300  257K   346    5.84    5.84 1629K 15921   45K   400   17.64   17.63
+c [distill] watch-based irred--  cl tried    98131 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.68 T-out: Y
+c [distill] watch-based   red--  cl tried    29961 cl-sh    18 cl-rem    0 lit-rem     21 T: 0.69 T-out: Y

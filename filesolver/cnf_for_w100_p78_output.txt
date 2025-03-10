@@ -11689,3 +11689,13 @@ c rst  luby  svd  vmt  5421 10504K   15500  231K   311    5.84    5.84 1742K   2
 c rst  luby  svd  vmt  5422 10505K   15500  231K   311    5.84    5.84 1742K   21K   35K   350   18.28   18.28
 c rst  luby  svd  vmt  5423 10506K   15500  231K   311    5.84    5.84 1743K   22K   36K   350   18.29   18.28
 c rst  luby  svd  vmt  5424 10509K   15500  231K   311    5.84    5.84 1743K   23K   38K   350   18.33   18.33
+c rst  luby  svd  vmt  5425 10514K   15500  231K   311    5.84    5.84 1744K   20K   44K   350   18.41   18.41
+c recursive minimization cost OK: 52517Kcost/(% lits removed)
+c rst  luby  svd  vmt  5426 10516K   15500  231K   311    5.84    5.84 1745K   22K   32K   350   18.29   18.28
+c rst  luby  svd  vmt  5427 10516K   15500  231K   311    5.84    5.84 1745K   22K   32K   350   18.29   18.28
+c rst  luby  svd  vmt  5428 10516K   15500  231K   311    5.84    5.84 1745K   22K   32K   350   18.29   18.28
+c rst  luby  svd  vmt  5429 10516K   15500  231K   311    5.84    5.84 1745K   22K   32K   350   18.29   18.29
+c rst  luby  svd  vmt  5430 10516K   15500  231K   311    5.84    5.84 1745K   22K   32K   350   18.29   18.29
+c rst  luby  svd  vmt  5431 10516K   15500  231K   311    5.84    5.84 1745K   22K   32K   350   18.29   18.29
+c rst  luby  svd  vmt  5432 10517K   15500  231K   311    5.84    5.84 1745K   22K   32K   350   18.29   18.29
+c rst  luby  svd  vmt  5433 10517K   15500  231K   311    5.84    5.84 1745K   22K   33K   350   18.31   18.30

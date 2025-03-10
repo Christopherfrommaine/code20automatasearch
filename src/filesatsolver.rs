@@ -27,24 +27,41 @@ fn export_cnf(clauses: &Vec<Vec<i32>>, filename: &str) {
 
 fn run_cnf_command(filename: String, w: i32, p: i32) {
     use std::process::Command;
+    use std::os::unix::process::CommandExt; // For `before_exec`
+    use nix::sys::prctl;
 
-    let r = Command::new("sh")
+    let mut r = Command::new("sh")
         .arg("-c")
         .arg(format!("./cryptominisat5 {filename}.cnf > {filename}_output.txt"))
-        .output();
+        .before_exec(|| {
+            prctl::set_pdeathsig(nix::sys::signal::Signal::SIGSTOP).expect("Failed to set parent death signal");
+            Ok(())
+        })
+        .spawn()
+        .expect("Failed to create process");
 
-    println!("Ran ({w}, {p}) with result: {r:?}");
+    let r2 = r.wait();
 
-    // if let Ok(res) = r {
-    //     handle_result(String::from_utf8_lossy(&res.stdout).to_string(), w, p);
-    // }
+    println!("Ran ({w}, {p}) with result: ({r:?}, {r2:?})");
+
+    println!("parsing ({w}, {p})...");
+
+    parse_file_output(&(filename + "_output.txt"), w, p);
+
 }
 
-fn parse_file_output(filename: &str) -> Result<_, _> {
-    let o = read!(filename)
-        .split('/n')
-        .filter_map(|s| if s.len() <= 3 || s[0] != 'v' {None} else {s[2..]})
-        .collect();
+fn parse_file_output(filename: &str, w: i32, p: i32) {
+
+    let string: String = std::fs::read_to_string(filename).expect(&format!("Could not read file: {}.", filename));
+
+    let mut o: Vec<String> = Vec::new();
+
+    string.split('\n').for_each(|s|
+        if s.len() >= 3 && s.chars().nth(0) == Some('v') {
+            o.push((&s[2..]).to_string())
+        });
+    
+    handle_result(o.iter().flat_map(|s| s.chars()).collect::<String>(), w, p);
 }
 
 fn handle_result(res: String, w: i32, p: i32) {
@@ -52,7 +69,20 @@ fn handle_result(res: String, w: i32, p: i32) {
 
     println!("o ({w}, {p}): {o:?}");
 
-    crate::splrsatsolver::handle_sol(o, w, p);
+    let mut file = std::fs::OpenOptions::new()
+        .append(true)
+        .create(true)
+        .open("total-file-output.txt")
+        .expect("Couldn't create output file");
+
+    writeln!(file, "({w}, {p}): {o:?}").expect("Couldn't write to output file");
+
+    if o.len() >= 5 {
+        crate::splrsatsolver::handle_sol(o, w, p);
+    } else {
+        println!("Couldn't handle due to small solution")
+    }
+    
 }
 
 pub fn general_run(width: i32, period: i32) {
@@ -64,7 +94,7 @@ pub fn general_run(width: i32, period: i32) {
     export_cnf(&cnf, &(filename.clone() + ".cnf"));
 
     println!("running ({width}, {period})...");
-    run_cnf_command(filename, width, period);
+    run_cnf_command(filename.clone(), width, period);
 }
 
 pub fn main() {
@@ -79,17 +109,41 @@ pub fn main() {
         (200, 13),
         (200, 17),
     ].into_par_iter().for_each(|(w, p)| {general_run(w, p);});
+}
 
-    // general_run(010, 02);
-    // general_run(100, 10);
-    // general_run(150, 12);
-    // general_run(200, 07);
-    // general_run(200, 11);
-    // general_run(200, 13);
+pub fn test() {
+    vec![
+        (010, 01),
+        (010, 02),
+        (020, 04),
+        (050, 03),
+        (100, 06),
+    ].into_iter().for_each(|(w, p)| {general_run(w, p);});
+}
 
+pub fn parse_all_outputs() {
+    use std::fs;
+    use std::path::Path;
+    use regex::Regex;
 
-    // use rayon::prelude::*;
-    // (1..100).into_par_iter().for_each(
-    //     |p| {general_run(100, p);}
-    // )
+    let dir_path = "./filesolver/";
+    let pattern = Regex::new(r"cnf_for_w(\d+)_p(\d+)_output\.txt").unwrap();
+
+    match fs::read_dir(dir_path) {
+        Ok(entries) => {
+            for entry in entries.filter_map(Result::ok) {
+                let path = entry.path();
+                if let Some(filename) = path.file_name().and_then(|s| s.to_str()) {
+                    if let Some(caps) = pattern.captures(filename) {
+                        let width: u32 = caps[1].parse().unwrap();
+                        let period: u32 = caps[2].parse().unwrap();
+                        println!("parsing ({width}, {period})...");
+
+                        parse_file_output(&(dir_path.to_string() + filename), width as i32, period as i32);
+                    }
+                }
+            }
+        }
+        Err(e) => eprintln!("Error reading directory: {}", e),
+    }
 }

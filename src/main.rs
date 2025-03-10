@@ -1,7 +1,9 @@
 mod bruteforce;
 mod customuint; // for brute force
-mod satsolver;
+mod splrsatsolver;
+mod satcreator;
+mod filesatsolver;
 
 fn main() {
-    crate::satsolver::main();
+    crate::filesatsolver::main();
 }

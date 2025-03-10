@@ -33,7 +33,7 @@ fn run_cnf_command(filename: String, w: i32, p: i32) {
         .arg(format!("./cryptominisat5 {filename}.cnf > {filename}_output.txt"))
         .output();
 
-    println!("Ran with result: {r:?}");
+    println!("Ran w: {w}, p: {p}, with result: {r:?}");
 
     // if let Ok(res) = r {
     //     handle_result(String::from_utf8_lossy(&res.stdout).to_string(), w, p);

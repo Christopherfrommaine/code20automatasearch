@@ -1,0 +1,216 @@
+c CryptoMiniSat version 5.12.1
+c CMS Copyright (C) 2009-2020 Authors of CryptoMiniSat, see AUTHORS file
+c CMS SHA revision b4ab662f79024af8ebdd295f9c93d7a522b070a7
+c Using VMTF code by Armin Biere from CaDiCaL
+c Using Yalsat by Armin Biere, see Balint et al. Improving implementation of SLS solvers [...], SAT'14
+c Using WalkSAT by Henry Kautz, see Kautz and Selman Pushing the envelope: planning, propositional logic, and stochastic search, AAAI'96,
+c CMS is MIT licensed
+c Using code from 'When Boolean Satisfiability Meets Gauss-E. in a Simplex Way'
+c       by C.-S. Han and J.-H. Roland Jiang in CAV 2012. Fixes by M. Soos
+c Using CCAnr from 'CCAnr: A Conf. Checking Based Local Search Solver [...]'
+c       by Shaowei Cai, Chuan Luo, and Kaile Su, SAT 2015
+c CMS compilation env CMAKE_CXX_COMPILER = /usr/bin/c++ | CMAKE_CXX_FLAGS =  -fno-stack-protector -fvisibility=hidden -Wlogical-op -Wrestrict -Wnull-dereference -Wdouble-promotion -Wshadow -Wformat=2 -Wextra-semi -pedantic | COMPILE_DEFINES =  -DRDB0_ONLY_FEATURES -DNDEBUG -D_FORTIFY_SOURCE=0 -DUSE_ZLIB -DYALSAT_FPU | STATICCOMPILE = ON | ONLY_SIMPLE =  | STATS = OFF | SQLITE3_FOUND =  | ZLIB_FOUND = TRUE | VALGRIND_FOUND =  | ENABLE_TESTING = OFF | SLOW_DEBUG = OFF | ENABLE_ASSERTIONS = OFF | PYTHON_EXECUTABLE =  | PYTHON_LIBRARY =  | PYTHON_INCLUDE_DIRS =  | MY_TARGETS =  | LARGEMEM = OFF | LIMITMEM = OFF | BREAKID_LIBRARIES =  | BREAKID-VER = . | BOSPHORUS_LIBRARIES =  | BOSPH-VER = . | 
+c CMS compiled with gcc version 9.4.0
+c Executed with command line: ./cryptominisat5 filesolver/cnf_for_w100_p8.cnf
+c Reading file 'filesolver/cnf_for_w100_p8.cnf'
+c -- header says num vars:           1501
+c -- header says num clauses:       27016
+c -- clauses added: 27015
+c -- xor clauses added: 0
+c -- vars added 1501
+c Parsing time: 0.02 s
+c [branch] adjusting to: vsid (from: vsid) var_decay:0.95 descr: VSIDS
+c rst  geom  stb   vs     1   186    1501   27K    15    5.58    5.58     0     1   185     0  329.08  329.08
+c rst  geom  stb   vs     2   309    1501   27K    15    5.58    5.58     1    24   284     0  205.67  205.67
+c  res  pol bran  nres  conf freevar  IrrL  IrrB l/longC  l/allC RedL0 RedL1 RedL2  RedB l/longC  l/allC
+c rst  geom  stb   vs     3   445    1501   27K    15    5.58    5.58     2    36   407     0  166.78  166.78
+c rst  geom  stb   vs     4   594    1501   27K    15    5.58    5.58    11    74   509     0  128.30  128.30
+c rst  geom  stb   vs     5   757    1501   27K    15    5.58    5.58    12   116   629     0  106.62  106.62
+c rst  geom  stb   vs     6   936    1501   27K    15    5.58    5.58    35   164   737     0   90.13   90.13
+c rst  geom  stb   vs     7  1131    1501   27K    15    5.58    5.58    37   192   902     0   83.22   83.22
+c rst  geom  stb   vs     8  1344    1501   27K    15    5.58    5.58    79   266   999     0   72.24   72.24
+c rst  geom  stb   vs     9  1579    1501   27K    15    5.58    5.58    89   320  1170     0   64.93   64.93
+c rst  geom  stb   vs    10  1837    1501   27K    15    5.58    5.58   113   406  1318     0   58.27   58.27
+c rst  geom  stb   vs    11  2119    1501   27K    15    5.58    5.58   117   462  1540     0   60.08   60.08
+c rst  geom  stb   vs    12  2430    1501   27K    15    5.58    5.58   146   592  1692     0   54.14   54.14
+c rst  geom  stb   vs    13  2771    1501   27K    15    5.58    5.58   147   658  1966     0   58.18   58.18
+c rst  geom  stb   vs    14  3145    1501   27K    15    5.58    5.58   195   836  2114     0   52.84   52.84
+c rst  geom  stb   vs    15  3556    1501   27K    15    5.58    5.58   200   901  2455     0   49.39   49.39
+c rst  geom  stb   vs    16  4007    1501   27K    15    5.58    5.58   254  1101  2651     1   45.57   45.56
+c rst  geom  stb   vs    17  4502    1501   27K    15    5.58    5.58   268  1263  2970     1   44.20   44.19
+c rst  geom  stb   vs    18  5046    1501   27K    15    5.58    5.58   300  1401  3344     1   41.00   41.00
+c [distill-long-red0] cls tried: 300/300 T: 0.03 T-out: N T-r: 99.87%
+c [distill-long-red1] cls tried: 486/1401 T: 0.07 T-out: Y T-r: -0.21%
+c rst  geom  stb   vs    19  5644    1501   27K    15    5.58    5.58   329  1561  3752     2   38.59   38.58
+c [branch] adjusting to: vmtf (from: vsid) var_decay:0.95 descr: VMTF
+c rst  luby ibes  vmt    20  5745    1501   27K    15    5.58    5.58   350  1599  3794     2   38.27   38.26
+c rst  luby ibes  vmt    21  5846    1501   27K    15    5.58    5.58   354  1628  3862     2   38.08   38.07
+c rst  luby ibes  vmt    22  6047    1501   27K    15    5.58    5.58   355  1652  4038     2   37.74   37.72
+c rst  luby ibes  vmt    23  6149    1501   27K    15    5.58    5.58   355  1670  4122     2   37.48   37.47
+c rst  luby ibes  vmt    24  6250    1501   27K    15    5.58    5.58   365  1700  4183     2   37.22   37.21
+c rst  luby ibes  vmt    25  6452    1501   27K    15    5.58    5.58   371  1753  4326     2   36.94   36.93
+c rst  luby ibes  vmt    26  6854    1501   27K    15    5.58    5.58   387  1851  4614     2   36.29   36.28
+c rst  luby ibes  vmt    27  6956    1501   27K    15    5.58    5.58   391  1865  4698     2   36.08   36.07
+c rst  luby ibes  vmt    28  7057    1501   27K    15    5.58    5.58   395  1881  4779     2   35.86   35.85
+c rst  luby ibes  vmt    29  7259    1501   27K    15    5.58    5.58   401  1937  4919     2   35.55   35.54
+c rst  luby ibes  vmt    30  7361    1501   27K    15    5.58    5.58   414  1982  4963     2   35.31   35.30
+c rst  luby ibes  vmt    31  7462    1501   27K    15    5.58    5.58   417  2021  5022     2   35.03   35.02
+c rst  luby ibes  vmt    32  7664    1501   27K    15    5.58    5.58   440  2064  5158     2   34.53   34.52
+c rst  luby ibes  vmt    33  8065    1501   27K    15    5.58    5.58   441  2091  5531     2   34.37   34.36
+c rst  luby ibes  vmt    34  8868    1501   27K    15    5.58    5.58   459  2229  6178     2   33.44   33.43
+c rst  luby ibes  vmt    35  8969    1501   27K    15    5.58    5.58   468  2251  6248     2   33.28   33.27
+c rst  luby ibes  vmt    36  9071    1501   27K    15    5.58    5.58   471  2289  6309     2   33.17   33.16
+c rst  luby ibes  vmt    37  9273    1501   27K    15    5.58    5.58   476  2336  6459     2   33.04   33.03
+c rst  luby ibes  vmt    38  9376    1501   27K    15    5.58    5.58   482  2368  6524     2   32.95   32.94
+c rst  luby ibes  vmt    39  9478    1501   27K    15    5.58    5.58   483  2382  6611     2   32.85   32.84
+c rst  luby ibes  vmt    40  9680    1501   27K    15    5.58    5.58   488  2411  6779     2   32.63   32.63
+c rst  luby ibes  vmt    41 10082    1501   27K    15    5.58    5.58  1448  1550  7082     2   32.41   32.40
+c rst  luby ibes  vmt    42 10184    1501   27K    15    5.58    5.58  1454  1583  7145     2   32.29   32.29
+c rst  luby ibes  vmt    43 10287    1501   27K    15    5.58    5.58  1455  1606  7224     2   32.18   32.18
+c rst  luby ibes  vmt    44 10488    1501   27K    15    5.58    5.58  1459  1632  7395     2   31.96   31.96
+c rst  luby ibes  vmt    45 10590    1501   27K    15    5.58    5.58  1462  1647  7479     2   31.87   31.86
+c rst  luby ibes  vmt    46 10691    1501   27K    15    5.58    5.58  1470  1657  7562     2   31.78   31.77
+c rst  luby ibes  vmt    47 10893    1501   27K    15    5.58    5.58  1480  1703  7708     2   31.60   31.60
+c rst  luby  svd  vmt    48 11294    1501   27K    15    5.58    5.58  1500  1797  7994     3   32.46   32.45
+c rst  luby  svd  vmt    49 12096    1501   27K    15    5.58    5.58  1544  1972  8576     4   31.69   31.68
+c [branch] adjusting to: vsid (from: vmtf) var_decay:0.95 descr: VSIDS
+c [distill-bin] useful: 0/15/15 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.00 T-out: N
+c rst  geom  svd   vs    50 12207    1501   27K    15    5.58    5.58  1545  1979  8679     4   31.69   31.68
+c 
+c ------- FINAL TOTAL SEARCH STATS ---------
+c UIP search time          : 1.32        (98.74     % time)
+c All times are for this thread only except if explicitly specified
+c restarts                 : 51          (240.92    confls per restart)
+c blocked restarts         : 0           (0.00      per normal restart)
+c time                     : 1.32        
+c decisions                : 22434       (0.00      % random)
+c propagations             : 902K        (684K      props/s)
+c decisions/conflicts      : 1.83        
+c conflicts                : 12287       
+c LEARNT stats
+c units learnt             : 0           (0.00      % of conflicts)
+c bins learnt              : 3           (0.02      % of conflicts)
+c long learnt              : 12283       (99.97     % of conflicts)
+c red which0               : 601         (4.89      % of confl)
+c SEAMLESS HYPERBIN&TRANS-RED stats
+c advProp called           : 0           
+c hyper-bin add bin        : 0           (0.00      bin/call)
+c trans-red rem irred bin  : 0           (0.00      bin/call)
+c trans-red rem red bin    : 0           (0.00      bin/call)
+c CONFL LITS stats
+c orig                     : 415479      (33.81     lit/confl)
+c recurs-min effective     : 5187        (42.22     % attempt successful)
+c recurs-min lits          : 25318       (6.09      % less overall)
+c permDiff call%           : 27.38       (0.00      % attempt successful)
+c permDiff lits-rem        : 0           (0.00      less lits/cl on attempts)
+c further-min call%        : 1.23        (0.00      % attempt successful)
+c bintri-min lits          : 0           (0.00      % less overall)
+c final avg                : 31.75       
+c all-threads sum CPU time : 1.32         s
+c PROP stats
+c Mbogo-props              : 5.08        (3.85      / sec)
+c MHyper-props             : 0.00        (0.00      / sec)
+c Mprops                   : 0.90        (0.68      / sec)
+c -------- OccSimplifier STATS ----------
+c time                     : 0.00        (0.00      % var-elim)
+c called                   : 0           (0.00      s per call)
+c 0-depth assigns          : 0           (0.00      % vars)
+c -------- OccSimplifier STATS END ----------
+c -------- SubsumeStrengthen STATS ----------
+c cl-subs                  : 0            Clauses
+c cl-str rem lit           : 0            Lits
+c cl-sub T                 : 0.00         s
+c cl-str T                 : 0.00         s
+c -------- SubsumeStrengthen STATS END ----------
+c ----- SCC STATS --------
+c time                     : 0.00        (0.00      per call)
+c called                   : 0           (0.00      new found per call)
+c found                    : 0           (0.00      % of all found)
+c bogoprops                : 0           % of all found
+c ----- SCC STATS END --------
+c --------- VAR REPLACE STATS ----------
+c time                     : 0.00        (0.00      per call)
+c trees' crown             : 0           (0.00      % of vars)
+c 0-depth assigns          : 0           (0.00      % vars)
+c lits replaced            : 0           
+c bin cls removed          : 0           
+c long cls removed         : 0           
+c long lits removed        : 0           
+c bogoprops                : 0           
+c --------- VAR REPLACE STATS END ----------
+c vrep replace time        : 0.00        (0.00      % time)
+c vrep tree roots          : 0           
+c vrep trees' crown        : 0           (0.00      leafs/tree)
+c -------- DISTILL-BIN STATS --------
+c time                     : 0.00        (0.00      per call)
+c timed out                : 0           (0.00      % of calls)
+c distill/checked/potential: 0          /15/15
+c lits-rem                 : 0           
+c 0-depth-assigns          : 0           (0.00      % of vars)
+c -------- DISTILL STATS END --------
+c -------- STRENGTHEN STATS --------
+c --> watch-based on irred cls
+c time                     : 0.00        (0.00      s/call)
+c shrinked/tried/total     : 0          /0/0
+c subsumed/tried/total     : 0          /0/0
+c lits-rem                 : 0           (0.00      % of lits tried)
+c called                   : 0           (0.00      % ran out of time)
+c --> watch-based on red cls
+c time                     : 0.00        (0.00      s/call)
+c shrinked/tried/total     : 0          /0/0
+c subsumed/tried/total     : 0          /0/0
+c lits-rem                 : 0           (0.00      % of lits tried)
+c called                   : 0           (0.00      % ran out of time)
+c -------- STRENGTHEN STATS END --------
+c -------- IMPLICIT SUB  STATS --------
+c time                     : 0.00        (0.00      per call)
+c timed out                : 0           (0.00      % of calls)
+c rem bins                 : 0           
+c -------- IMPLICIT SUB STATS END --------
+c Mem used                 : 8           MB
+c Mem for longclauses      : 4           MB (56.56     %)
+c Mem for watch alloc      : 1           MB (21.68     %)
+c Mem for watch array      : 0           MB (1.08      %)
+c Mem for assings&vardata  : 0           MB (0.55      %)
+c Mem for search&solve     : 0           MB (1.19      %)
+c Mem for renumberer       : 0           MB (0.13      %)
+c Mem for occsimplifier    : 0           MB (0.00      %)
+c Mem for varReplacer&SCC  : 0           MB (0.07      %)
+c Mem for impl subsume     : 0           MB (0.00      %)
+c Mem for 3 distills       : 0           MB (0.01      %)
+c Accounted for mem (rss)  : 81.27       %
+c Accounted for mem (vm)   : 58.42       %
+c restarts                 : 51          (240.92    confls per restart)
+c blocked restarts         : 0           (0.00      per normal restart)
+c time                     : 1.32        
+c decisions                : 22434       (0.00      % random)
+c propagations             : 902K        (684K      props/s)
+c decisions/conflicts      : 1.83        
+c conflicts                : 12287       
+c conf lits non-minim      : 415479      (33.81     lit/confl)
+c conf lits final          : 31.75       
+c red which0               : 601         (4.89      % of confl)
+c props/decision           : 40.25       
+c props/conflict           : 73.49       
+c 0-depth assigns          : 308         (20.52     % vars)
+c 0-depth assigns by CNF   : 0           (0.00      % vars)
+c reduceDB time            : 0.00        (0.00      % time)
+c OccSimplifier time       : 0.00        (0.00      % time)
+c [occur] 0.00 is overhead
+c [occur] link-in T: 0.00 cleanup T: 0.00
+c [occ-substr] long subBySub: 0 subByStr: 0 lits-rem-str: 0 T: 0.00
+c SCC time                 : 0.00        (0.00      % time)
+c [scc] new: 0 BP 0M  T: 0.00
+c vrep replace time        : 0.00        (0.00      % time)
+c vrep tree roots          : 0           
+c vrep trees' crown        : 0           (0.00      leafs/tree)
+c distill long time        : 0.10        (7.38      % time)
+c distill bin time         : 0.00        (0.07      % time)
+c strength cache-irred time: 0.00        (0.00      % time)
+c strength cache-red time  : 0.00        (0.00      % time)
+c avg cls in red 0         : 503.58      
+c avg cls in red 1         : 1382.17     
+c avg cls in red 2         : 4255.80     
+c Conflicts in UIP         : 12287       (9203.77   confl/time_this_thread)
+c Max Memory (rss) used    : 8928 kB     
+c Total time (this thread) : 1.33        

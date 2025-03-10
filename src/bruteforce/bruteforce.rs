@@ -2,7 +2,7 @@ use rayon::prelude::*;  // Paralellization
 use std::collections::HashSet;  // Hashing seen states
 use cgrustplot::plots::array_plot::array_plot;  // Plotting automata
 use std::{fs::OpenOptions, io::Write};  // Writing to file
-use crate::customuint::U256;
+use crate::bruteforce::customuint::U256;
 
 type T = U256;
 const TB: u32 = 256;

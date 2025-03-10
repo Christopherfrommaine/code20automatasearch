@@ -1,10 +1,8 @@
 mod bruteforce;
-mod customuint;
-mod splrsatsolver;
-mod satcreator;
-mod filesatsolver;
+mod satsolver;
+mod finitestatemachine;
 
 fn main() {
-    crate::filesatsolver::test();
-    crate::filesatsolver::main();
+    crate::satsolver::filesatsolver::test();
+    crate::satsolver::filesatsolver::main();
 }

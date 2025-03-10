@@ -1,10 +1,10 @@
 use splr::*;
 use cgrustplot::plots::array_plot;
 use rayon::prelude::*;
-use crate::customuint::U256;
+use crate::bruteforce::customuint::U256;
 use std::panic::catch_unwind;
 
-use crate::satcreator::*;
+use crate::satsolver::satcreator::*;
 
 pub fn main() {
     (1..10).into_par_iter().for_each(|i| {

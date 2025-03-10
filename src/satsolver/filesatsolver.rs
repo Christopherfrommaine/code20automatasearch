@@ -1,4 +1,4 @@
-use crate::satcreator::create_cnf;
+use crate::satsolver::satcreator::create_cnf;
 use std::fs::File;
 use std::io::Write;
 
@@ -78,7 +78,7 @@ fn handle_result(res: String, w: i32, p: i32) {
     writeln!(file, "({w}, {p}): {o:?}").expect("Couldn't write to output file");
 
     if o.len() >= 5 {
-        crate::splrsatsolver::handle_sol(o, w, p);
+        crate::satsolver::splrsatsolver::handle_sol(o, w, p);
     } else {
         println!("Couldn't handle due to small solution")
     }

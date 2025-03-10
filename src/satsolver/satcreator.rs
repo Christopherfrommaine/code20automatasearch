@@ -3,6 +3,7 @@ const DEBUG_CHECKS: bool = false;
 const DEBUG_TAB: bool = false;
 
 type CNF = Vec<Vec<i32>>;
+
 pub fn step_to_cnf(inp: i32, nums: Vec<i32>) -> CNF {
     if DEBUG {println!("inp: {inp}, nums: {nums:?}")};
 
@@ -12,7 +13,6 @@ pub fn step_to_cnf(inp: i32, nums: Vec<i32>) -> CNF {
 }
 
 pub fn determine_cnf(width: i32, period: i32) -> CNF {
-
     let mut ind = 1;
     let reserved = ind; ind += 1;
 
@@ -68,15 +68,11 @@ pub fn determine_cnf(width: i32, period: i32) -> CNF {
     
 
     // Not all zero
-    // println!("first row: \n {:?}", table[0]);
+    if DEBUG_CHECKS {println!("first row: \n {:?}", table[0]);}
 
     o.push(table.into_iter().flatten().collect());
 
     o
-}
-
-pub fn cnf_example() -> CNF {
-    vec![vec![1, 2], vec![-1, 3], vec![1, -3], vec![-1, 2]]
 }
 
 pub fn format_table(table: &CNF) -> String {

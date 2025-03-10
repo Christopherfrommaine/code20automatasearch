@@ -10751,3 +10751,27 @@ c [ccnr] saving best assignment phase to stable_polar
 c [ccnr] bumping based on var unsat frequency: conflict_ct
 c [ccnr] Bumped vars: 2501 bump type: 6
 c [ccnr] time: 0.86
+c rst  geom best  vmt  4974 8716K    2497   38K    53    5.84    5.83 1002K 13423   36K    79   17.86   17.86
+c rst  geom best  vmt  4975 8719K    2497   38K    53    5.84    5.83 1002K 13783   39K    79   17.97   17.97
+c rst  geom best  vmt  4976 8723K    2497   38K    53    5.84    5.83 1002K 12135   44K    79   18.09   18.09
+c rst  geom best  vmt  4977 8728K    2497   38K    53    5.84    5.83 1002K 12619   48K    79   18.17   18.17
+c [distill-long-red0] cls tried: 1088/1088 T: 17.95 T-out: N T-r: 90.94%
+c [distill-long-red1] cls tried: 8/12597 T: 0.65 T-out: Y T-r: -42.98%
+c rst  geom best  vmt  4978 8732K    2497   38K    53    5.84    5.83 1003K 11665   39K    79   18.03   18.03
+c [full-probe]  bin_only: 0 set: 0 repl: 0 T: 0.79 T-out: N T-r: 92.86%
+c [distill-bin] useful: 0/53/53 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.06 T-out: N
+c [distill] watch-based irred--  cl tried    26983 cl-sh     0 cl-rem    0 lit-rem      0 T: 1.31 T-out: Y
+c [distill] watch-based   red--  cl tried     8442 cl-sh     0 cl-rem    1 lit-rem      0 T: 1.13 T-out: Y
+c rst  geom best  vmt  4979 8738K    2497   38K    53    5.84    5.83 1003K 12261   43K    79   18.17   18.17
+c rst  geom best  vmt  4980 8744K    2497   38K    53    5.84    5.83 1004K 11046   50K    79   18.33   18.32
+c [distill-long-red0] cls tried: 1103/1103 T: 4.69 T-out: N T-r: 93.16%
+c [distill-long-red1] cls tried: 7/11024 T: 0.26 T-out: Y T-r: -24.22%
+c rst  geom best  vmt  4981 8750K    2497   38K    53    5.84    5.83 1004K 13177   41K    79   18.11   18.11
+c rst  geom best  vmt  4982 8757K    2497   38K    53    5.84    5.83 1004K 11838   49K    79   18.17   18.17
+c [full-probe]  bin_only: 1 set: 0 repl: 0 T: 0.03 T-out: N T-r: 99.67%
+c [distill-bin] useful: 0/53/53 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.06 T-out: N
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on var unsat frequency: conflict_ct
+c [ccnr] Bumped vars: 2501 bump type: 6
+c [ccnr] time: 1.84
+c rst  geom best  vmt  4983 8765K    2497   38K    53    5.84    5.83 1006K 12888   38K    79   17.87   17.87

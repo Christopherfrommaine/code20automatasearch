@@ -12219,3 +12219,35 @@ c [ccnr] saving best assignment phase to stable_polar
 c [ccnr] bumping based on var unsat frequency: conflict_ct
 c [ccnr] Bumped vars: 14901 bump type: 6
 c [ccnr] time: 4.23
+c rst  geom  stb  vmt  5659 11440K   14900  222K   299    5.84    5.84 1885K 19286   41K   350   19.74   19.73
+c [branch] adjusting to: vsid (from: vmtf) var_decay:0.95 descr: VSIDS
+c [distill-long-red0] cls tried: 10366/10366 T: 30.03 T-out: N T-r: 55.22%
+c [distill-long-red1] cls tried: 6/19286 T: 0.25 T-out: Y T-r: -32.10%
+c [full-probe]  bin_only: 1 set: 0 repl: 0 T: 0.06 T-out: N T-r: 99.32%
+c [distill-bin] useful: 0/299/299 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.02 T-out: N
+c [distill] watch-based irred--  cl tried    76173 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.39 T-out: Y
+c [distill] watch-based   red--  cl tried    22702 cl-sh    15 cl-rem    0 lit-rem     20 T: 0.42 T-out: Y
+c [impl-str] lit bin: 0 set-var: 0 T: 0.02 T-out: N T-r: 99.52% w-visit: 29802
+c [impl-sub] bin: 0 T: 0.07 T-out: N w-visit: 29802
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on var unsat frequency: conflict_ct
+c [ccnr] Bumped vars: 14901 bump type: 6
+c [ccnr] time: 2.10
+c rst  geom ibes   vs  5660 11440K   14900  222K   299    5.84    5.84 1885K 19317   41K   350   19.73   19.73
+c rst  geom ibes   vs  5661 11440K   14900  222K   299    5.84    5.84 1885K 19332   41K   350   19.73   19.73
+c rst  geom ibes   vs  5662 11440K   14900  222K   299    5.84    5.84 1887K 14081   44K   350   19.73   19.73
+c rst  geom ibes   vs  5663 11441K   14900  222K   299    5.84    5.84 1887K 14107   45K   350   19.73   19.73
+c rst  geom ibes   vs  5664 11441K   14900  222K   299    5.84    5.84 1887K 14158   45K   350   19.73   19.73
+c rst  geom ibes   vs  5665 11441K   14900  222K   299    5.84    5.84 1887K 14263   45K   350   19.73   19.73
+c rst  geom ibes   vs  5666 11441K   14900  222K   299    5.84    5.84 1887K 14331   45K   350   19.73   19.73
+c rst  geom ibes   vs  5667 11441K   14900  222K   299    5.84    5.84 1887K 14369   45K   350   19.74   19.73
+c rst  geom ibes   vs  5668 11442K   14900  222K   299    5.84    5.84 1887K 14424   45K   350   19.74   19.74
+c rst  geom ibes   vs  5669 11442K   14900  222K   299    5.84    5.84 1887K 14521   45K   350   19.74   19.74
+c rst  geom ibes   vs  5670 11442K   14900  222K   299    5.84    5.84 1887K 14599   45K   350   19.74   19.74
+c rst  geom ibes   vs  5671 11442K   14900  222K   299    5.84    5.84 1887K 14685   46K   350   19.74   19.74
+c rst  geom ibes   vs  5672 11443K   14900  222K   299    5.84    5.84 1887K 14806   46K   350   19.74   19.74
+c rst  geom ibes   vs  5673 11443K   14900  222K   299    5.84    5.84 1887K 14930   46K   350   19.76   19.75
+c rst  geom ibes   vs  5674 11444K   14900  222K   299    5.84    5.84 1887K 15027   46K   350   19.76   19.75
+c rst  geom ibes   vs  5675 11444K   14900  222K   299    5.84    5.84 1887K 15169   47K   350   19.76   19.75
+c rst  geom ibes   vs  5676 11444K   14900  222K   299    5.84    5.84 1887K 15242   47K   350   19.78   19.78
+c rst  geom ibes   vs  5677 11445K   14900  222K   299    5.84    5.84 1887K 15330   47K   350   19.81   19.81

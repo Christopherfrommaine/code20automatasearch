@@ -5,6 +5,7 @@ in pkgs.mkShell {
     
     pkgs.rustup
     pkgs.dos2unix
+    pkgs.pstree
   
   ];
 

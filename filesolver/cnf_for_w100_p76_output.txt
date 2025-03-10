@@ -11966,3 +11966,23 @@ c [distill-long-red0] cls tried: 5708/5708 T: 23.09 T-out: N T-r: 64.54%
 c [distill-long-red1] cls tried: 6/17684 T: 0.31 T-out: Y T-r: -28.92%
 c [full-probe]  bin_only: 0 set: 0 repl: 0 T: 0.88 T-out: N T-r: 86.17%
 c [distill-bin] useful: 0/302/302 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.03 T-out: N
+c rst  geom ibes  vmt  5585 10845K   15100  225K   302    5.84    5.84 1835K   21K   29K   344   19.20   19.20
+c [distill-long-red0] cls tried: 4914/4914 T: 9.71 T-out: N T-r: 86.87%
+c [distill-long-red1] cls tried: 6/21529 T: 0.24 T-out: Y T-r: -26.65%
+c [full-probe]  bin_only: 1 set: 0 repl: 0 T: 0.04 T-out: N T-r: 99.33%
+c [distill-bin] useful: 0/302/302 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.03 T-out: N
+c [distill] watch-based irred--  cl tried    79314 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.67 T-out: Y
+c [distill] watch-based   red--  cl tried    23353 cl-sh    21 cl-rem    0 lit-rem     24 T: 0.91 T-out: Y
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on var unsat frequency: conflict_ct
+c [ccnr] Bumped vars: 15101 bump type: 6
+c [ccnr] time: 3.11
+c rst  geom ibes  vmt  5586 10872K   15100  225K   302    5.84    5.84 1840K 19622   41K   344   19.43   19.43
+c [distill-long-red0] cls tried: 4584/4584 T: 12.36 T-out: N T-r: 83.18%
+c [distill-long-red1] cls tried: 5/19619 T: 0.41 T-out: Y T-r: -33.79%
+c [full-probe]  bin_only: 0 set: 0 repl: 0 T: 1.00 T-out: N T-r: 86.16%
+c [distill-bin] useful: 0/302/302 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.07 T-out: N
+c [distill] watch-based irred--  cl tried    79256 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.66 T-out: Y
+c [distill] watch-based   red--  cl tried    22691 cl-sh    12 cl-rem    0 lit-rem     15 T: 0.79 T-out: Y
+c [impl-str] lit bin: 0 set-var: 0 T: 0.09 T-out: N T-r: 99.53% w-visit: 30202
+c [impl-sub] bin: 0 T: 0.06 T-out: N w-visit: 30202

@@ -11028,3 +11028,18 @@ c [ccnr] saving best assignment phase to stable_polar
 c [ccnr] bumping based on var unsat frequency: conflict_ct
 c [ccnr] Bumped vars: 4901 bump type: 6
 c [ccnr] time: 1.25
+c rst  geom  stb  vmt  5006 9312K    4900   74K    99    5.84    5.84 1366K 12430   41K   130   19.20   19.20
+c [distill-long-red0] cls tried: 7495/7495 T: 84.23 T-out: N T-r: 20.50%
+c [distill-long-red1] cls tried: 9/12430 T: 0.29 T-out: Y T-r: -27.03%
+c [full-probe]  bin_only: 1 set: 0 repl: 0 T: 0.12 T-out: N T-r: 99.54%
+c [distill-bin] useful: 0/99/99 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.02 T-out: N
+c [distill] watch-based irred--  cl tried    38429 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.54 T-out: Y
+c [distill] watch-based   red--  cl tried     9597 cl-sh     5 cl-rem    0 lit-rem      7 T: 0.63 T-out: Y
+c [impl-str] lit bin: 0 set-var: 0 T: 0.06 T-out: N T-r: 99.67% w-visit: 9802
+c [impl-sub] bin: 0 T: 0.03 T-out: N w-visit: 9802
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on var unsat frequency: conflict_ct
+c [ccnr] Bumped vars: 4901 bump type: 6
+c [ccnr] time: 1.90
+c rst  geom  stb  vmt  5007 9314K    4900   74K    99    5.84    5.84 1366K 12705   43K   130   19.23   19.23
+c recursive minimization cost OK: 15743Kcost/(% lits removed)

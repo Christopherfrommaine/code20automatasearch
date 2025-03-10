@@ -109,6 +109,8 @@ pub fn main() {
         (200, 13),
         (200, 17),
     ].into_par_iter().for_each(|(w, p)| {general_run(w, p);});
+
+    (1..100).into_par_iter().for_each(|p| {general_run(15 * p, p);})
 }
 
 pub fn test() {
@@ -119,31 +121,4 @@ pub fn test() {
         (050, 03),
         (100, 06),
     ].into_iter().for_each(|(w, p)| {general_run(w, p);});
-}
-
-pub fn parse_all_outputs() {
-    use std::fs;
-    use std::path::Path;
-    use regex::Regex;
-
-    let dir_path = "./filesolver/";
-    let pattern = Regex::new(r"cnf_for_w(\d+)_p(\d+)_output\.txt").unwrap();
-
-    match fs::read_dir(dir_path) {
-        Ok(entries) => {
-            for entry in entries.filter_map(Result::ok) {
-                let path = entry.path();
-                if let Some(filename) = path.file_name().and_then(|s| s.to_str()) {
-                    if let Some(caps) = pattern.captures(filename) {
-                        let width: u32 = caps[1].parse().unwrap();
-                        let period: u32 = caps[2].parse().unwrap();
-                        println!("parsing ({width}, {period})...");
-
-                        parse_file_output(&(dir_path.to_string() + filename), width as i32, period as i32);
-                    }
-                }
-            }
-        }
-        Err(e) => eprintln!("Error reading directory: {}", e),
-    }
 }

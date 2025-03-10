@@ -6,6 +6,7 @@ use std::panic::catch_unwind;
 
 use crate::satsolver::satcreator::*;
 
+#[allow(dead_code)]
 pub fn main() {
     (1..10).into_par_iter().for_each(|i| {
         let mut w = 8;
@@ -55,18 +56,6 @@ pub fn run_thing(width: i32, period: i32) -> bool {
     false
 }
 
-fn step64(init: u64) -> u64 {
-    // Bitshift to have the neighbors of each bit be (a, b, c, d, e)
-    let a = init.rotate_right(2);
-    let b = init.rotate_right(1);
-    let c = init;
-    let d = init.rotate_left(1);
-    let e = init.rotate_left(2);
-
-    // Bitwise definition of code 20
-    (a | b | c | d | e) ^ (a ^ b ^ c ^ d ^ e)
-}
-
 fn step256(init: U256) -> U256 {
     // Bitshift to have the neighbors of each bit be (a, b, c, d, e)
     let a = init.rotate_right(2);
@@ -77,14 +66,6 @@ fn step256(init: U256) -> U256 {
 
     // Bitwise definition of code 20
     (a | b | c | d | e) ^ (a ^ b ^ c ^ d ^ e)
-}
-
-fn u64tobits(n: u64) -> Vec<u8> {
-    let mut bits: Vec<u8> = Vec::with_capacity(64);
-    for i in (0..64).rev() {
-        bits.push(((n >> i) & 1) as u8);
-    }
-    bits
 }
 
 fn u256tobits(n: U256) -> Vec<u8> {

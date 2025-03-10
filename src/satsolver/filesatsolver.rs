@@ -30,15 +30,16 @@ fn run_cnf_command(filename: String, w: i32, p: i32) {
     use std::os::unix::process::CommandExt; // For `before_exec`
     use nix::sys::prctl;
 
-    let mut r = Command::new("sh")
-        .arg("-c")
-        .arg(format!("./cryptominisat5 {filename}.cnf > {filename}_output.txt"))
-        .before_exec(|| {
-            prctl::set_pdeathsig(nix::sys::signal::Signal::SIGSTOP).expect("Failed to set parent death signal");
-            Ok(())
-        })
-        .spawn()
-        .expect("Failed to create process");
+    let mut r = unsafe { Command::new("sh")
+            .arg("-c")
+            .arg(format!("./cryptominisat5 {filename}.cnf > {filename}_output.txt"))
+            .pre_exec(|| {
+                prctl::set_pdeathsig(nix::sys::signal::Signal::SIGSTOP).expect("Failed to set parent death signal");
+                Ok(())
+            })
+            .spawn()
+            .expect("Failed to create process")
+        };
 
     let r2 = r.wait();
 

@@ -110,6 +110,7 @@ fn format_u256_as_binary(value: U256) -> String {
     binary_string
 }
 
+#[allow(dead_code)]
 pub fn main() {
     // Setup for the output file
     let mut file = OpenOptions::new()

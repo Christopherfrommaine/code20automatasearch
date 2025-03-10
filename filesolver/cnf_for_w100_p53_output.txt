@@ -12571,3 +12571,27 @@ c [distill] watch-based irred--  cl tried    53979 cl-sh     0 cl-rem    0 lit-r
 c [distill] watch-based   red--  cl tried    12657 cl-sh    21 cl-rem    0 lit-rem     27 T: 0.60 T-out: Y
 c [impl-str] lit bin: 0 set-var: 0 T: 0.02 T-out: N T-r: 99.51% w-visit: 21002
 c [impl-sub] bin: 0 T: 0.10 T-out: N w-visit: 21002
+c rst  geom  stb   vs  5725 11914K   10500  156K   211    5.84    5.84 2009K 14372   36K   257   19.45   19.45
+c [distill-long-red0] cls tried: 6881/6881 T: 31.48 T-out: N T-r: 75.13%
+c [distill-long-red1] cls tried: 11/14366 T: 0.40 T-out: Y T-r: -13.77%
+c [full-probe]  bin_only: 0 set: 0 repl: 0 T: 1.60 T-out: N T-r: 85.43%
+c [distill-bin] useful: 0/211/211 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.03 T-out: N
+c [distill] watch-based irred--  cl tried    53960 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.55 T-out: Y
+c [distill] watch-based   red--  cl tried    12665 cl-sh    28 cl-rem    0 lit-rem     30 T: 0.49 T-out: Y
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on var unsat frequency: conflict_ct
+c [ccnr] Bumped vars: 10501 bump type: 6
+c [ccnr] time: 1.80
+c rst  geom  stb   vs  5726 11962K   10500  156K   211    5.84    5.84 2016K 15480   37K   257   19.34   19.34
+c [distill-long-red0] cls tried: 6872/6872 T: 14.32 T-out: N T-r: 78.80%
+c [distill-long-red1] cls tried: 12/15480 T: 0.27 T-out: Y T-r: -9.62%
+c [full-probe]  bin_only: 1 set: 0 repl: 0 T: 0.06 T-out: N T-r: 99.30%
+c [distill-bin] useful: 0/211/211 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.03 T-out: N
+c [distill] watch-based irred--  cl tried    53386 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.40 T-out: Y
+c [distill] watch-based   red--  cl tried    12685 cl-sh    17 cl-rem    0 lit-rem     21 T: 0.54 T-out: Y
+c [impl-str] lit bin: 0 set-var: 0 T: 0.09 T-out: N T-r: 99.50% w-visit: 21002
+c [impl-sub] bin: 0 T: 0.05 T-out: N w-visit: 21002
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on var unsat frequency: conflict_ct
+c [ccnr] Bumped vars: 10501 bump type: 6
+c [ccnr] time: 1.26

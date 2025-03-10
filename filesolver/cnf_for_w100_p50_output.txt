@@ -12657,3 +12657,14 @@ c [distill] watch-based irred--  cl tried    52083 cl-sh     0 cl-rem    0 lit-r
 c [distill] watch-based   red--  cl tried    10951 cl-sh    18 cl-rem    0 lit-rem     22 T: 0.81 T-out: Y
 c [impl-str] lit bin: 0 set-var: 0 T: 0.01 T-out: N T-r: 99.52% w-visit: 19802
 c [impl-sub] bin: 0 T: 0.15 T-out: N w-visit: 19802
+c rst  geom  stb   vs  5729 11913K    9900  148K   199    5.84    5.84 1969K 13078   35K   241   20.15   20.15
+c [distill-long-red0] cls tried: 6423/6423 T: 80.74 T-out: N T-r: 35.73%
+c [distill-long-red1] cls tried: 4/13077 T: 0.56 T-out: Y T-r: -29.68%
+c [full-probe]  bin_only: 1 set: 0 repl: 0 T: 0.09 T-out: N T-r: 99.33%
+c [distill-bin] useful: 0/199/199 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.06 T-out: N
+c [distill] watch-based irred--  cl tried    52345 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.58 T-out: Y
+c [distill] watch-based   red--  cl tried    11328 cl-sh    13 cl-rem    0 lit-rem     17 T: 0.66 T-out: Y
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on var unsat frequency: conflict_ct
+c [ccnr] Bumped vars: 9901 bump type: 6
+c [ccnr] time: 1.95

@@ -11833,3 +11833,75 @@ c rst  luby  svd  vmt  5531 10545K   15300  228K   306    5.84    5.84 1778K   2
 c rst  luby  svd  vmt  5532 10545K   15300  228K   306    5.84    5.84 1778K   20K   42K   359   18.22   18.22
 c rst  luby  svd  vmt  5533 10545K   15300  228K   306    5.84    5.84 1778K   22K   30K   359   18.03   18.03
 c rst  luby  svd  vmt  5534 10546K   15300  228K   306    5.84    5.84 1778K   22K   30K   359   18.05   18.05
+c rst  luby  svd  vmt  5535 10546K   15300  228K   306    5.84    5.84 1778K   22K   31K   359   18.08   18.07
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on var unsat frequency: conflict_ct
+c [ccnr] Bumped vars: 15301 bump type: 6
+c [ccnr] time: 1.91
+c rst  luby  svd  vmt  5536 10546K   15300  228K   306    5.84    5.84 1778K   22K   31K   359   18.08   18.08
+c rst  luby  svd  vmt  5537 10547K   15300  228K   306    5.84    5.84 1778K   22K   31K   359   18.08   18.08
+c rst  luby  svd  vmt  5538 10547K   15300  228K   306    5.84    5.84 1778K   22K   31K   359   18.08   18.08
+c rst  luby  svd  vmt  5539 10547K   15300  228K   306    5.84    5.84 1778K   22K   31K   359   18.08   18.08
+c rst  luby  svd  vmt  5540 10547K   15300  228K   306    5.84    5.84 1778K   22K   31K   359   18.08   18.08
+c rst  luby  svd  vmt  5541 10547K   15300  228K   306    5.84    5.84 1778K   22K   31K   359   18.09   18.08
+c rst  luby  svd  vmt  5542 10548K   15300  228K   306    5.84    5.84 1778K   22K   31K   359   18.09   18.08
+c [distill] watch-based irred--  cl tried    82149 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.57 T-out: Y
+c [distill] watch-based   red--  cl tried    24817 cl-sh    19 cl-rem    0 lit-rem     23 T: 0.81 T-out: Y
+c rst  luby  svd  vmt  5543 10548K   15300  228K   306    5.84    5.84 1778K   22K   31K   359   18.09   18.09
+c rst  luby  svd  vmt  5544 10548K   15300  228K   306    5.84    5.84 1778K   22K   31K   359   18.09   18.09
+c rst  luby  svd  vmt  5545 10548K   15300  228K   306    5.84    5.84 1778K   23K   32K   359   18.09   18.09
+c rst  luby  svd  vmt  5546 10548K   15300  228K   306    5.84    5.84 1778K   23K   32K   359   18.09   18.09
+c rst  luby  svd  vmt  5547 10548K   15300  228K   306    5.84    5.84 1778K   23K   32K   359   18.09   18.09
+c rst  luby  svd  vmt  5548 10548K   15300  228K   306    5.84    5.84 1778K   23K   32K   359   18.10   18.09
+c rst  luby  svd  vmt  5549 10549K   15300  228K   306    5.84    5.84 1778K   23K   32K   359   18.10   18.09
+c rst  luby  svd  vmt  5550 10550K   15300  228K   306    5.84    5.84 1778K   23K   33K   359   18.12   18.11
+c rst  luby  svd  vmt  5551 10551K   15300  228K   306    5.84    5.84 1780K   20K   36K   359   18.14   18.14
+c [distill-long-red0] cls tried: 3201/3201 T: 7.17 T-out: N T-r: 91.00%
+c [distill-long-red1] cls tried: 5/20237 T: 0.31 T-out: Y T-r: -52.91%
+c [impl-str] lit bin: 0 set-var: 0 T: 0.02 T-out: N T-r: 99.54% w-visit: 30602
+c [impl-sub] bin: 0 T: 0.11 T-out: N w-visit: 30602
+c rst  luby  svd  vmt  5552 10554K   15300  228K   306    5.84    5.84 1780K   20K   39K   359   18.24   18.23
+c rst  luby  svd  vmt  5553 10561K   15300  228K   306    5.84    5.84 1782K   20K   30K   359   18.10   18.09
+c [full-probe]  bin_only: 1 set: 0 repl: 0 T: 0.05 T-out: N T-r: 99.34%
+c [distill-bin] useful: 0/306/306 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.03 T-out: N
+c rst  luby  svd  vmt  5554 10574K   15300  228K   306    5.84    5.84 1784K   20K   41K   359   18.48   18.48
+c [distill-long-red0] cls tried: 4668/4668 T: 11.41 T-out: N T-r: 84.78%
+c [distill-long-red1] cls tried: 5/20512 T: 0.34 T-out: Y T-r: -31.62%
+c [distill] watch-based irred--  cl tried    81880 cl-sh     0 cl-rem    1 lit-rem      0 T: 0.55 T-out: Y
+c [distill] watch-based   red--  cl tried    24981 cl-sh    14 cl-rem    0 lit-rem     17 T: 0.55 T-out: Y
+c rst  luby  svd  vmt  5555 10599K   15300  228K   307    5.84    5.84 1788K   21K   38K   358   18.74   18.74
+c [distill-long-red0] cls tried: 3875/3875 T: 7.91 T-out: N T-r: 89.27%
+c [distill-long-red1] cls tried: 4/21937 T: 0.33 T-out: Y T-r: -23.30%
+c [full-probe]  bin_only: 0 set: 0 repl: 0 T: 0.85 T-out: N T-r: 86.39%
+c [distill-bin] useful: 0/307/307 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.03 T-out: N
+c [distill] watch-based irred--  cl tried    82258 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.51 T-out: Y
+c [distill] watch-based   red--  cl tried    24334 cl-sh    16 cl-rem    0 lit-rem     21 T: 0.68 T-out: Y
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on clause weights
+c [ccnr] Bumped vars: 102 bump type: 6
+c [ccnr] time: 2.27
+c rst  geom best  vmt  5556 10599K   15300  228K   307    5.84    5.84 1788K   21K   38K   358   18.74   18.74
+c rst  geom best  vmt  5557 10599K   15300  228K   307    5.84    5.84 1788K   21K   38K   358   18.74   18.74
+c rst  geom best  vmt  5558 10600K   15300  228K   307    5.84    5.84 1788K   22K   38K   358   18.74   18.74
+c rst  geom best  vmt  5559 10600K   15300  228K   307    5.84    5.84 1788K   22K   38K   358   18.74   18.74
+c rst  geom best  vmt  5560 10600K   15300  228K   307    5.84    5.84 1788K   22K   38K   358   18.74   18.74
+c rst  geom best  vmt  5561 10600K   15300  228K   307    5.84    5.84 1788K   22K   38K   358   18.74   18.74
+c rst  geom best  vmt  5562 10600K   15300  228K   307    5.84    5.84 1789K 18286   41K   358   18.75   18.74
+c rst  geom best  vmt  5563 10600K   15300  228K   307    5.84    5.84 1789K 18332   42K   358   18.75   18.75
+c rst  geom best  vmt  5564 10601K   15300  228K   307    5.84    5.84 1789K 18390   42K   358   18.75   18.75
+c rst  geom best  vmt  5565 10601K   15300  228K   307    5.84    5.84 1789K 18511   42K   358   18.75   18.75
+c rst  geom best  vmt  5566 10601K   15300  228K   307    5.84    5.84 1789K 18612   42K   358   18.75   18.75
+c rst  geom best  vmt  5567 10602K   15300  228K   307    5.84    5.84 1789K 18700   42K   358   18.75   18.75
+c rst  geom best  vmt  5568 10602K   15300  228K   307    5.84    5.84 1789K 18756   42K   358   18.76   18.75
+c rst  geom best  vmt  5569 10602K   15300  228K   307    5.84    5.84 1789K 18878   43K   358   18.76   18.75
+c rst  geom best  vmt  5570 10603K   15300  228K   307    5.84    5.84 1789K 18972   43K   358   18.77   18.76
+c rst  geom best  vmt  5571 10603K   15300  228K   307    5.84    5.84 1789K 19055   43K   358   18.77   18.76
+c rst  geom best  vmt  5572 10604K   15300  228K   307    5.84    5.84 1789K 19188   44K   358   18.77   18.77
+c rst  geom best  vmt  5573 10604K   15300  228K   307    5.84    5.84 1789K 19428   44K   358   18.78   18.77
+c rst  geom best  vmt  5574 10605K   15300  228K   307    5.84    5.84 1789K 19640   44K   358   18.79   18.78
+c rst  geom best  vmt  5575 10605K   15300  228K   307    5.84    5.84 1790K   21K   32K   358   18.47   18.47
+c rst  geom best  vmt  5576 10606K   15300  228K   307    5.84    5.84 1790K   21K   32K   358   18.48   18.48
+c rst  geom best  vmt  5577 10607K   15300  228K   307    5.84    5.84 1790K   21K   33K   358   18.48   18.48
+c rst  geom best  vmt  5578 10608K   15300  228K   307    5.84    5.84 1790K   22K   34K   358   18.49   18.49
+c rst  geom best  vmt  5579 10609K   15300  228K   307    5.84    5.84 1790K   22K   34K   358   18.50   18.49
+c rst  geom best  vmt  5580 10610K   15300  228K   307    5.84    5.84 1790K   22K   35K   358   18.53   18.53

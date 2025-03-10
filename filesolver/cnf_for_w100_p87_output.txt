@@ -11388,3 +11388,193 @@ c rst  luby ibes  vmt  5174 10393K   17300  257K   346    5.84    5.84 1629K 157
 c rst  luby ibes  vmt  5175 10394K   17300  257K   346    5.84    5.84 1629K 15921   45K   400   17.64   17.63
 c [distill] watch-based irred--  cl tried    98131 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.68 T-out: Y
 c [distill] watch-based   red--  cl tried    29961 cl-sh    18 cl-rem    0 lit-rem     21 T: 0.69 T-out: Y
+c rst  luby ibes  vmt  5176 10395K   17300  257K   346    5.84    5.84 1629K 17737   29K   400   17.50   17.50
+c rst  luby ibes  vmt  5177 10396K   17300  257K   346    5.84    5.84 1629K 17766   29K   400   17.50   17.50
+c rst  luby ibes  vmt  5178 10396K   17300  257K   346    5.84    5.84 1629K 17804   29K   400   17.50   17.50
+c rst  luby ibes  vmt  5179 10396K   17300  257K   346    5.84    5.84 1629K 17865   29K   400   17.50   17.50
+c rst  luby ibes  vmt  5180 10396K   17300  257K   346    5.84    5.84 1629K 17887   29K   400   17.50   17.50
+c rst  luby ibes  vmt  5181 10396K   17300  257K   346    5.84    5.84 1629K 17902   29K   400   17.51   17.50
+c rst  luby ibes  vmt  5182 10396K   17300  257K   346    5.84    5.84 1629K 17925   30K   400   17.51   17.50
+c rst  luby ibes  vmt  5183 10397K   17300  257K   346    5.84    5.84 1629K 18020   30K   400   17.51   17.51
+c rst  luby ibes  vmt  5184 10397K   17300  257K   346    5.84    5.84 1629K 18042   30K   400   17.51   17.51
+c rst  luby ibes  vmt  5185 10397K   17300  257K   346    5.84    5.84 1629K 18076   30K   400   17.52   17.51
+c rst  luby ibes  vmt  5186 10397K   17300  257K   346    5.84    5.84 1629K 18123   30K   400   17.52   17.51
+c rst  luby ibes  vmt  5187 10397K   17300  257K   346    5.84    5.84 1629K 18149   30K   400   17.52   17.51
+c rst  luby ibes  vmt  5188 10397K   17300  257K   346    5.84    5.84 1629K 18164   30K   400   17.52   17.51
+c rst  luby ibes  vmt  5189 10397K   17300  257K   346    5.84    5.84 1629K 18185   30K   400   17.52   17.51
+c rst  luby ibes  vmt  5190 10398K   17300  257K   346    5.84    5.84 1629K 18291   31K   400   17.52   17.52
+c rst  luby ibes  vmt  5191 10399K   17300  257K   346    5.84    5.84 1629K 18407   31K   400   17.53   17.52
+c rst  luby ibes  vmt  5192 10399K   17300  257K   346    5.84    5.84 1629K 18451   31K   400   17.53   17.52
+c rst  luby ibes  vmt  5193 10399K   17300  257K   346    5.84    5.84 1629K 18485   32K   400   17.53   17.52
+c rst  luby ibes  vmt  5194 10399K   17300  257K   346    5.84    5.84 1629K 18558   32K   400   17.54   17.54
+c rst  luby ibes  vmt  5195 10399K   17300  257K   346    5.84    5.84 1629K 18572   32K   400   17.54   17.54
+c rst  luby ibes  vmt  5196 10399K   17300  257K   346    5.84    5.84 1629K 18594   32K   400   17.55   17.54
+c [distill-long-red0] cls tried: 1542/1542 T: 3.44 T-out: N T-r: 96.55%
+c [distill-long-red1] cls tried: 6/18573 T: 0.43 T-out: Y T-r: -20.25%
+c rst  luby ibes  vmt  5197 10399K   17300  257K   346    5.84    5.84 1629K 18644   32K   400   17.54   17.54
+c rst  luby ibes  vmt  5198 10400K   17300  257K   346    5.84    5.84 1629K 18726   32K   400   17.55   17.54
+c rst  luby ibes  vmt  5199 10400K   17300  257K   346    5.84    5.84 1629K 18758   32K   400   17.55   17.54
+c rst  luby ibes  vmt  5200 10400K   17300  257K   346    5.84    5.84 1629K 18791   32K   400   17.55   17.54
+c rst  luby ibes  vmt  5201 10400K   17300  257K   346    5.84    5.84 1630K 17119   33K   400   17.55   17.54
+c rst  luby ibes  vmt  5202 10400K   17300  257K   346    5.84    5.84 1630K 17141   34K   400   17.55   17.54
+c rst  luby ibes  vmt  5203 10400K   17300  257K   346    5.84    5.84 1630K 17151   34K   400   17.55   17.55
+c rst  luby ibes  vmt  5204 10401K   17300  257K   346    5.84    5.84 1630K 17204   34K   400   17.55   17.55
+c rst  luby ibes  vmt  5205 10401K   17300  257K   346    5.84    5.84 1630K 17289   34K   400   17.55   17.55
+c rst  luby ibes  vmt  5206 10402K   17300  257K   346    5.84    5.84 1630K 17456   35K   400   17.56   17.55
+c rst  luby ibes  vmt  5207 10403K   17300  257K   346    5.84    5.84 1630K 17980   36K   400   17.57   17.57
+c rst  luby ibes  vmt  5208 10407K   17300  257K   346    5.84    5.84 1630K 19344   37K   400   17.66   17.65
+c rst  luby ibes  vmt  5209 10413K   17300  257K   346    5.84    5.84 1632K 19930   29K   400   17.60   17.59
+c [full-probe]  bin_only: 0 set: 0 repl: 0 T: 0.79 T-out: N T-r: 87.34%
+c [distill-bin] useful: 0/346/346 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.03 T-out: N
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on var unsat frequency: conflict_ct
+c [ccnr] Bumped vars: 17301 bump type: 6
+c [ccnr] time: 1.37
+c rst  luby ibes  vmt  5210 10413K   17300  257K   346    5.84    5.84 1632K 19952   29K   400   17.60   17.59
+c rst  luby ibes  vmt  5211 10413K   17300  257K   346    5.84    5.84 1632K   20K   29K   400   17.60   17.59
+c rst  luby ibes  vmt  5212 10413K   17300  257K   346    5.84    5.84 1632K   20K   29K   400   17.60   17.60
+c rst  luby ibes  vmt  5213 10414K   17300  257K   346    5.84    5.84 1632K   20K   29K   400   17.60   17.60
+c rst  luby ibes  vmt  5214 10414K   17300  257K   346    5.84    5.84 1632K   20K   29K   400   17.60   17.60
+c rst  luby ibes  vmt  5215 10414K   17300  257K   346    5.84    5.84 1632K   20K   29K   400   17.61   17.60
+c rst  luby ibes  vmt  5216 10414K   17300  257K   346    5.84    5.84 1632K   20K   29K   400   17.61   17.61
+c [distill-long-red0] cls tried: 3126/3126 T: 5.43 T-out: N T-r: 94.10%
+c [distill-long-red1] cls tried: 4/20218 T: 0.24 T-out: Y T-r: -11.36%
+c rst  luby ibes  vmt  5217 10414K   17300  257K   346    5.84    5.84 1632K   20K   29K   400   17.61   17.61
+c rst  luby ibes  vmt  5218 10414K   17300  257K   346    5.84    5.84 1632K   20K   30K   400   17.61   17.61
+c rst  luby ibes  vmt  5219 10415K   17300  257K   346    5.84    5.84 1632K   20K   30K   400   17.61   17.61
+c rst  luby ibes  vmt  5220 10415K   17300  257K   346    5.84    5.84 1632K   20K   30K   400   17.61   17.61
+c rst  luby ibes  vmt  5221 10415K   17300  257K   346    5.84    5.84 1632K   20K   30K   400   17.61   17.61
+c rst  luby ibes  vmt  5222 10415K   17300  257K   346    5.84    5.84 1632K   20K   30K   400   17.61   17.61
+c rst  luby ibes  vmt  5223 10415K   17300  257K   346    5.84    5.84 1632K   20K   30K   400   17.62   17.61
+c rst  luby ibes  vmt  5224 10416K   17300  257K   346    5.84    5.84 1632K   20K   31K   400   17.67   17.66
+c rst  luby ibes  vmt  5225 10416K   17300  257K   346    5.84    5.84 1632K   20K   31K   400   17.67   17.66
+c rst  luby ibes  vmt  5226 10416K   17300  257K   346    5.84    5.84 1632K   20K   31K   400   17.67   17.66
+c rst  luby ibes  vmt  5227 10417K   17300  257K   346    5.84    5.84 1632K   20K   31K   400   17.67   17.67
+c rst  luby ibes  vmt  5228 10417K   17300  257K   346    5.84    5.84 1632K   20K   31K   400   17.67   17.67
+c rst  luby ibes  vmt  5229 10417K   17300  257K   346    5.84    5.84 1632K   20K   31K   400   17.67   17.67
+c rst  luby ibes  vmt  5230 10417K   17300  257K   346    5.84    5.84 1632K   21K   31K   400   17.67   17.67
+c rst  luby ibes  vmt  5231 10417K   17300  257K   346    5.84    5.84 1632K   21K   32K   400   17.67   17.67
+c rst  luby ibes  vmt  5232 10418K   17300  257K   346    5.84    5.84 1632K   21K   32K   400   17.67   17.67
+c rst  luby ibes  vmt  5233 10418K   17300  257K   346    5.84    5.84 1632K   21K   32K   400   17.67   17.67
+c rst  luby ibes  vmt  5234 10418K   17300  257K   346    5.84    5.84 1632K   21K   32K   400   17.67   17.67
+c rst  luby ibes  vmt  5235 10418K   17300  257K   346    5.84    5.84 1632K   21K   32K   400   17.68   17.67
+c rst  luby ibes  vmt  5236 10418K   17300  257K   346    5.84    5.84 1632K   21K   32K   400   17.68   17.67
+c rst  luby ibes  vmt  5237 10418K   17300  257K   346    5.84    5.84 1632K   21K   32K   400   17.68   17.68
+c rst  luby ibes  vmt  5238 10419K   17300  257K   346    5.84    5.84 1632K   21K   32K   400   17.68   17.68
+c rst  luby ibes  vmt  5239 10420K   17300  257K   346    5.84    5.84 1632K   21K   33K   400   17.69   17.69
+c [distill] watch-based irred--  cl tried    98006 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.71 T-out: Y
+c [distill] watch-based   red--  cl tried    29732 cl-sh    18 cl-rem    0 lit-rem     19 T: 0.67 T-out: Y
+c rst  luby ibes  vmt  5240 10421K   17300  257K   346    5.84    5.84 1633K 19974   35K   400   17.75   17.75
+c rst  luby ibes  vmt  5241 10421K   17300  257K   346    5.84    5.84 1633K 19992   35K   400   17.75   17.75
+c rst  luby ibes  vmt  5242 10421K   17300  257K   346    5.84    5.84 1633K   20K   35K   400   17.76   17.75
+c rst  luby ibes  vmt  5243 10422K   17300  257K   346    5.84    5.84 1633K   20K   35K   400   17.76   17.75
+c rst  luby ibes  vmt  5244 10422K   17300  257K   346    5.84    5.84 1633K   20K   35K   400   17.76   17.76
+c rst  luby ibes  vmt  5245 10422K   17300  257K   346    5.84    5.84 1633K   20K   36K   400   17.76   17.76
+c rst  luby ibes  vmt  5246 10422K   17300  257K   346    5.84    5.84 1633K   20K   36K   400   17.76   17.76
+c rst  luby ibes  vmt  5247 10422K   17300  257K   346    5.84    5.84 1633K   20K   36K   400   17.76   17.76
+c rst  luby ibes  vmt  5248 10422K   17300  257K   346    5.84    5.84 1633K   20K   36K   400   17.76   17.76
+c rst  luby ibes  vmt  5249 10423K   17300  257K   346    5.84    5.84 1633K   20K   36K   400   17.76   17.76
+c rst  luby ibes  vmt  5250 10423K   17300  257K   346    5.84    5.84 1633K   20K   36K   400   17.76   17.76
+c rst  luby ibes  vmt  5251 10423K   17300  257K   346    5.84    5.84 1633K   20K   36K   400   17.76   17.76
+c rst  luby ibes  vmt  5252 10423K   17300  257K   346    5.84    5.84 1633K   20K   36K   400   17.76   17.76
+c rst  luby ibes  vmt  5253 10423K   17300  257K   346    5.84    5.84 1633K   20K   37K   400   17.77   17.76
+c rst  luby ibes  vmt  5254 10424K   17300  257K   346    5.84    5.84 1633K   20K   37K   400   17.77   17.76
+c rst  luby ibes  vmt  5255 10424K   17300  257K   346    5.84    5.84 1634K   20K   37K   400   17.77   17.77
+c rst  luby ibes  vmt  5256 10424K   17300  257K   346    5.84    5.84 1634K   20K   37K   400   17.78   17.77
+c rst  luby ibes  vmt  5257 10425K   17300  257K   346    5.84    5.84 1634K   20K   37K   400   17.78   17.77
+c rst  luby ibes  vmt  5258 10425K   17300  257K   346    5.84    5.84 1634K   21K   37K   400   17.78   17.77
+c rst  luby ibes  vmt  5259 10425K   17300  257K   346    5.84    5.84 1634K   21K   38K   400   17.78   17.77
+c rst  luby ibes  vmt  5260 10425K   17300  257K   346    5.84    5.84 1634K   21K   38K   400   17.78   17.77
+c rst  luby ibes  vmt  5261 10425K   17300  257K   346    5.84    5.84 1634K   22K   27K   400   17.61   17.60
+c rst  luby ibes  vmt  5262 10426K   17300  257K   346    5.84    5.84 1634K   22K   27K   400   17.61   17.61
+c rst  luby ibes  vmt  5263 10426K   17300  257K   346    5.84    5.84 1634K   22K   27K   400   17.61   17.61
+c rst  luby ibes  vmt  5264 10426K   17300  257K   346    5.84    5.84 1634K   22K   27K   400   17.61   17.61
+c rst  luby ibes  vmt  5265 10426K   17300  257K   346    5.84    5.84 1634K   22K   27K   400   17.61   17.61
+c rst  luby ibes  vmt  5266 10426K   17300  257K   346    5.84    5.84 1634K   22K   27K   400   17.62   17.61
+c rst  luby ibes  vmt  5267 10426K   17300  257K   346    5.84    5.84 1634K   22K   27K   400   17.62   17.61
+c rst  luby ibes  vmt  5268 10426K   17300  257K   346    5.84    5.84 1634K   22K   27K   400   17.62   17.62
+c rst  luby ibes  vmt  5269 10427K   17300  257K   346    5.84    5.84 1634K   22K   28K   400   17.62   17.62
+c rst  luby ibes  vmt  5270 10428K   17300  257K   346    5.84    5.84 1634K   23K   28K   400   17.63   17.62
+c rst  luby ibes  vmt  5271 10429K   17300  257K   346    5.84    5.84 1634K   24K   29K   400   17.64   17.63
+c [impl-str] lit bin: 0 set-var: 0 T: 0.01 T-out: N T-r: 99.57% w-visit: 34602
+c [impl-sub] bin: 0 T: 0.12 T-out: N w-visit: 34602
+c rst  luby ibes  vmt  5272 10432K   17300  257K   346    5.84    5.84 1635K   21K   33K   400   17.67   17.66
+c [distill-long-red0] cls tried: 3550/3550 T: 6.27 T-out: N T-r: 91.99%
+c [distill-long-red1] cls tried: 3/21233 T: 0.31 T-out: Y T-r: -28.75%
+c rst  luby ibes  vmt  5273 10432K   17300  257K   346    5.84    5.84 1635K   21K   33K   400   17.67   17.66
+c rst  luby ibes  vmt  5274 10433K   17300  257K   346    5.84    5.84 1635K   21K   33K   400   17.67   17.67
+c rst  luby ibes  vmt  5275 10433K   17300  257K   346    5.84    5.84 1636K   21K   33K   400   17.67   17.67
+c rst  luby ibes  vmt  5276 10433K   17300  257K   346    5.84    5.84 1636K   21K   34K   400   17.67   17.67
+c rst  luby ibes  vmt  5277 10433K   17300  257K   346    5.84    5.84 1636K   21K   34K   400   17.67   17.67
+c rst  luby ibes  vmt  5278 10433K   17300  257K   346    5.84    5.84 1636K   21K   34K   400   17.67   17.67
+c [full-probe]  bin_only: 1 set: 0 repl: 0 T: 0.09 T-out: N T-r: 99.37%
+c [distill-bin] useful: 0/346/346 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.04 T-out: N
+c rst  luby ibes  vmt  5279 10434K   17300  257K   346    5.84    5.84 1636K   21K   34K   400   17.71   17.71
+c rst  luby ibes  vmt  5280 10434K   17300  257K   346    5.84    5.84 1636K   21K   34K   400   17.71   17.71
+c rst  luby ibes  vmt  5281 10434K   17300  257K   346    5.84    5.84 1636K   21K   34K   400   17.71   17.71
+c rst  luby ibes  vmt  5282 10434K   17300  257K   346    5.84    5.84 1636K   21K   34K   400   17.71   17.71
+c rst  luby ibes  vmt  5283 10434K   17300  257K   346    5.84    5.84 1636K   21K   34K   400   17.71   17.71
+c rst  luby ibes  vmt  5284 10434K   17300  257K   346    5.84    5.84 1636K   21K   34K   400   17.71   17.71
+c rst  luby ibes  vmt  5285 10434K   17300  257K   346    5.84    5.84 1636K   21K   34K   400   17.72   17.71
+c rst  luby ibes  vmt  5286 10435K   17300  257K   346    5.84    5.84 1636K   22K   35K   400   17.72   17.72
+c rst  luby ibes  vmt  5287 10436K   17300  257K   346    5.84    5.84 1636K   22K   35K   400   17.73   17.72
+c rst  luby ibes  vmt  5288 10436K   17300  257K   346    5.84    5.84 1636K   22K   35K   400   17.73   17.72
+c rst  luby ibes  vmt  5289 10436K   17300  257K   346    5.84    5.84 1636K   22K   35K   400   17.73   17.72
+c rst  luby ibes  vmt  5290 10436K   17300  257K   346    5.84    5.84 1636K   22K   35K   400   17.73   17.73
+c rst  luby ibes  vmt  5291 10436K   17300  257K   346    5.84    5.84 1636K   22K   35K   400   17.73   17.73
+c rst  luby ibes  vmt  5292 10436K   17300  257K   346    5.84    5.84 1636K   22K   36K   400   17.73   17.73
+c rst  luby ibes  vmt  5293 10436K   17300  257K   346    5.84    5.84 1636K   22K   36K   400   17.73   17.73
+c rst  luby ibes  vmt  5294 10437K   17300  257K   346    5.84    5.84 1636K   22K   36K   400   17.73   17.73
+c rst  luby ibes  vmt  5295 10437K   17300  257K   346    5.84    5.84 1636K   22K   36K   400   17.73   17.73
+c rst  luby ibes  vmt  5296 10437K   17300  257K   346    5.84    5.84 1636K   22K   36K   400   17.73   17.73
+c rst  luby ibes  vmt  5297 10437K   17300  257K   346    5.84    5.84 1636K   22K   36K   400   17.74   17.73
+c rst  luby ibes  vmt  5298 10437K   17300  257K   346    5.84    5.84 1636K   22K   36K   400   17.74   17.73
+c rst  luby ibes  vmt  5299 10437K   17300  257K   346    5.84    5.84 1636K   23K   36K   400   17.74   17.73
+c rst  luby ibes  vmt  5300 10438K   17300  257K   346    5.84    5.84 1636K   23K   36K   400   17.74   17.74
+c rst  luby ibes  vmt  5301 10438K   17300  257K   346    5.84    5.84 1636K   23K   37K   400   17.74   17.74
+c rst  luby ibes  vmt  5302 10439K   17300  257K   346    5.84    5.84 1636K   23K   37K   400   17.75   17.75
+c rst  luby ibes  vmt  5303 10440K   17300  257K   346    5.84    5.84 1637K   20K   29K   400   17.64   17.64
+c rst  luby ibes  vmt  5304 10441K   17300  257K   346    5.84    5.84 1637K   20K   29K   400   17.64   17.64
+c rst  luby ibes  vmt  5305 10441K   17300  257K   346    5.84    5.84 1637K   20K   29K   400   17.64   17.64
+c rst  luby ibes  vmt  5306 10441K   17300  257K   346    5.84    5.84 1637K   21K   29K   400   17.65   17.64
+c rst  luby ibes  vmt  5307 10441K   17300  257K   346    5.84    5.84 1637K   21K   29K   400   17.65   17.64
+c rst  luby ibes  vmt  5308 10441K   17300  257K   346    5.84    5.84 1637K   21K   29K   400   17.65   17.64
+c rst  luby ibes  vmt  5309 10441K   17300  257K   346    5.84    5.84 1637K   21K   29K   400   17.65   17.65
+c rst  luby ibes  vmt  5310 10442K   17300  257K   346    5.84    5.84 1637K   21K   29K   400   17.65   17.65
+c rst  luby ibes  vmt  5311 10442K   17300  257K   346    5.84    5.84 1637K   21K   30K   400   17.65   17.65
+c rst  luby ibes  vmt  5312 10442K   17300  257K   346    5.84    5.84 1637K   21K   30K   400   17.65   17.65
+c rst  luby ibes  vmt  5313 10442K   17300  257K   346    5.84    5.84 1637K   21K   30K   400   17.65   17.65
+c rst  luby ibes  vmt  5314 10442K   17300  257K   346    5.84    5.84 1637K   21K   30K   400   17.65   17.65
+c rst  luby ibes  vmt  5315 10442K   17300  257K   346    5.84    5.84 1637K   21K   30K   400   17.65   17.65
+c rst  luby ibes  vmt  5316 10442K   17300  257K   346    5.84    5.84 1637K   21K   30K   400   17.67   17.67
+c rst  luby ibes  vmt  5317 10443K   17300  257K   346    5.84    5.84 1637K   21K   30K   400   17.68   17.67
+c rst  luby ibes  vmt  5318 10444K   17300  257K   346    5.84    5.84 1637K   21K   31K   400   17.68   17.67
+c rst  luby ibes  vmt  5319 10444K   17300  257K   346    5.84    5.84 1637K   21K   31K   400   17.68   17.67
+c rst  luby ibes  vmt  5320 10444K   17300  257K   346    5.84    5.84 1637K   21K   31K   400   17.68   17.67
+c rst  luby ibes  vmt  5321 10444K   17300  257K   346    5.84    5.84 1637K   22K   31K   400   17.68   17.68
+c rst  luby ibes  vmt  5322 10444K   17300  257K   346    5.84    5.84 1637K   22K   31K   400   17.68   17.68
+c rst  luby ibes  vmt  5323 10444K   17300  257K   346    5.84    5.84 1637K   22K   31K   400   17.68   17.68
+c rst  luby ibes  vmt  5324 10444K   17300  257K   346    5.84    5.84 1637K   22K   31K   400   17.68   17.68
+c rst  luby ibes  vmt  5325 10445K   17300  257K   346    5.84    5.84 1637K   22K   32K   400   17.69   17.68
+c [distill] watch-based irred--  cl tried    97647 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.62 T-out: Y
+c [distill] watch-based   red--  cl tried    30106 cl-sh    14 cl-rem    0 lit-rem     17 T: 0.61 T-out: Y
+c rst  luby ibes  vmt  5326 10445K   17300  257K   346    5.84    5.84 1637K   22K   32K   400   17.69   17.69
+c rst  luby ibes  vmt  5327 10445K   17300  257K   346    5.84    5.84 1637K   22K   32K   400   17.69   17.69
+c rst  luby ibes  vmt  5328 10445K   17300  257K   346    5.84    5.84 1637K   22K   32K   400   17.69   17.69
+c rst  luby ibes  vmt  5329 10445K   17300  257K   346    5.84    5.84 1637K   22K   32K   400   17.69   17.69
+c rst  luby ibes  vmt  5330 10445K   17300  257K   346    5.84    5.84 1637K   22K   32K   400   17.69   17.69
+c rst  luby ibes  vmt  5331 10446K   17300  257K   346    5.84    5.84 1637K   22K   32K   400   17.69   17.69
+c rst  luby ibes  vmt  5332 10446K   17300  257K   346    5.84    5.84 1637K   22K   32K   400   17.70   17.70
+c rst  luby ibes  vmt  5333 10447K   17300  257K   346    5.84    5.84 1637K   22K   33K   400   17.71   17.70
+c rst  luby ibes  vmt  5334 10448K   17300  257K   346    5.84    5.84 1638K   22K   34K   400   17.78   17.78
+c [distill-long-red0] cls tried: 2028/2028 T: 3.86 T-out: N T-r: 95.49%
+c [distill-long-red1] cls tried: 6/22941 T: 0.27 T-out: Y T-r: -38.71%
+c rst  luby ibes  vmt  5335 10452K   17300  257K   346    5.84    5.84 1638K 19812   40K   400   17.83   17.83
+c rst  luby ibes  vmt  5336 10458K   17300  257K   346    5.84    5.84 1639K   22K   35K   400   17.75   17.75
+c [full-probe]  bin_only: 0 set: 0 repl: 0 T: 0.82 T-out: N T-r: 87.29%
+c [distill-bin] useful: 0/346/346 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.03 T-out: N
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on clause weights
+c [ccnr] Bumped vars: 105 bump type: 6
+c [ccnr] time: 1.59
+c rst  luby ibes  vmt  5337 10471K   17300  257K   346    5.84    5.84 1642K   20K   33K   400   17.91   17.91

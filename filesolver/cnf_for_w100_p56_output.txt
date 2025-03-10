@@ -13531,3 +13531,10 @@ c [ccnr] saving best assignment phase to stable_polar
 c [ccnr] bumping based on clause weights
 c [ccnr] Bumped vars: 101 bump type: 6
 c [ccnr] time: 1.92
+c rst  geom ibes  vmt  6498 13243K   11100  165K   223    5.84    5.84 2242K 15001   46K   269   19.53   19.53
+c [distill-long-red0] cls tried: 5434/5434 T: 25.64 T-out: N T-r: 78.00%
+c [distill-long-red1] cls tried: 6/14999 T: 0.61 T-out: Y T-r: -35.90%
+c [full-probe]  bin_only: 0 set: 0 repl: 0 T: 1.84 T-out: N T-r: 83.88%
+c [distill-bin] useful: 0/223/223 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.07 T-out: N
+c [distill] watch-based irred--  cl tried    50526 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.94 T-out: Y
+c [distill] watch-based   red--  cl tried    12491 cl-sh    27 cl-rem    0 lit-rem     33 T: 0.90 T-out: Y

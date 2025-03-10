@@ -13499,3 +13499,25 @@ c [ccnr] time: 1.79
 c rst  geom best  vmt  6489 12935K   12300  183K   247    5.84    5.84 2263K   21K   35K   283   19.18   19.18
 c [distill-long-red0] cls tried: 3435/3435 T: 12.38 T-out: N T-r: 85.21%
 c [distill-long-red1] cls tried: 4/21199 T: 0.44 T-out: Y T-r: -69.31%
+c rst  geom best  vmt  6490 12943K   12300  183K   247    5.84    5.84 2265K 19659   43K   283   19.31   19.31
+c [full-probe]  bin_only: 1 set: 0 repl: 0 T: 0.14 T-out: N T-r: 99.21%
+c [distill-bin] useful: 0/247/247 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.03 T-out: N
+c rst  geom best  vmt  6491 12953K   12300  183K   247    5.84    5.84 2267K   20K   38K   283   19.32   19.32
+c [distill-long-red0] cls tried: 4421/4421 T: 19.18 T-out: N T-r: 75.91%
+c [distill-long-red1] cls tried: 7/20713 T: 0.27 T-out: Y T-r: -31.47%
+c [distill] watch-based irred--  cl tried    55589 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.50 T-out: Y
+c [distill] watch-based   red--  cl tried    15532 cl-sh    30 cl-rem    0 lit-rem     37 T: 0.61 T-out: Y
+c rst  geom best  vmt  6492 12963K   12300  183K   247    5.84    5.84 2270K   21K   31K   283   19.34   19.34
+c rst  geom best  vmt  6493 12975K   12300  183K   247    5.84    5.84 2271K 19634   43K   283   19.41   19.41
+c [distill-long-red0] cls tried: 3628/3628 T: 13.44 T-out: N T-r: 81.77%
+c [distill-long-red1] cls tried: 5/19621 T: 0.30 T-out: Y T-r: -15.35%
+c [full-probe]  bin_only: 0 set: 0 repl: 0 T: 0.98 T-out: N T-r: 83.57%
+c [distill-bin] useful: 0/247/247 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.04 T-out: N
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on var unsat frequency: conflict_ct
+c [ccnr] Bumped vars: 12301 bump type: 6
+c [ccnr] time: 1.42
+c rst  geom best  vmt  6494 12987K   12300  183K   247    5.84    5.84 2273K   21K   44K   283   19.57   19.57
+c [distill] watch-based irred--  cl tried    54717 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.41 T-out: Y
+c [distill] watch-based   red--  cl tried    15742 cl-sh    31 cl-rem    0 lit-rem     35 T: 0.56 T-out: Y
+c rst  geom  stb  vmt  6495 13001K   12300  183K   247    5.84    5.84 2276K 18879   42K   283   19.39   19.39

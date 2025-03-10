@@ -11961,3 +11961,8 @@ c [distill] watch-based irred--  cl tried    78915 cl-sh     0 cl-rem    0 lit-r
 c [distill] watch-based   red--  cl tried    23172 cl-sh    19 cl-rem    0 lit-rem     24 T: 0.60 T-out: Y
 c [impl-str] lit bin: 0 set-var: 0 T: 0.01 T-out: N T-r: 99.53% w-visit: 30202
 c [impl-sub] bin: 0 T: 0.06 T-out: N w-visit: 30202
+c rst  geom  stb  vmt  5584 10821K   15100  225K   302    5.84    5.84 1830K 17699   39K   344   19.40   19.40
+c [distill-long-red0] cls tried: 5708/5708 T: 23.09 T-out: N T-r: 64.54%
+c [distill-long-red1] cls tried: 6/17684 T: 0.31 T-out: Y T-r: -28.92%
+c [full-probe]  bin_only: 0 set: 0 repl: 0 T: 0.88 T-out: N T-r: 86.17%
+c [distill-bin] useful: 0/302/302 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.03 T-out: N

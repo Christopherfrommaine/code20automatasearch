@@ -6911,3 +6911,12 @@ c [ccnr] saving best assignment phase to stable_polar
 c [ccnr] bumping based on var unsat frequency: conflict_ct
 c [ccnr] Bumped vars: 1701 bump type: 6
 c [ccnr] time: 0.74
+c rst  geom best   vs  3452 4792K    1698   26K    35    5.84    5.83  543K  7165   45K    40   15.81   15.81
+c [distill-long-red0] cls tried: 2431/2431 T: 24.77 T-out: N T-r: 84.96%
+c [distill-long-red1] cls tried: 19/7147 T: 1.04 T-out: Y T-r: -16.64%
+c [full-probe]  bin_only: 1 set: 0 repl: 0 T: 0.11 T-out: N T-r: 99.81%
+c [distill-bin] useful: 0/35/35 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.06 T-out: N
+c [distill] watch-based irred--  cl tried    32663 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.98 T-out: Y
+c [distill] watch-based   red--  cl tried    12471 cl-sh     1 cl-rem    0 lit-rem      1 T: 0.87 T-out: Y
+c [impl-str] lit bin: 0 set-var: 0 T: 0.03 T-out: N T-r: 99.86% w-visit: 3402
+c [impl-sub] bin: 0 T: 0.05 T-out: N w-visit: 3402

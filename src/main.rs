@@ -5,5 +5,5 @@ mod satcreator;
 mod filesatsolver;
 
 fn main() {
-    crate::filesatsolver::main();
+    crate::filesatsolver::test();
 }

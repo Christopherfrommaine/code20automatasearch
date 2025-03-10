@@ -13521,3 +13521,10 @@ c rst  geom best  vmt  6494 12987K   12300  183K   247    5.84    5.84 2273K   2
 c [distill] watch-based irred--  cl tried    54717 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.41 T-out: Y
 c [distill] watch-based   red--  cl tried    15742 cl-sh    31 cl-rem    0 lit-rem     35 T: 0.56 T-out: Y
 c rst  geom  stb  vmt  6495 13001K   12300  183K   247    5.84    5.84 2276K 18879   42K   283   19.39   19.39
+c [distill-long-red0] cls tried: 4857/4857 T: 13.28 T-out: N T-r: 81.09%
+c [distill-long-red1] cls tried: 8/18865 T: 0.34 T-out: Y T-r: -69.22%
+c [full-probe]  bin_only: 1 set: 0 repl: 0 T: 0.10 T-out: N T-r: 99.22%
+c [distill-bin] useful: 0/247/247 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.03 T-out: N
+c [impl-str] lit bin: 0 set-var: 0 T: 0.02 T-out: N T-r: 99.44% w-visit: 24602
+c [impl-sub] bin: 0 T: 0.07 T-out: N w-visit: 24602
+c rst  geom  stb  vmt  6496 13016K   12300  183K   247    5.84    5.84 2279K   20K   39K   283   19.44   19.44

@@ -11811,3 +11811,29 @@ c rst  luby  svd  vmt  5532 10545K   15500  231K   311    5.84    5.84 1750K   2
 c rst  luby  svd  vmt  5533 10545K   15500  231K   311    5.84    5.84 1750K   22K   31K   350   18.16   18.16
 c rst  luby  svd  vmt  5534 10546K   15500  231K   311    5.84    5.84 1750K   22K   31K   350   18.16   18.16
 c rst  luby  svd  vmt  5535 10546K   15500  231K   311    5.84    5.84 1750K   22K   31K   350   18.17   18.17
+c [ccnr] saving best assignment phase to stable_polar
+c [ccnr] bumping based on var unsat frequency: conflict_ct
+c [ccnr] Bumped vars: 15501 bump type: 6
+c [ccnr] time: 2.17
+c rst  luby  svd  vmt  5536 10546K   15500  231K   311    5.84    5.84 1750K   23K   31K   350   18.18   18.18
+c rst  luby  svd  vmt  5537 10547K   15500  231K   311    5.84    5.84 1750K   23K   32K   350   18.18   18.18
+c rst  luby  svd  vmt  5538 10547K   15500  231K   311    5.84    5.84 1750K   23K   32K   350   18.18   18.18
+c rst  luby  svd  vmt  5539 10547K   15500  231K   311    5.84    5.84 1750K   23K   32K   350   18.18   18.18
+c rst  luby  svd  vmt  5540 10547K   15500  231K   311    5.84    5.84 1750K   23K   32K   350   18.18   18.18
+c rst  luby  svd  vmt  5541 10547K   15500  231K   311    5.84    5.84 1750K   23K   32K   350   18.19   18.18
+c rst  luby  svd  vmt  5542 10548K   15500  231K   311    5.84    5.84 1750K   23K   32K   350   18.19   18.18
+c [distill] watch-based irred--  cl tried    84554 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.50 T-out: Y
+c [distill] watch-based   red--  cl tried    25452 cl-sh    16 cl-rem    0 lit-rem     20 T: 0.55 T-out: Y
+c rst  luby  svd  vmt  5543 10548K   15500  231K   311    5.84    5.84 1750K   23K   32K   350   18.19   18.19
+c rst  luby  svd  vmt  5544 10548K   15500  231K   311    5.84    5.84 1750K   23K   32K   350   18.19   18.19
+c rst  luby  svd  vmt  5545 10548K   15500  231K   311    5.84    5.84 1750K   23K   32K   350   18.19   18.19
+c rst  luby  svd  vmt  5546 10548K   15500  231K   311    5.84    5.84 1750K   23K   33K   350   18.19   18.19
+c rst  luby  svd  vmt  5547 10548K   15500  231K   311    5.84    5.84 1750K   23K   33K   350   18.19   18.19
+c rst  luby  svd  vmt  5548 10548K   15500  231K   311    5.84    5.84 1750K   23K   33K   350   18.19   18.19
+c rst  luby  svd  vmt  5549 10549K   15500  231K   311    5.84    5.84 1750K   23K   33K   350   18.20   18.20
+c rst  luby  svd  vmt  5550 10550K   15500  231K   311    5.84    5.84 1750K   23K   34K   350   18.21   18.20
+c rst  luby  svd  vmt  5551 10551K   15500  231K   311    5.84    5.84 1751K   20K   37K   350   18.27   18.27
+c [distill-long-red0] cls tried: 3188/3188 T: 6.97 T-out: N T-r: 91.74%
+c [distill-long-red1] cls tried: 7/20553 T: 0.42 T-out: Y T-r: -16.20%
+c [impl-str] lit bin: 0 set-var: 0 T: 0.02 T-out: N T-r: 99.54% w-visit: 31002
+c [impl-sub] bin: 0 T: 0.05 T-out: N w-visit: 31002

@@ -11578,3 +11578,71 @@ c [ccnr] bumping based on clause weights
 c [ccnr] Bumped vars: 105 bump type: 6
 c [ccnr] time: 1.59
 c rst  luby ibes  vmt  5337 10471K   17300  257K   346    5.84    5.84 1642K   20K   33K   400   17.91   17.91
+c [distill-long-red0] cls tried: 3999/3999 T: 7.30 T-out: N T-r: 90.84%
+c [distill-long-red1] cls tried: 6/20117 T: 0.30 T-out: Y T-r: -13.69%
+c [distill] watch-based irred--  cl tried    97302 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.52 T-out: Y
+c [distill] watch-based   red--  cl tried    30189 cl-sh    18 cl-rem    0 lit-rem     19 T: 0.54 T-out: Y
+c rst  luby ibes  vmt  5338 10471K   17300  257K   346    5.84    5.84 1642K   20K   33K   400   17.91   17.91
+c rst  luby ibes  vmt  5339 10471K   17300  257K   346    5.84    5.84 1642K   20K   33K   400   17.91   17.91
+c rst  luby ibes  vmt  5340 10471K   17300  257K   346    5.84    5.84 1642K   20K   33K   400   17.91   17.91
+c rst  luby ibes  vmt  5341 10471K   17300  257K   346    5.84    5.84 1642K   20K   33K   400   17.91   17.91
+c rst  luby ibes  vmt  5342 10471K   17300  257K   346    5.84    5.84 1642K   20K   33K   400   17.91   17.91
+c rst  luby ibes  vmt  5343 10472K   17300  257K   346    5.84    5.84 1642K   20K   33K   400   17.91   17.91
+c rst  luby ibes  vmt  5344 10472K   17300  257K   346    5.84    5.84 1642K   20K   33K   400   17.92   17.91
+c rst  luby ibes  vmt  5345 10472K   17300  257K   346    5.84    5.84 1642K   20K   33K   400   17.92   17.91
+c rst  luby ibes  vmt  5346 10472K   17300  257K   346    5.84    5.84 1642K   20K   34K   400   17.92   17.92
+c rst  luby ibes  vmt  5347 10472K   17300  257K   346    5.84    5.84 1642K   20K   34K   400   17.92   17.92
+c rst  luby ibes  vmt  5348 10473K   17300  257K   346    5.84    5.84 1642K   20K   34K   400   17.92   17.92
+c rst  luby ibes  vmt  5349 10473K   17300  257K   346    5.84    5.84 1642K   20K   34K   400   17.92   17.92
+c rst  luby ibes  vmt  5350 10473K   17300  257K   346    5.84    5.84 1642K   20K   34K   400   17.92   17.92
+c rst  luby ibes  vmt  5351 10473K   17300  257K   346    5.84    5.84 1642K   20K   34K   400   17.93   17.92
+c rst  luby ibes  vmt  5352 10474K   17300  257K   346    5.84    5.84 1642K   21K   35K   400   17.93   17.93
+c rst  luby ibes  vmt  5353 10474K   17300  257K   346    5.84    5.84 1642K   21K   35K   400   17.93   17.93
+c rst  luby ibes  vmt  5354 10474K   17300  257K   346    5.84    5.84 1642K   21K   35K   400   17.94   17.93
+c rst  luby ibes  vmt  5355 10475K   17300  257K   346    5.84    5.84 1642K   21K   35K   400   17.94   17.93
+c rst  luby ibes  vmt  5356 10475K   17300  257K   346    5.84    5.84 1642K   21K   35K   400   17.94   17.93
+c rst  luby ibes  vmt  5357 10475K   17300  257K   346    5.84    5.84 1642K   21K   35K   400   17.94   17.93
+c rst  luby ibes  vmt  5358 10475K   17300  257K   346    5.84    5.84 1642K   21K   35K   400   17.94   17.93
+c rst  luby ibes  vmt  5359 10475K   17300  257K   346    5.84    5.84 1642K   21K   35K   400   17.94   17.93
+c rst  luby ibes  vmt  5360 10475K   17300  257K   346    5.84    5.84 1642K   21K   35K   400   17.94   17.93
+c rst  luby ibes  vmt  5361 10476K   17300  257K   346    5.84    5.84 1642K   21K   36K   400   17.94   17.94
+c rst  luby ibes  vmt  5362 10476K   17300  257K   346    5.84    5.84 1642K   21K   36K   400   17.94   17.94
+c rst  luby ibes  vmt  5363 10476K   17300  257K   346    5.84    5.84 1642K   21K   36K   400   17.94   17.94
+c rst  luby ibes  vmt  5364 10476K   17300  257K   346    5.84    5.84 1642K   21K   36K   400   17.94   17.94
+c rst  luby ibes  vmt  5365 10476K   17300  257K   346    5.84    5.84 1642K   21K   36K   400   17.94   17.94
+c rst  luby ibes  vmt  5366 10477K   17300  257K   346    5.84    5.84 1642K   21K   36K   400   17.95   17.94
+c rst  luby ibes  vmt  5367 10477K   17300  257K   346    5.84    5.84 1642K   22K   37K   400   17.95   17.95
+c rst  luby  svd  vmt  5368 10479K   17300  257K   346    5.84    5.84 1642K   22K   37K   400   17.97   17.97
+c [full-probe]  bin_only: 1 set: 0 repl: 0 T: 0.04 T-out: N T-r: 99.37%
+c [distill-bin] useful: 0/346/346 lits-rem: 0 cl-rem: 0 0-depth-assigns: 0 T: 0.03 T-out: N
+c rst  luby  svd  vmt  5369 10479K   17300  257K   346    5.84    5.84 1642K   22K   38K   400   17.98   17.98
+c rst  luby  svd  vmt  5370 10479K   17300  257K   346    5.84    5.84 1642K   22K   38K   400   17.98   17.98
+c rst  luby  svd  vmt  5371 10479K   17300  257K   346    5.84    5.84 1642K   22K   38K   400   17.99   17.98
+c rst  luby  svd  vmt  5372 10479K   17300  257K   346    5.84    5.84 1642K   22K   38K   400   17.99   17.98
+c rst  luby  svd  vmt  5373 10480K   17300  257K   346    5.84    5.84 1642K   22K   38K   400   17.99   17.99
+c rst  luby  svd  vmt  5374 10480K   17300  257K   346    5.84    5.84 1642K   23K   38K   400   17.99   17.99
+c rst  luby  svd  vmt  5375 10480K   17300  257K   346    5.84    5.84 1642K   23K   38K   400   18.00   17.99
+c rst  luby  svd  vmt  5376 10480K   17300  257K   346    5.84    5.84 1643K 19060   41K   400   18.00   17.99
+c rst  luby  svd  vmt  5377 10480K   17300  257K   346    5.84    5.84 1643K 19100   42K   400   18.00   17.99
+c rst  luby  svd  vmt  5378 10481K   17300  257K   346    5.84    5.84 1643K 19160   42K   400   18.00   17.99
+c rst  luby  svd  vmt  5379 10481K   17300  257K   346    5.84    5.84 1643K 19178   42K   400   18.00   17.99
+c rst  luby  svd  vmt  5380 10481K   17300  257K   346    5.84    5.84 1643K 19232   42K   400   18.00   17.99
+c rst  luby  svd  vmt  5381 10481K   17300  257K   346    5.84    5.84 1643K 19288   42K   400   18.01   18.00
+c rst  luby  svd  vmt  5382 10481K   17300  257K   346    5.84    5.84 1643K 19377   42K   400   18.01   18.00
+c rst  luby  svd  vmt  5383 10482K   17300  257K   346    5.84    5.84 1643K 19766   43K   400   18.01   18.01
+c rst  luby  svd  vmt  5384 10482K   17300  257K   346    5.84    5.84 1643K 19801   43K   400   18.01   18.01
+c rst  luby  svd  vmt  5385 10482K   17300  257K   346    5.84    5.84 1643K 19828   43K   400   18.02   18.01
+c rst  luby  svd  vmt  5386 10483K   17300  257K   346    5.84    5.84 1643K 19887   43K   400   18.02   18.01
+c rst  luby  svd  vmt  5387 10483K   17300  257K   346    5.84    5.84 1643K 19935   43K   400   18.02   18.01
+c rst  luby  svd  vmt  5388 10483K   17300  257K   346    5.84    5.84 1643K 19965   43K   400   18.02   18.01
+c rst  luby  svd  vmt  5389 10483K   17300  257K   346    5.84    5.84 1643K   20K   43K   400   18.02   18.01
+c rst  luby  svd  vmt  5390 10483K   17300  257K   346    5.84    5.84 1643K   20K   43K   400   18.02   18.02
+c rst  luby  svd  vmt  5391 10483K   17300  257K   346    5.84    5.84 1643K   20K   43K   400   18.02   18.02
+c rst  luby  svd  vmt  5392 10484K   17300  257K   346    5.84    5.84 1643K   20K   44K   400   18.02   18.02
+c rst  luby  svd  vmt  5393 10484K   17300  257K   346    5.84    5.84 1643K   20K   44K   400   18.02   18.02
+c rst  luby  svd  vmt  5394 10484K   17300  257K   346    5.84    5.84 1643K   20K   44K   400   18.02   18.02
+c rst  luby  svd  vmt  5395 10484K   17300  257K   346    5.84    5.84 1643K   20K   44K   400   18.02   18.02
+c rst  luby  svd  vmt  5396 10484K   17300  257K   346    5.84    5.84 1643K   20K   44K   400   18.04   18.03
+c rst  luby  svd  vmt  5397 10485K   17300  257K   346    5.84    5.84 1643K   20K   44K   400   18.04   18.04
+c rst  luby  svd  vmt  5398 10485K   17300  257K   346    5.84    5.84 1643K   21K   31K   400   17.83   17.83
+c rst  luby  svd  vmt  5399 10487K   17300  257K   346    5.84    5.84 1644K   22K   32K   400   17.86   17.86

@@ -11905,3 +11905,12 @@ c rst  geom best  vmt  5577 10607K   15300  228K   307    5.84    5.84 1790K   2
 c rst  geom best  vmt  5578 10608K   15300  228K   307    5.84    5.84 1790K   22K   34K   358   18.49   18.49
 c rst  geom best  vmt  5579 10609K   15300  228K   307    5.84    5.84 1790K   22K   34K   358   18.50   18.49
 c rst  geom best  vmt  5580 10610K   15300  228K   307    5.84    5.84 1790K   22K   35K   358   18.53   18.53
+c rst  geom best  vmt  5581 10611K   15300  228K   307    5.84    5.84 1791K 19455   38K   358   18.54   18.54
+c rst  geom best  vmt  5582 10612K   15300  228K   307    5.84    5.84 1791K 19676   39K   358   18.54   18.54
+c [impl-str] lit bin: 0 set-var: 0 T: 0.04 T-out: N T-r: 99.54% w-visit: 30602
+c [impl-sub] bin: 0 T: 0.63 T-out: N w-visit: 30602
+c rst  geom best  vmt  5583 10614K   15300  228K   307    5.84    5.84 1791K   20K   40K   358   18.55   18.55
+c rst  geom best  vmt  5584 10615K   15300  228K   307    5.84    5.84 1791K   20K   41K   358   18.59   18.59
+c [distill-long-red0] cls tried: 2964/2964 T: 10.49 T-out: N T-r: 92.25%
+c [distill-long-red1] cls tried: 4/20463 T: 0.57 T-out: Y T-r: -70.70%
+c rst  geom best  vmt  5585 10617K   15300  228K   307    5.84    5.84 1791K   21K   42K   358   18.60   18.59

@@ -33,38 +33,63 @@ fn run_cnf_command(filename: String, w: i32, p: i32) {
         .arg(format!("./cryptominisat5 {filename}.cnf > {filename}_output.txt"))
         .output();
 
-    println!("Ran with result: {r:?}");
+    println!("Ran ({w}, {p}) with result: {r:?}");
 
     // if let Ok(res) = r {
     //     handle_result(String::from_utf8_lossy(&res.stdout).to_string(), w, p);
     // }
 }
 
+fn parse_file_output(filename: &str) -> Result<_, _> {
+    let o = read!(filename)
+        .split('/n')
+        .filter_map(|s| if s.len() <= 3 || s[0] != 'v' {None} else {s[2..]})
+        .collect();
+}
+
 fn handle_result(res: String, w: i32, p: i32) {
     let o: Vec<i32> = res.split_whitespace().filter_map(|s| s.parse().ok()).collect();
 
-    println!("o: {o:?}");
+    println!("o ({w}, {p}): {o:?}");
 
     crate::splrsatsolver::handle_sol(o, w, p);
 }
 
 pub fn general_run(width: i32, period: i32) {
-    println!("creating...");
+    println!("creating ({width}, {period})...");
     let cnf = create_cnf(width, period);
     let filename = format!("filesolver/cnf_for_w{width}_p{period}");
 
-    println!("exporting...");
+    println!("exporting ({width}, {period})...");
     export_cnf(&cnf, &(filename.clone() + ".cnf"));
 
-    println!("running...");
+    println!("running ({width}, {period})...");
     run_cnf_command(filename, width, period);
 }
 
 pub fn main() {
-    general_run(10, 2);
-
     use rayon::prelude::*;
-    (1..100).into_par_iter().for_each(
-        |p| {general_run(100, p);}
-    )
+
+    vec![
+        (010, 02),
+        (100, 10),
+        (150, 12),
+        (200, 07),
+        (200, 11),
+        (200, 13),
+        (200, 17),
+    ].into_par_iter().for_each(|(w, p)| {general_run(w, p);});
+
+    // general_run(010, 02);
+    // general_run(100, 10);
+    // general_run(150, 12);
+    // general_run(200, 07);
+    // general_run(200, 11);
+    // general_run(200, 13);
+
+
+    // use rayon::prelude::*;
+    // (1..100).into_par_iter().for_each(
+    //     |p| {general_run(100, p);}
+    // )
 }

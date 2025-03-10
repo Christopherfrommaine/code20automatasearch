@@ -23,13 +23,13 @@ c [branch] adjusting to: vsid (from: vsid) var_decay:0.95 descr: VSIDS
 c rst  geom  stb   vs     1   112      31   510     3    5.38    5.36    44    41    27     0    6.23    6.23
 c rst  geom  stb   vs     2   138      31   510     3    5.38    5.36    51    50    35     2    6.33    6.27
 c ------- FINAL TOTAL SEARCH STATS ---------
-c UIP search time          : 0.00        (28.92     % time)
+c UIP search time          : 0.00        (28.79     % time)
 c All times are for this thread only except if explicitly specified
 c restarts                 : 2           (69.00     confls per restart)
 c blocked restarts         : 0           (0.00      per normal restart)
 c time                     : 0.00        
 c decisions                : 156         (0.00      % random)
-c propagations             : 1180        (1777K     props/s)
+c propagations             : 1180        (1812K     props/s)
 c decisions/conflicts      : 1.13        
 c conflicts                : 138         
 c LEARNT stats
@@ -55,7 +55,7 @@ c all-threads sum CPU time : 0.00         s
 c PROP stats
 c Mbogo-props              : 0.00        (0.00      / sec)
 c MHyper-props             : 0.00        (0.00      / sec)
-c Mprops                   : 0.00        (1.78      / sec)
+c Mprops                   : 0.00        (1.81      / sec)
 c -------- OccSimplifier STATS ----------
 c time                     : 0.00        (0.00      % var-elim)
 c called                   : 0           (0.00      s per call)
@@ -129,7 +129,7 @@ c restarts                 : 2           (69.00     confls per restart)
 c blocked restarts         : 0           (0.00      per normal restart)
 c time                     : 0.00        
 c decisions                : 156         (0.00      % random)
-c propagations             : 1180        (1777K     props/s)
+c propagations             : 1180        (1812K     props/s)
 c decisions/conflicts      : 1.13        
 c conflicts                : 138         
 c conf lits non-minim      : 914         (6.62      lit/confl)
@@ -156,7 +156,7 @@ c strength cache-red time  : 0.00        (0.00      % time)
 c avg cls in red 0         : 26.63       
 c avg cls in red 1         : 23.48       
 c avg cls in red 2         : 18.37       
-c Conflicts in UIP         : 138         (60104.53  confl/time_this_thread)
+c Conflicts in UIP         : 138         (61034.94  confl/time_this_thread)
 c Max Memory (rss) used    : 3600 kB     
 c Total time (this thread) : 0.00        
 s SATISFIABLE

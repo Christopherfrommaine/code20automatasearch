@@ -4,6 +4,7 @@ in pkgs.mkShell {
   buildInputs = [
     
     pkgs.rustup
+    pkgs.dos2unix
   
   ];
 

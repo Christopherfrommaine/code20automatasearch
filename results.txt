@@ -1,0 +1,3 @@
+Up to 200 cells, no period 7 automata exists
+
+Period 6: 5620936261115882396638

@@ -129,16 +129,37 @@ pub fn main() {
     (1..100).into_par_iter().for_each(|p| {general_run(15 * p, p);})
 }
 
-pub fn test() {
+#[allow(dead_code)]
+pub fn main_symmetric() {
+    use rayon::prelude::*;
+
     vec![
+        (010, 02),
+        (100, 10),
+        (150, 12),
+        (200, 07),
+        (200, 11),
+        (200, 13),
+        (200, 17),
+    ].into_par_iter().for_each(|(w, p)| {general_run_symmetric(w / 2, p);});
+
+    (1..100).into_par_iter().for_each(|p| {general_run_symmetric(7 * p, p);})
+}
+
+#[allow(dead_code)]
+pub fn test() {
+    for (w, p) in vec![
         (010, 01),
         (010, 02),
         (020, 04),
         (050, 03),
         (100, 06),
-    ].into_iter().for_each(|(w, p)| {general_run(w, p);});
+    ] {
+        general_run(w, p);
+    }
 }
 
+#[allow(dead_code)]
 pub fn find_specific(p: i32) {
     use rayon::prelude::*;
 

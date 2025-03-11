@@ -1,8 +1,8 @@
-const DEBUG: bool = false;
-const DEBUG_CHECKS: bool = false;
-const DEBUG_TAB: bool = false;
+pub const DEBUG: bool = true;
+pub const DEBUG_CHECKS: bool = true;
+pub const DEBUG_TAB: bool = true;
 
-type CNF = Vec<Vec<i32>>;
+pub type CNF = Vec<Vec<i32>>;
 
 pub fn step_to_cnf(inp: i32, nums: Vec<i32>) -> CNF {
     if DEBUG {println!("inp: {inp}, nums: {nums:?}")};

@@ -12,7 +12,7 @@ fn export_cnf(clauses: &Vec<Vec<i32>>, filename: &str) {
         .unwrap_or(0);
 
     // DIMACS header
-    let mut out = vec![format!("p cnf {} {}", num_vars, num_clauses)];
+    let mut out = vec![format!("p cnf {} {}\n", num_vars, num_clauses)];
 
     // Write each clause: literals separated by spaces and ending with a 0.
     for clause in clauses {
@@ -57,6 +57,8 @@ fn parse_file_output(filename: &str, w: i32, p: i32) {
 
     let mut o: Vec<String> = Vec::new();
 
+    if filename.contains("symmetric") { return; }  // manual for now
+
     string.split('\n').for_each(|s|
         if s.len() >= 3 && s.chars().nth(0) == Some('v') {
             o.push((&s[2..]).to_string())
@@ -98,6 +100,19 @@ pub fn general_run(width: i32, period: i32) {
     run_cnf_command(filename.clone(), width, period);
 }
 
+pub fn general_run_symmetric(width: i32, period: i32) {
+    println!("creating ({width}, {period})...");
+    let cnf = crate::satsolver::symmetricsatcreator::create_symmetric_cnf(width, period);
+    let filename = format!("filesolver/cnf_for_w{width}_p{period}_symmetric");
+
+    println!("exporting ({width}, {period})...");
+    export_cnf(&cnf, &(filename.clone() + ".cnf"));
+
+    println!("running ({width}, {period})...");
+    run_cnf_command(filename.clone(), width, period);
+}
+
+#[allow(dead_code)]
 pub fn main() {
     use rayon::prelude::*;
 

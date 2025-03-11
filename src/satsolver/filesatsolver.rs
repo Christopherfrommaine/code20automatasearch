@@ -25,14 +25,14 @@ fn export_cnf(clauses: &Vec<Vec<i32>>, filename: &str) {
     write!(file, "{}", out.concat()).expect("Failed to write to file.");
 }
 
-fn run_cnf_command(filename: String, w: i32, p: i32) {
+fn run_cnf_command(filename: String, w: i32, p: i32) -> bool {
     use std::process::Command;
     use std::os::unix::process::CommandExt; // For `before_exec`
     use nix::sys::prctl;
 
     let mut r = unsafe { Command::new("sh")
             .arg("-c")
-            .arg(format!("./cryptominisat5 {filename}.cnf > {filename}_output.txt"))
+            .arg(format!("./cryptominisat5 -t 16 {filename}.cnf > {filename}_output.txt"))
             .pre_exec(|| {
                 prctl::set_pdeathsig(nix::sys::signal::Signal::SIGSTOP).expect("Failed to set parent death signal");
                 Ok(())
@@ -47,27 +47,27 @@ fn run_cnf_command(filename: String, w: i32, p: i32) {
 
     println!("parsing ({w}, {p})...");
 
-    parse_file_output(&(filename + "_output.txt"), w, p);
+    parse_file_output(&(filename + "_output.txt"), w, p)
 
 }
 
-fn parse_file_output(filename: &str, w: i32, p: i32) {
+fn parse_file_output(filename: &str, w: i32, p: i32) -> bool {
 
     let string: String = std::fs::read_to_string(filename).expect(&format!("Could not read file: {}.", filename));
 
     let mut o: Vec<String> = Vec::new();
 
-    if filename.contains("symmetric") { return; }  // manual for now
+    if filename.contains("symmetric") { return false; }  // manual for now
 
     string.split('\n').for_each(|s|
         if s.len() >= 3 && s.chars().nth(0) == Some('v') {
             o.push((&s[2..]).to_string())
         });
     
-    handle_result(o.iter().flat_map(|s| s.chars()).collect::<String>(), w, p);
+    handle_result(o.iter().flat_map(|s| s.chars()).collect::<String>(), w, p)
 }
 
-fn handle_result(res: String, w: i32, p: i32) {
+fn handle_result(res: String, w: i32, p: i32) -> bool {
     let o: Vec<i32> = res.split_whitespace().filter_map(|s| s.parse().ok()).collect();
 
     println!("o ({w}, {p}): {o:?}");
@@ -82,13 +82,15 @@ fn handle_result(res: String, w: i32, p: i32) {
 
     if o.len() >= 5 {
         crate::satsolver::splrsatsolver::handle_sol(o, w, p);
+        return true;
     } else {
-        println!("Couldn't handle due to small solution")
+        println!("Couldn't handle due to small solution");
     }
     
+    return false;
 }
 
-pub fn general_run(width: i32, period: i32) {
+pub fn general_run(width: i32, period: i32) -> bool {
     println!("creating ({width}, {period})...");
     let cnf = create_cnf(width, period);
     let filename = format!("filesolver/cnf_for_w{width}_p{period}");
@@ -97,10 +99,10 @@ pub fn general_run(width: i32, period: i32) {
     export_cnf(&cnf, &(filename.clone() + ".cnf"));
 
     println!("running ({width}, {period})...");
-    run_cnf_command(filename.clone(), width, period);
+    run_cnf_command(filename.clone(), width, period)
 }
 
-pub fn general_run_symmetric(width: i32, period: i32) {
+pub fn general_run_symmetric(width: i32, period: i32) -> bool {
     println!("creating ({width}, {period})...");
     let cnf = crate::satsolver::symmetricsatcreator::create_symmetric_cnf(width, period);
     let filename = format!("filesolver/cnf_for_w{width}_p{period}_symmetric");
@@ -109,13 +111,11 @@ pub fn general_run_symmetric(width: i32, period: i32) {
     export_cnf(&cnf, &(filename.clone() + ".cnf"));
 
     println!("running ({width}, {period})...");
-    run_cnf_command(filename.clone(), width, period);
+    run_cnf_command(filename.clone(), width, period)
 }
 
 #[allow(dead_code)]
 pub fn main() {
-    use rayon::prelude::*;
-
     vec![
         (010, 02),
         (100, 10),
@@ -124,15 +124,13 @@ pub fn main() {
         (200, 11),
         (200, 13),
         (200, 17),
-    ].into_par_iter().for_each(|(w, p)| {general_run(w, p);});
+    ].into_iter().for_each(|(w, p)| {general_run(w, p);});
 
-    (1..100).into_par_iter().for_each(|p| {general_run(15 * p, p);})
+    (1..100).into_iter().for_each(|p| {general_run(15 * p, p);});
 }
 
 #[allow(dead_code)]
 pub fn main_symmetric() {
-    use rayon::prelude::*;
-
     vec![
         (010, 02),
         (100, 10),
@@ -141,9 +139,9 @@ pub fn main_symmetric() {
         (200, 11),
         (200, 13),
         (200, 17),
-    ].into_par_iter().for_each(|(w, p)| {general_run_symmetric(w / 2, p);});
+    ].into_iter().for_each(|(w, p)| {general_run_symmetric(w / 2, p);});
 
-    (1..100).into_par_iter().for_each(|p| {general_run_symmetric(7 * p, p);})
+    (1..100).into_iter().for_each(|p| {general_run_symmetric(7 * p, p);})
 }
 
 #[allow(dead_code)]
@@ -161,9 +159,9 @@ pub fn test() {
 
 #[allow(dead_code)]
 pub fn find_specific(p: i32) {
-    use rayon::prelude::*;
+    for w in [10, 100, 200, 300, 500, 700, 1000] {
+        let o = general_run(w, p);
 
-    vec![10, 100, 200, 300, 500, 700, 1000].into_par_iter().for_each(|w| 
-        {general_run(w, p);}
-    );
+        if o {break;}
+    }
 }

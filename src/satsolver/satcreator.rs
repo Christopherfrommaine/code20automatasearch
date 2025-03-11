@@ -69,7 +69,7 @@ pub fn determine_cnf(width: i32, period: i32) -> CNF {
     // Add maximum seperation constraint to remove compound solutions
     // Also forces the last bit to be 1, meaning mostly unique solutions
     // Only applies for the first row; might seperate later and conjoin again
-    const MAX_SEP: i32 = 5;
+    const MAX_SEP: i32 = 4;
     for col in 0..(width - MAX_SEP) {
         let mut constraint = vec![-index_table_else_reserved((&table, 0, col))];
 

@@ -8,7 +8,9 @@ fn main() {
     // crate::satsolver::filesatsolver::find_specific(10);
     // crate::satsolver::filesatsolver::main_symmetric();
 
-    for p in 1..100 {
-        crate::satsolver::filesatsolver::find_specific(p);
-    }
+    // for p in [1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 14, 16, 18, 29] {
+    //     crate::satsolver::filesatsolver::find_specific(p);
+    // }
+
+    crate::satsolver::filesatsolver::fast_large_width();
 }

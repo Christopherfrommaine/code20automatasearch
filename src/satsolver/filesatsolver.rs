@@ -2,6 +2,8 @@ use crate::satsolver::satcreator::create_cnf;
 use std::fs::File;
 use std::io::Write;
 
+const SOLVER_MULTITHREADING: bool = false;
+
 fn export_cnf(clauses: &Vec<Vec<i32>>, filename: &str) {
     let mut file = File::create(filename).expect("Failed to create file.");
 
@@ -32,7 +34,7 @@ fn run_cnf_command(filename: String, w: i32, p: i32) -> bool {
 
     let mut r = unsafe { Command::new("sh")
             .arg("-c")
-            .arg(format!("./cryptominisat5 -t 16 {filename}.cnf > {filename}_output.txt"))
+            .arg(format!("./cryptominisat5 {} {filename}.cnf > {filename}_output.txt", if SOLVER_MULTITHREADING {"-t 16"} else {""}))
             .pre_exec(|| {
                 prctl::set_pdeathsig(nix::sys::signal::Signal::SIGSTOP).expect("Failed to set parent death signal");
                 Ok(())
@@ -72,13 +74,21 @@ fn handle_result(res: String, w: i32, p: i32) -> bool {
 
     println!("o ({w}, {p}): {o:?}");
 
+    use  crate::bruteforce::customuint::U256;
+    let mut as_num: U256 = U256::from(0);
+    for i in &o[1..(w as usize)] {
+        as_num = as_num << 1;
+
+        if i > &0 { as_num += U256::from(1); }
+    }
+
     let mut file = std::fs::OpenOptions::new()
         .append(true)
         .create(true)
         .open("total-file-output.txt")
         .expect("Couldn't create output file");
 
-    writeln!(file, "({w}, {p}): {o:?}").expect("Couldn't write to output file");
+    writeln!(file, "({w}, {p}): {as_num:?}").expect("Couldn't write to output file");
 
     if o.len() >= 5 {
         crate::satsolver::splrsatsolver::handle_sol(o, w, p);
@@ -163,5 +173,15 @@ pub fn find_specific(p: i32) {
         let o = general_run(w, p);
 
         if o {break;}
+
+        if p >= 9 && p % 2 == 1 && w >= 100 {break;}  // odd periods are really slow for some reason
+    }
+}
+
+pub fn fast_large_width() {
+    use rayon::prelude::*;
+
+    for p in [1, 2, 3, 4, 5, 6, 7, 8, 10] {
+        [10, 50, 100, 200, 500, 1000, 2000].into_par_iter().for_each(|w| {general_run(w, p);});
     }
 }

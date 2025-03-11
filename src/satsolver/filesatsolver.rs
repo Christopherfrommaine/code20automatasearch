@@ -123,3 +123,11 @@ pub fn test() {
         (100, 06),
     ].into_iter().for_each(|(w, p)| {general_run(w, p);});
 }
+
+pub fn find_specific(p: i32) {
+    use rayon::prelude::*;
+
+    vec![10, 100, 200, 300, 500, 700, 1000].into_par_iter().for_each(|w| 
+        {general_run(w, p);}
+    );
+}

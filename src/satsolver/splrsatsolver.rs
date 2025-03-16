@@ -108,7 +108,7 @@ pub fn handle_sol(ans: Vec<i32>, width: i32, period: i32) {
         array_plot::array_plot(&(0..(5 * period)).map(|_| {let temp = s; s = step256(s); temp}).map(|x| {let mut o = u256tobits(x); o.reverse(); o}).collect()).set_axes(false).print();
 
     } else {
-        println!("State (as list): {binary_row:?}");
+        // println!("State (as list): {binary_row:?}");
     }
     
 }

@@ -80,7 +80,7 @@ fn parse_file_output(filename: &str, w: i32, p: i32) -> bool {
 }
 
 fn handle_result(o: Vec<i32>, w: i32, p: i32) -> bool {
-    println!("o ({w}, {p}): {o:?}");
+    // println!("o ({w}, {p}): {o:?}");
 
     let mut file = std::fs::OpenOptions::new()
         .append(true)

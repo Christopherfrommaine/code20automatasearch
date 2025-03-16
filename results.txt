@@ -3,3 +3,9 @@ Period 6: 5620936261115882396638
 
 Search Results:
 Up to 1000 cells, no non-diagonal period 7 automata exists
+Up to 250 cells, no non-diagonal period 9 automata exists
+Ditto for 11
+Nothing new in period 10 up to width 250
+
+13 ran for 3+ hours with Nothing
+

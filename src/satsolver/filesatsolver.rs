@@ -2,7 +2,7 @@ use crate::satsolver::satcreator::create_cnf;
 use std::fs::File;
 use std::io::Write;
 
-const SOLVER_MULTITHREADING: bool = false;
+const SOLVER_MULTITHREADING: bool = true;
 
 fn export_cnf(clauses: &Vec<Vec<i32>>, filename: &str) {
     let mut file = File::create(filename).expect("Failed to create file.");
@@ -59,28 +59,28 @@ fn parse_file_output(filename: &str, w: i32, p: i32) -> bool {
 
     let mut o: Vec<String> = Vec::new();
 
-    if filename.contains("symmetric") { return false; }  // manual for now
+    // if filename.contains("symmetric") { return false; }  // manual for now
 
     string.split('\n').for_each(|s|
         if s.len() >= 3 && s.chars().nth(0) == Some('v') {
             o.push((&s[2..]).to_string())
-        });
+        }
+    );
     
-    handle_result(o.iter().flat_map(|s| s.chars()).collect::<String>(), w, p)
+    let res = o.iter().flat_map(|s| s.chars()).collect::<String>();
+
+    let mut o: Vec<i32> = res.split_whitespace().filter_map(|s| s.parse().ok()).collect();
+
+    if filename.contains("symmetric") {
+        let orev: &Vec<i32> = &(o.iter().map(|x| *x).rev().collect());
+        o.extend_from_slice(orev);
+    }
+
+    handle_result(o, if filename.contains("symmetric") {2 * w} else {w}, p)
 }
 
-fn handle_result(res: String, w: i32, p: i32) -> bool {
-    let o: Vec<i32> = res.split_whitespace().filter_map(|s| s.parse().ok()).collect();
-
+fn handle_result(o: Vec<i32>, w: i32, p: i32) -> bool {
     println!("o ({w}, {p}): {o:?}");
-
-    use  crate::bruteforce::customuint::U256;
-    let mut as_num: U256 = U256::from(0);
-    for i in &o[1..(w as usize)] {
-        as_num = as_num << 1;
-
-        if i > &0 { as_num += U256::from(1); }
-    }
 
     let mut file = std::fs::OpenOptions::new()
         .append(true)
@@ -88,11 +88,20 @@ fn handle_result(res: String, w: i32, p: i32) -> bool {
         .open("total-file-output.txt")
         .expect("Couldn't create output file");
 
-    writeln!(file, "({w}, {p}): {as_num:?}").expect("Couldn't write to output file");
-
     if o.len() >= 5 {
-        crate::satsolver::splrsatsolver::handle_sol(o, w, p);
+        crate::satsolver::splrsatsolver::handle_sol(o.clone(), w, p);
+
+        use crate::bruteforce::customuint::U256;
+        let mut as_num: U256 = U256::from(0);
+        for i in &o[1..(w as usize)] {
+            as_num = as_num << 1;
+            if i > &0 { as_num += U256::from(1); }
+        }
+
+        writeln!(file, "({w}, {p}): {as_num:?}").expect("Couldn't write to output file");
+
         return true;
+
     } else {
         println!("Couldn't handle due to small solution");
     }
@@ -112,15 +121,84 @@ pub fn general_run(width: i32, period: i32) -> bool {
     run_cnf_command(filename.clone(), width, period)
 }
 
+#[allow(dead_code)]
+pub fn general_run_all(width: i32, period: i32) -> bool {
+    let mut iteration = 0;
+    let mut cnf = create_cnf(width, period);
+
+    let mut final_output = false;
+
+    loop {
+        println!("creating ({width}, {period}, {iteration})...");
+        
+        let filename = format!("filesolver/cnf_for_w{width}_p{period}_i{iteration}");
+    
+        println!("exporting ({width}, {period}, {iteration})...");
+        export_cnf(&cnf, &(filename.clone() + ".cnf"));
+    
+        println!("running ({width}, {period})...");
+        let res = run_cnf_command(filename.clone(), width, period);
+        
+        if !res {break;}
+
+        final_output = true;
+
+        let string: String = std::fs::read_to_string(filename.clone() + "_output.txt").expect(&format!("Could not read file: {}.", filename));
+
+        let mut o: Vec<String> = Vec::new();
+
+        string.split('\n').for_each(|s|
+            if s.len() >= 3 && s.chars().nth(0) == Some('v') {
+                o.push((&s[2..]).to_string())
+            }
+        );
+        
+        let res: String = o.iter().flat_map(|s| s.chars()).collect();
+
+        let output: Vec<i32> = res.split_whitespace().filter_map(|s| s.parse().ok()).collect();
+
+        handle_result(output.clone(), width, period);
+
+        let first_row = output[1..(width as usize + 1)].to_vec();
+        cnf.push(first_row.iter().map(|x| -x).collect());
+
+        let binary_row: Vec<bool> = first_row.iter().map(|d| d > &0).collect();
+        let row_bytes: Vec<u8> = crate::satsolver::splrsatsolver::vec_bool_to_bytes(&binary_row);
+        if row_bytes.len() < 4 * 8 {
+            use crate::bruteforce::customuint::U256;
+
+            let state = U256::from_big_endian(&row_bytes);
+
+            let mut s = state;
+
+            for _ in 0..(2 * period) {
+                s = crate::bruteforce::bruteforce::step(s);
+
+                let thing = crate::satsolver::splrsatsolver::u256tobits(s);
+
+                let row: Vec<i32>  = first_row.iter().zip(thing.iter()).map(|(num, neg)| num * if *neg == 1 {-1} else {1}).collect();
+
+                cnf.push(row);
+
+            }
+
+        }
+
+        iteration += 1;
+    }
+
+    final_output
+}
+
 pub fn general_run_symmetric(width: i32, period: i32) -> bool {
-    println!("creating ({width}, {period})...");
+    println!("creating s({width}, {period})...");
     let cnf = crate::satsolver::symmetricsatcreator::create_symmetric_cnf(width, period);
     let filename = format!("filesolver/cnf_for_w{width}_p{period}_symmetric");
 
-    println!("exporting ({width}, {period})...");
+    println!("exporting s({width}, {period})...");
     export_cnf(&cnf, &(filename.clone() + ".cnf"));
 
-    println!("running ({width}, {period})...");
+    println!("running s({width}, {period})...");
     run_cnf_command(filename.clone(), width, period)
 }
 
@@ -178,6 +256,7 @@ pub fn find_specific(p: i32) {
     }
 }
 
+#[allow(dead_code)]
 pub fn fast_large_width() {
     use rayon::prelude::*;
 

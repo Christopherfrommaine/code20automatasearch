@@ -71,7 +71,20 @@ pub fn determine_symmetric_cnf(width: i32, period: i32) -> CNF {
         }
         o.push(zs);
     }
-    
+
+    // // Add maximum seperation constraint to remove compound solutions
+    // // Also forces the last bit to be 1, meaning mostly unique solutions
+    // // Only applies for the first row; might seperate later and conjoin again
+    // const MAX_SEP: i32 = 4;
+    // for col in 0..(width - MAX_SEP) {
+    //     let mut constraint = vec![-index_table_else_reserved((&table, 0, col))];
+
+    //     for next in (col + 1)..=(col + MAX_SEP) {
+    //         constraint.push(index_table_else_reserved((&table, 0, next)));
+    //     }
+        
+    //     o.push(constraint);
+    // }
 
     // Not all zero
     if DEBUG_CHECKS {println!("first row: \n {:?}", table[0]);}

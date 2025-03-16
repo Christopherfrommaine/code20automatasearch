@@ -68,7 +68,7 @@ fn step256(init: U256) -> U256 {
     (a | b | c | d | e) ^ (a ^ b ^ c ^ d ^ e)
 }
 
-fn u256tobits(n: U256) -> Vec<u8> {
+pub fn u256tobits(n: U256) -> Vec<u8> {
     let mut bits: Vec<u8> = Vec::with_capacity(256);
     for i in (0..256).rev() {
         bits.push(((n >> i) & U256::from(1)).as_u64() as u8);
@@ -76,7 +76,7 @@ fn u256tobits(n: U256) -> Vec<u8> {
     bits
 }
 
-fn vec_bool_to_bytes(bits: &[bool]) -> Vec<u8> {
+pub fn vec_bool_to_bytes(bits: &[bool]) -> Vec<u8> {
     let mut bytes = Vec::with_capacity((bits.len() + 7) / 8);
     for chunk in bits.chunks(8) {
         let mut byte = 0u8;

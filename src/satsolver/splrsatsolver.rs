@@ -39,7 +39,7 @@ pub fn main() {
 
 pub fn run_thing(width: i32, period: i32) -> bool {
 
-    let non_taut = create_cnf(width, period);
+    let non_taut = create_cnf(width, period, 0);
 
     let output = catch_unwind(|| Certificate::try_from(non_taut));
 

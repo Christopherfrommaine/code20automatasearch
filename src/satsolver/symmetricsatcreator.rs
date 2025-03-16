@@ -50,7 +50,7 @@ pub fn determine_symmetric_cnf(width: i32, period: i32) -> CNF {
             let nums: Vec<i32> = ((col - 2)..=(col + 2)).map(|c| (&table, rown, c)).map(index_table_else_reserved).collect();
 
             // Code 20 constraints
-            o.extend_from_slice(&step_to_cnf(index_table_else_reserved((&table, row, col)), nums));
+            o.extend_from_slice(&step_to_cnf(index_table_else_reserved((&table, row, col)), nums, &mut ind));
             
             // o.extend_from_slice(&vec![nums]);  // debugging indices
         }

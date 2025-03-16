@@ -1,18 +1,37 @@
 pub const DEBUG: bool        = false;
 pub const DEBUG_CHECKS: bool = false;
 pub const DEBUG_TAB: bool    = false;
+pub const XOR_METHOD: bool = false;  // Significantly more time for small periods; insignificantly less time for large periods
 
 pub type CNF = Vec<Vec<i32>>;
 
-pub fn step_to_cnf(inp: i32, nums: Vec<i32>) -> CNF {
-    if DEBUG {println!("inp: {inp}, nums: {nums:?}")};
 
-    assert!(nums.len() == 5);
 
-    vec![vec![-inp,-nums[0],-nums[1],-nums[2],-nums[3],-nums[4]], vec![-inp,-nums[0],-nums[1],-nums[2],nums[3],nums[4]], vec![-inp,-nums[0],-nums[1],nums[2],-nums[3],nums[4]], vec![-inp,-nums[0],-nums[1],nums[2],nums[3],-nums[4]], vec![-inp,-nums[0],nums[1],-nums[2],-nums[3],nums[4]], vec![-inp,-nums[0],nums[1],-nums[2],nums[3],-nums[4]], vec![-inp,-nums[0],nums[1],nums[2],-nums[3],-nums[4]], vec![-inp,nums[0],-nums[1],-nums[2],-nums[3],nums[4]], vec![-inp,nums[0],-nums[1],-nums[2],nums[3],-nums[4]], vec![-inp,nums[0],-nums[1],nums[2],-nums[3],-nums[4]], vec![-inp,nums[0],nums[1],-nums[2],-nums[3],-nums[4]], vec![-inp,nums[0],nums[1],nums[2],nums[3]], vec![-inp,nums[0],nums[1],nums[2],nums[4]], vec![-inp,nums[0],nums[1],nums[3],nums[4]], vec![-inp,nums[0],nums[2],nums[3],nums[4]], vec![-inp,nums[1],nums[2],nums[3],nums[4]], vec![inp,-nums[0],-nums[1],-nums[2],-nums[3],nums[4]], vec![inp,-nums[0],-nums[1],-nums[2],nums[3],-nums[4]], vec![inp,-nums[0],-nums[1],nums[2],-nums[3],-nums[4]], vec![inp,-nums[0],-nums[1],nums[2],nums[3],nums[4]], vec![inp,-nums[0],nums[1],-nums[2],-nums[3],-nums[4]], vec![inp,-nums[0],nums[1],-nums[2],nums[3],nums[4]], vec![inp,-nums[0],nums[1],nums[2],-nums[3],nums[4]], vec![inp,-nums[0],nums[1],nums[2],nums[3],-nums[4]], vec![inp,nums[0],-nums[1],-nums[2],-nums[3],-nums[4]], vec![inp,nums[0],-nums[1],-nums[2],nums[3],nums[4]], vec![inp,nums[0],-nums[1],nums[2],-nums[3],nums[4]], vec![inp,nums[0],-nums[1],nums[2],nums[3],-nums[4]], vec![inp,nums[0],nums[1],-nums[2],-nums[3],nums[4]], vec![inp,nums[0],nums[1],-nums[2],nums[3],-nums[4]], vec![inp,nums[0],nums[1],nums[2],-nums[3],-nums[4]]]
+pub fn step_to_cnf(inp: i32, nums: Vec<i32>, ind: &mut i32) -> CNF {
+    if XOR_METHOD {
+        let z1 = ind.clone(); *ind += 1;
+        let z2 = ind.clone(); *ind += 1;
+
+        let z1constraints = vec![vec![-z1,nums[0],nums[1],nums[2],nums[3],nums[4]], vec![z1,-nums[0]], vec![z1,-nums[1]], vec![z1,-nums[2]], vec![z1,-nums[3]], vec![z1,-nums[4]]];
+        let z2constraints = vec![vec![-z2,-nums[0],-nums[1],-nums[2],-nums[3],nums[4]], vec![-z2,-nums[0],-nums[1],-nums[2],nums[3],-nums[4]], vec![-z2,-nums[0],-nums[1],nums[2],-nums[3],-nums[4]], vec![-z2,-nums[0],-nums[1],nums[2],nums[3],nums[4]], vec![-z2,-nums[0],nums[1],-nums[2],-nums[3],-nums[4]], vec![-z2,-nums[0],nums[1],-nums[2],nums[3],nums[4]], vec![-z2,-nums[0],nums[1],nums[2],-nums[3],nums[4]], vec![-z2,-nums[0],nums[1],nums[2],nums[3],-nums[4]], vec![-z2,nums[0],-nums[1],-nums[2],-nums[3],-nums[4]], vec![-z2,nums[0],-nums[1],-nums[2],nums[3],nums[4]], vec![-z2,nums[0],-nums[1],nums[2],-nums[3],nums[4]], vec![-z2,nums[0],-nums[1],nums[2],nums[3],-nums[4]], vec![-z2,nums[0],nums[1],-nums[2],-nums[3],nums[4]], vec![-z2,nums[0],nums[1],-nums[2],nums[3],-nums[4]], vec![-z2,nums[0],nums[1],nums[2],-nums[3],-nums[4]], vec![-z2,nums[0],nums[1],nums[2],nums[3],nums[4]], vec![z2,-nums[0],-nums[1],-nums[2],-nums[3],-nums[4]], vec![z2,-nums[0],-nums[1],-nums[2],nums[3],nums[4]], vec![z2,-nums[0],-nums[1],nums[2],-nums[3],nums[4]], vec![z2,-nums[0],-nums[1],nums[2],nums[3],-nums[4]], vec![z2,-nums[0],nums[1],-nums[2],-nums[3],nums[4]], vec![z2,-nums[0],nums[1],-nums[2],nums[3],-nums[4]], vec![z2,-nums[0],nums[1],nums[2],-nums[3],-nums[4]], vec![z2,-nums[0],nums[1],nums[2],nums[3],nums[4]], vec![z2,nums[0],-nums[1],-nums[2],-nums[3],nums[4]], vec![z2,nums[0],-nums[1],-nums[2],nums[3],-nums[4]], vec![z2,nums[0],-nums[1],nums[2],-nums[3],-nums[4]], vec![z2,nums[0],-nums[1],nums[2],nums[3],nums[4]], vec![z2,nums[0],nums[1],-nums[2],-nums[3],-nums[4]], vec![z2,nums[0],nums[1],-nums[2],nums[3],nums[4]], vec![z2,nums[0],nums[1],nums[2],-nums[3],nums[4]], vec![z2,nums[0],nums[1],nums[2],nums[3],-nums[4]]];
+        let xorcontraints = vec![vec![-inp,-z1,-z2], vec![-inp,z1,z2], vec![inp,-z1,z2], vec![inp,z1,-z2]];
+
+        let mut o = Vec::new();
+        o.extend_from_slice(&z1constraints);
+        o.extend_from_slice(&z2constraints);
+        o.extend_from_slice(&xorcontraints);
+        o
+
+    } else {
+        if DEBUG {println!("inp: {inp}, nums: {nums:?}")};
+
+        assert!(nums.len() == 5);
+
+        vec![vec![-inp,-nums[0],-nums[1],-nums[2],-nums[3],-nums[4]], vec![-inp,-nums[0],-nums[1],-nums[2],nums[3],nums[4]], vec![-inp,-nums[0],-nums[1],nums[2],-nums[3],nums[4]], vec![-inp,-nums[0],-nums[1],nums[2],nums[3],-nums[4]], vec![-inp,-nums[0],nums[1],-nums[2],-nums[3],nums[4]], vec![-inp,-nums[0],nums[1],-nums[2],nums[3],-nums[4]], vec![-inp,-nums[0],nums[1],nums[2],-nums[3],-nums[4]], vec![-inp,nums[0],-nums[1],-nums[2],-nums[3],nums[4]], vec![-inp,nums[0],-nums[1],-nums[2],nums[3],-nums[4]], vec![-inp,nums[0],-nums[1],nums[2],-nums[3],-nums[4]], vec![-inp,nums[0],nums[1],-nums[2],-nums[3],-nums[4]], vec![-inp,nums[0],nums[1],nums[2],nums[3]], vec![-inp,nums[0],nums[1],nums[2],nums[4]], vec![-inp,nums[0],nums[1],nums[3],nums[4]], vec![-inp,nums[0],nums[2],nums[3],nums[4]], vec![-inp,nums[1],nums[2],nums[3],nums[4]], vec![inp,-nums[0],-nums[1],-nums[2],-nums[3],nums[4]], vec![inp,-nums[0],-nums[1],-nums[2],nums[3],-nums[4]], vec![inp,-nums[0],-nums[1],nums[2],-nums[3],-nums[4]], vec![inp,-nums[0],-nums[1],nums[2],nums[3],nums[4]], vec![inp,-nums[0],nums[1],-nums[2],-nums[3],-nums[4]], vec![inp,-nums[0],nums[1],-nums[2],nums[3],nums[4]], vec![inp,-nums[0],nums[1],nums[2],-nums[3],nums[4]], vec![inp,-nums[0],nums[1],nums[2],nums[3],-nums[4]], vec![inp,nums[0],-nums[1],-nums[2],-nums[3],-nums[4]], vec![inp,nums[0],-nums[1],-nums[2],nums[3],nums[4]], vec![inp,nums[0],-nums[1],nums[2],-nums[3],nums[4]], vec![inp,nums[0],-nums[1],nums[2],nums[3],-nums[4]], vec![inp,nums[0],nums[1],-nums[2],-nums[3],nums[4]], vec![inp,nums[0],nums[1],-nums[2],nums[3],-nums[4]], vec![inp,nums[0],nums[1],nums[2],-nums[3],-nums[4]]]
+    }
 }
 
-pub fn determine_cnf(width: i32, period: i32) -> CNF {
+pub fn determine_cnf(width: i32, period: i32, diag: i32) -> CNF {
     let mut ind = 1;
     let reserved = ind; ind += 1;
 
@@ -41,10 +60,12 @@ pub fn determine_cnf(width: i32, period: i32) -> CNF {
             let mut rown = row - 1;
             if row == 0 {rown = period - 1;}
 
-            let nums: Vec<i32> = ((col - 2)..=(col + 2)).map(|c| (&table, rown, c)).map(index_table_else_reserved).collect();
+            // change col offsets to (-1, +3), (-0, +4)... for diagonals
+            let nums: Vec<i32> = ((col - 2 - diag)..=(col + 2 - diag)).map(|c| (&table, rown, c)).map(index_table_else_reserved).collect();
+
 
             // Code 20 constraints
-            o.extend_from_slice(&step_to_cnf(index_table_else_reserved((&table, row, col)), nums));
+            o.extend_from_slice(&step_to_cnf(index_table_else_reserved((&table, row, col)), nums, &mut ind));
             
             // o.extend_from_slice(&vec![nums]);  // debugging indices
         }
@@ -96,8 +117,8 @@ pub fn format_table(table: &CNF) -> String {
         .join("\n") + "]"
 }
 
-pub fn create_cnf(width: i32, period: i32) -> CNF {
-    let v: CNF = determine_cnf(width, period);
+pub fn create_cnf(width: i32, period: i32, diag: i32) -> CNF {
+    let v: CNF = determine_cnf(width, period, diag);
 
     let non_taut: Vec<Vec<i32>> = v.clone().into_iter().filter(|r| !r.contains(&-1)).map(|r| r.into_iter().filter(|c| *c != 1).collect()).collect();
     let non_taut: Vec<Vec<i32>> = non_taut.into_iter().filter(|r| !(1..=(r.iter().map(|c| c.abs()).max().unwrap_or(0))).any(|x| r.contains(&x) && r.contains(&-x))).map(|r| {let mut o = Vec::new(); r.into_iter().for_each(|i| if !o.contains(&i) {o.push(i)}); o}).collect();

@@ -23,9 +23,15 @@ fn main() {
     //     }
     // });
 
-    let args: Vec<i32> = std::env::args().skip(1).filter_map(|a| a.parse().ok()).collect();
+    let mut args: Vec<i32> = std::env::args().skip(1).filter_map(|a| a.parse().ok()).collect();
+
+    if args.len() == 0 {
+        args = (1..50).collect();
+    }
 
     args.into_iter().for_each(|p| {
-        filesatsolver::general_run_all(250, p);
+        (0..2 * p).for_each(|diag| {
+            filesatsolver::general_run_all(250, p, diag);
+        })
     });
 }

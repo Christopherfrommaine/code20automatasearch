@@ -27,7 +27,7 @@ fn export_cnf(clauses: &Vec<Vec<i32>>, filename: &str) {
     write!(file, "{}", out.concat()).expect("Failed to write to file.");
 }
 
-fn run_cnf_command(filename: String, w: i32, p: i32) -> bool {
+fn run_cnf_command(filename: String, w: i32, p: i32, d: i32) -> bool {
     use std::process::Command;
     use std::os::unix::process::CommandExt; // For `before_exec`
     use nix::sys::prctl;
@@ -49,11 +49,11 @@ fn run_cnf_command(filename: String, w: i32, p: i32) -> bool {
 
     println!("parsing ({w}, {p})...");
 
-    parse_file_output(&(filename + "_output.txt"), w, p)
+    parse_file_output(&(filename + "_output.txt"), w, p, d)
 
 }
 
-fn parse_file_output(filename: &str, w: i32, p: i32) -> bool {
+fn parse_file_output(filename: &str, w: i32, p: i32, d: i32) -> bool {
 
     let string: String = std::fs::read_to_string(filename).expect(&format!("Could not read file: {}.", filename));
 
@@ -76,10 +76,10 @@ fn parse_file_output(filename: &str, w: i32, p: i32) -> bool {
         o.extend_from_slice(orev);
     }
 
-    handle_result(o, if filename.contains("symmetric") {2 * w} else {w}, p)
+    handle_result(o, if filename.contains("symmetric") {2 * w} else {w}, p, d)
 }
 
-fn handle_result(o: Vec<i32>, w: i32, p: i32) -> bool {
+fn handle_result(o: Vec<i32>, w: i32, p: i32, d: i32) -> bool {
     // println!("o ({w}, {p}): {o:?}");
 
     let mut file = std::fs::OpenOptions::new()
@@ -98,7 +98,7 @@ fn handle_result(o: Vec<i32>, w: i32, p: i32) -> bool {
             if i > &0 { as_num += U256::from(1); }
         }
 
-        writeln!(file, "({w}, {p}): {as_num:?}").expect("Couldn't write to output file");
+        writeln!(file, "({w}, {p}, {}): {as_num:?}", d).expect("Couldn't write to output file");
 
         return true;
 
@@ -109,35 +109,35 @@ fn handle_result(o: Vec<i32>, w: i32, p: i32) -> bool {
     return false;
 }
 
-pub fn general_run(width: i32, period: i32) -> bool {
+pub fn general_run(width: i32, period: i32, diag: i32) -> bool {
     println!("creating ({width}, {period})...");
-    let cnf = create_cnf(width, period);
+    let cnf = create_cnf(width, period, diag);
     let filename = format!("filesolver/cnf_for_w{width}_p{period}");
 
     println!("exporting ({width}, {period})...");
     export_cnf(&cnf, &(filename.clone() + ".cnf"));
 
     println!("running ({width}, {period})...");
-    run_cnf_command(filename.clone(), width, period)
+    run_cnf_command(filename.clone(), width, period, diag)
 }
 
 #[allow(dead_code)]
-pub fn general_run_all(width: i32, period: i32) -> bool {
+pub fn general_run_all(width: i32, period: i32, diag: i32) -> bool {
     let mut iteration = 0;
-    let mut cnf = create_cnf(width, period);
+    let mut cnf = create_cnf(width, period, diag);
 
     let mut final_output = false;
 
     loop {
-        println!("creating ({width}, {period}, {iteration})...");
+        println!("creating ({width}, {period}, {diag}, {iteration})...");
         
         let filename = format!("filesolver/cnf_for_w{width}_p{period}_i{iteration}");
     
-        println!("exporting ({width}, {period}, {iteration})...");
+        println!("exporting ({width}, {period}, {diag}, {iteration})...");
         export_cnf(&cnf, &(filename.clone() + ".cnf"));
     
-        println!("running ({width}, {period})...");
-        let res = run_cnf_command(filename.clone(), width, period);
+        println!("running ({width}, {period}, {diag}, {iteration})...");
+        let res = run_cnf_command(filename.clone(), width, period, diag);
         
         if !res {break;}
 
@@ -157,7 +157,7 @@ pub fn general_run_all(width: i32, period: i32) -> bool {
 
         let output: Vec<i32> = res.split_whitespace().filter_map(|s| s.parse().ok()).collect();
 
-        handle_result(output.clone(), width, period);
+        handle_result(output.clone(), width, period, diag);
 
         let first_row = output[1..(width as usize + 1)].to_vec();
         cnf.push(first_row.iter().map(|x| -x).collect());
@@ -190,7 +190,7 @@ pub fn general_run_all(width: i32, period: i32) -> bool {
     final_output
 }
 
-pub fn general_run_symmetric(width: i32, period: i32) -> bool {
+pub fn general_run_symmetric(width: i32, period: i32, diag: i32) -> bool {
     println!("creating s({width}, {period})...");
     let cnf = crate::satsolver::symmetricsatcreator::create_symmetric_cnf(width, period);
     let filename = format!("filesolver/cnf_for_w{width}_p{period}_symmetric");
@@ -199,7 +199,7 @@ pub fn general_run_symmetric(width: i32, period: i32) -> bool {
     export_cnf(&cnf, &(filename.clone() + ".cnf"));
 
     println!("running s({width}, {period})...");
-    run_cnf_command(filename.clone(), width, period)
+    run_cnf_command(filename.clone(), width, period, diag)
 }
 
 #[allow(dead_code)]
@@ -212,9 +212,9 @@ pub fn main() {
         (200, 11),
         (200, 13),
         (200, 17),
-    ].into_iter().for_each(|(w, p)| {general_run(w, p);});
+    ].into_iter().for_each(|(w, p)| {general_run(w, p, 0);});
 
-    (1..100).into_iter().for_each(|p| {general_run(15 * p, p);});
+    (1..100).into_iter().for_each(|p| {general_run(15 * p, p, 0);});
 }
 
 #[allow(dead_code)]
@@ -227,9 +227,9 @@ pub fn main_symmetric() {
         (200, 11),
         (200, 13),
         (200, 17),
-    ].into_iter().for_each(|(w, p)| {general_run_symmetric(w / 2, p);});
+    ].into_iter().for_each(|(w, p)| {general_run_symmetric(w / 2, p, 0);});
 
-    (1..100).into_iter().for_each(|p| {general_run_symmetric(7 * p, p);})
+    (1..100).into_iter().for_each(|p| {general_run_symmetric(7 * p, p, 0);})
 }
 
 #[allow(dead_code)]
@@ -241,14 +241,14 @@ pub fn test() {
         (050, 03),
         (100, 06),
     ] {
-        general_run(w, p);
+        general_run(w, p, 0);
     }
 }
 
 #[allow(dead_code)]
 pub fn find_specific(p: i32) {
     for w in [10, 100, 200, 300, 500, 700, 1000] {
-        let o = general_run(w, p);
+        let o = general_run(w, p, 0);
 
         if o {break;}
 
@@ -261,6 +261,6 @@ pub fn fast_large_width() {
     use rayon::prelude::*;
 
     for p in [1, 2, 3, 4, 5, 6, 7, 8, 10] {
-        [10, 50, 100, 200, 500, 1000, 2000].into_par_iter().for_each(|w| {general_run(w, p);});
+        [10, 50, 100, 200, 500, 1000, 2000].into_par_iter().for_each(|w| {general_run(w, p, 0);});
     }
 }
